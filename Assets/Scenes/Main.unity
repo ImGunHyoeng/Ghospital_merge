@@ -1291,6 +1291,8 @@ MonoBehaviour:
   min_x: -8.5
   max_x: 8.5
   door: {fileID: 975951957240304070, guid: 4864438a1d91eee4582af96cc29d411a, type: 3}
+  colliders: []
+  boundry: {x: 4, y: 5}
 --- !u!4 &1739182460
 Transform:
   m_ObjectHideFlags: 0
