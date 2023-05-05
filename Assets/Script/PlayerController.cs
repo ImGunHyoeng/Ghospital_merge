@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D Player_rb;
     BoxCollider2D Player_col;
     Slider slider;
-
+    GameObject door;
 
     public float power;
     public float nomal_speed;
@@ -72,7 +72,16 @@ public class PlayerController : MonoBehaviour
                 player_use_stamina();
         }
         
-
+        if(Input.GetKey(KeyCode.E))
+        {
+            door = GameObject.Find("door");
+            //door = GameObject.Find("RandomDoor_ctr").GetComponent<Door_spawner>().Getobject();
+            bool ison = door.GetComponent<Door>().Getison();
+            if (door != null && ison == true)
+                {
+                    StartCoroutine(goinside());
+                }
+        }
         if (iscan_hide)//캐비넷과 접촉했을때만
             player_hide();
         
@@ -85,6 +94,14 @@ public class PlayerController : MonoBehaviour
         {
             skill_coolUI();
         }
+    }
+    IEnumerator goinside()
+    {
+        SceneManager.LoadScene("inside");
+        Player_rb.gravityScale = 0;
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Main");
+        Player_rb.gravityScale = 1;
     }
     void useRest()
     {

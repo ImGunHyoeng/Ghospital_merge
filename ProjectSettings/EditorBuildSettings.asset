@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Restroom.unity
     guid: 8f6247bc8475f8847a93f715f26976d4
+  - enabled: 1
+    path: Assets/Scenes/inside.unity
+    guid: 4394f639628ba73448d694fbc1091b8c
   m_configObjects: {}

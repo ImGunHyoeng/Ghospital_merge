@@ -9,7 +9,7 @@ public class Door_spawner : MonoBehaviour
     public float min_x;
     public float max_x;
     public GameObject door;
-
+    GameObject newdoor;
     public Collider2D[] colliders;
     public Vector2 boundry;
 
@@ -31,6 +31,8 @@ public class Door_spawner : MonoBehaviour
     {
         isspawn = false;
     }
+    public GameObject Getobject()
+    { return newdoor; }
     public void spawn_door()
     {
         bool canSpawnhere;
@@ -46,7 +48,7 @@ public class Door_spawner : MonoBehaviour
             
             if (canSpawnhere) { break; }//스폰이 가능하다면은 정지
         }
-        GameObject newdoor=Instantiate(door, spawnPos,Quaternion.Euler(Vector3.zero)) as GameObject;
+        newdoor = Instantiate(door, spawnPos,Quaternion.Euler(Vector3.zero)) as GameObject;
         //원래는 Instaniate가 반환하는값이 Object값이기에 GameObject로 형변환을 해준것이다
         isspawn = true;
         spawntimer = 5f;

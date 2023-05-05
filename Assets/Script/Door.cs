@@ -17,6 +17,7 @@ public class Door : MonoBehaviour
     {
         
     }
+    public bool Getison() { return ison; }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag=="Player")
