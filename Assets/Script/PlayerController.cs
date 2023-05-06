@@ -28,16 +28,16 @@ public class PlayerController : MonoBehaviour
     float stamina_useable_time;
     float stamina_de_time;
     float stemina_speed = 1.5f;
-    float restroom_speed = 2f;
+    float restroom_speed = 2.0f;
 
     
     Text skill;
     float buff_time = 5f;
     float skill_time = 30f;
     float see_cool;
-    
-    
 
+
+    bool isinside = false;
     bool isbuff=false;
     bool isrest = true;
     bool iscan_hide=false;
@@ -71,17 +71,8 @@ public class PlayerController : MonoBehaviour
             if(isbuff==false)
                 player_use_stamina();
         }
-        
-        if(Input.GetKey(KeyCode.E))
-        {
-            door = GameObject.Find("door");
-            //door = GameObject.Find("RandomDoor_ctr").GetComponent<Door_spawner>().Getobject();
-            bool ison = door.GetComponent<Door>().Getison();
-            if (door != null && ison == true)
-                {
-                    StartCoroutine(goinside());
-                }
-        }
+        door_in();//혈액체취실로 들어가는 함수
+  
         if (iscan_hide)//캐비넷과 접촉했을때만
             player_hide();
         
@@ -97,15 +88,38 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator goinside()
     {
+        isinside = true;
         SceneManager.LoadScene("inside");
         Player_rb.gravityScale = 0;
+        stamina_useable_time = 0;
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Main");
+        ispenalti = true;
+        //usestamina = false;
         Player_rb.gravityScale = 1;
+        yield return new WaitForSeconds(2f);
+        isinside = false;
+    }
+    void door_in()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            door = GameObject.Find("door");
+            if (door == null) ;
+            else
+            {
+                bool ison = door.GetComponent<E_On_GUI>().Getison();
+                if (door != null && ison == true)
+                {
+                    StartCoroutine(goinside());
+                }
+            }
+            //door = GameObject.Find("RandomDoor_ctr").GetComponent<Door_spawner>().Getobject();
+        }
     }
     void useRest()
     {
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetKey(KeyCode.R)&&!isinside)
         {
             StartCoroutine(gorest());
         }
@@ -120,11 +134,11 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene("Main");
         Player_rb.gravityScale = 1;
         stamina_useable_time = stamina_useable_time_max;
-        speed =nomal_speed* restroom_speed;
+        speed =nomal_speed* restroom_speed ;
         usestamina = false;
         yield return new WaitForSeconds(buff_time);
         isbuff = false;
-        speed = nomal_speed/ restroom_speed;
+        speed = nomal_speed/ restroom_speed ;
         //UnloadSceneOptions.
         yield return new WaitForSeconds(skill_time);
         isrest=true;
@@ -186,7 +200,7 @@ public class PlayerController : MonoBehaviour
             direction = -1;
 
             // Player_rb.AddForce(new Vector2(direction * power * speed, 0f));
-            transform.Translate(new Vector2(direction * power * speed,0f));
+            transform.Translate(new Vector2(direction * power * speed*Time.deltaTime,0f));
             //  Debug.Log("left");
         }
 
@@ -195,7 +209,7 @@ public class PlayerController : MonoBehaviour
             direction = 1;
 
             //Player_rb.AddForce(new Vector2(direction * power * speed, 0f));
-            transform.Translate(new Vector2(direction * power * speed, 0f));
+            transform.Translate(new Vector2(direction * power * speed * Time.deltaTime, 0f));
             //   Debug.Log("right");
         }
     /*    if (Input.GetKeyUp(KeyCode.A)) 리지드 바디로 할시에 velocity를 없애야 멈추기에 이를 설정
@@ -221,13 +235,13 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                speed = nomal_speed* stemina_speed;
+                speed = nomal_speed* stemina_speed ;
                 usestamina = true;
                 //  Debug.Log(speed);
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                speed =nomal_speed/stemina_speed;
+                speed =nomal_speed/stemina_speed ;
                 usestamina = false;
                 // Debug.Log(speed);
             }
@@ -256,7 +270,7 @@ public class PlayerController : MonoBehaviour
         
         if(ispenalti)
         {
-            Debug.Log(math.abs(Player_rb.velocity.x));
+          //  Debug.Log(math.abs(Player_rb.velocity.x));
             if (math.abs(Player_rb.velocity.x) >= 2f)
             {
                 Player_rb.AddForce(-Player_rb.velocity.normalized * nomal_speed); 
@@ -264,8 +278,8 @@ public class PlayerController : MonoBehaviour
             stamina_de_time -= Time.deltaTime;
             if(stamina_de_time<0)
             {
-                speed = nomal_speed;
-                Debug.Log("isnotp");
+                speed = nomal_speed/2;
+                //Debug.Log("isnotp");
                 ispenalti = false;
                 stamina_de_time = stamina_de_time_max;
             }
