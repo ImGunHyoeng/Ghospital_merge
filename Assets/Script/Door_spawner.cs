@@ -46,10 +46,10 @@ public class Door_spawner : MonoBehaviour
             spawnPos = new Vector3(transform_x, 0.2f, 0f);
             canSpawnhere = PreventSpawnOverlap(spawnPos);
             
-            if (canSpawnhere) { break; }//½ºÆùÀÌ °¡´ÉÇÏ´Ù¸éÀº Á¤Áö
+            if (canSpawnhere) { break; }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
         newdoor = Instantiate(door, spawnPos,Quaternion.Euler(Vector3.zero)) as GameObject;
-        //¿ø·¡´Â Instaniate°¡ ¹ÝÈ¯ÇÏ´Â°ªÀÌ Object°ªÀÌ±â¿¡ GameObject·Î Çüº¯È¯À» ÇØÁØ°ÍÀÌ´Ù
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Instaniateï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´Â°ï¿½ï¿½ï¿½ Objectï¿½ï¿½ï¿½Ì±â¿¡ GameObjectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ø°ï¿½ï¿½Ì´ï¿½
         isspawn = true;
         spawntimer = 5f;
         StartCoroutine(spanwdoor());
@@ -72,16 +72,16 @@ public class Door_spawner : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
         {
             Vector3 centerPoint=colliders[i].bounds.center;
-            //bounds´Â °´Ã¼ÀÇ °æ°è»óÀÚÀÇ ¹°Ã¼°¡ Ãæµ¹ÇÏ´Â ¿µ¿ªÀ» ³ªÅ¸³½´Ù.
-            //bounds.center´Â ¹°Ã¼ÀÇ Áß½ÉÁ¡À» ÀÇ¹ÌÇÑ´Ù.
+            //boundsï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½æµ¹ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½.
+            //bounds.centerï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½Ñ´ï¿½.
             float width=colliders[i].bounds.extents.x;
-            //extents.x´Â ¹°Ã¼ÀÇ ³Êºñ¸¦ ÀÇ¹Ì
+            //extents.xï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Êºï¿½ ï¿½Ç¹ï¿½
             float height=colliders[i].bounds.extents.y;
-            //extents.y´Â ¹°Ã¼ÀÇ ³ôÀÌ¸¦ ÀÇ¹Ì
+            //extents.yï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ç¹ï¿½
 
             float leftExtent=centerPoint.x-1 - width;
-            //±×·¯¹Ç·Î ¼¾ÅÍÀÇ Æ÷ÀÎÅÍ¿¡¼­ ³Êºñ¸¦ »©¸éÀº ¿ÞÂÊÀÇ °æ°è°ªÀ» »« °ªÀÌ ³ª¿À´Â°Í
-            //³ª´Â ÀÇµµÀûÀ¸·Î ¼¾ÅÍº¸´Ù ´õ ³ÐÀº Å©±â·Î ÇØ¼­ ºÎ‹HÄ¡Áö ¾Ê´Â°ÍÀ» ±Ø´ëÈ­ÇØ³õÀ½
+            //ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½è°ªï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½Ø¼ï¿½ ï¿½Î‹HÄ¡ï¿½ï¿½ ï¿½Ê´Â°ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½È­ï¿½Ø³ï¿½ï¿½ï¿½
             float rightExtent=centerPoint.x+1 + width;
             float lowerExtent = centerPoint.y+1 - height;
             float upperExtent=centerPoint.y+1 + height;

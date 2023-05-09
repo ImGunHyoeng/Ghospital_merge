@@ -7,7 +7,7 @@ public class Dont_Destroy_object : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        var objs=FindObjectsOfType<Dont_Destroy_object>();//dontÀÇ ¿ÀºêÁ§Æ®¸¦ °¡Á®¿Â´Ù
+        var objs=FindObjectsOfType<Dont_Destroy_object>();//dontï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
         if(objs.Length==1)
         {
             DontDestroyOnLoad(this);

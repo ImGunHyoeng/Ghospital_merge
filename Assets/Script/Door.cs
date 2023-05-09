@@ -60,23 +60,23 @@ public class Door : MonoBehaviour
         {
             Rect labelRect = new Rect(this.transform.position.x, this.transform.position.y+10f, this.transform.localScale.x+10, this.transform.localScale.y+10f);
 
-            // Rect¸¦ »ç¿ëÇÏ¿© ¶óº§ »ý¼º
-            GUI.Label(labelRect, "¶óº§");
+            // Rectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            GUI.Label(labelRect, "ï¿½ï¿½");
         }*/
 
     void OnGUI()
     {
         
-        // ½ºÅ©¸³Æ®¸¦ °¡Áö°í ÀÖ´Â °´Ã¼ÀÇ À§Ä¡¸¦ °¡Á®¿É´Ï´Ù.
+        // ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É´Ï´ï¿½.
         Vector3 objectPosition = transform.position;
 
-        // ½ºÅ©¸³Æ®¸¦ °¡Áö°í ÀÖ´Â °´Ã¼ÀÇ ÁÂÇ¥¸¦ È­¸é ÁÂÇ¥·Î º¯È¯ÇÕ´Ï´Ù.
+        // ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
 
-        // ¹®ÀÚ¿­À» Ç¥½ÃÇÒ Rect¸¦ »ý¼ºÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ Rectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         Rect labelRect = new Rect(screenPosition.x-50, screenPosition.y-300f, 100, 100);
 
-        // ¹®ÀÚ¿­À» Ç¥½ÃÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         if (ison)
             GUI.Label(labelRect, image_e);
     }

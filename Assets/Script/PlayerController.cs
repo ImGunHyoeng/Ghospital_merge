@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D Player_col;
     Slider slider;
     GameObject door;
-
+    Animator animator;
     public float power;
     public float nomal_speed;
-
+    Vector3 localscale;
 
 
     public float stamina_useable_time_max;
@@ -49,9 +49,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        localscale = transform.localScale;
+        animator=GetComponent<Animator>();
         see_cool = skill_time;
         skill=GameObject.Find("Skill").GetComponent<Text>();
-        slider = GameObject.Find("Stamina").GetComponent<Slider>();//½ºÅ×¹Ì³ª¶ó´Â °´Ã¼¸¦ Ã£¾Æ¼­ ±×¾ÈÀÇ sliderÀ» °¡Á®¿Â´Ù
+        slider = GameObject.Find("Stamina").GetComponent<Slider>();//ï¿½ï¿½ï¿½×¹Ì³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ sliderï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
         stamina_de_time = stamina_de_time_max;
         speed = nomal_speed;
         stamina_useable_time = stamina_useable_time_max;
@@ -63,17 +65,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player_slider_update();//½½¶óÀÌ´õ¸¦ ¾÷µ¥ÀÌÆ® ÇØÁÜ
+        player_slider_update();//ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         
-        if (!ishide)//¼ûÁö ¾Ê´Â°æ¿ì¿¡ ¿òÁ÷ÀÌ±â °¡´É
+        if (!ishide)//ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â°ï¿½ì¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             player_move();
             if(isbuff==false)
                 player_use_stamina();
         }
-        door_in();//Ç÷¾×Ã¼Ãë½Ç·Î µé¾î°¡´Â ÇÔ¼ö
+        door_in();//ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Ô¼ï¿½
   
-        if (iscan_hide)//Ä³ºñ³Ý°ú Á¢ÃËÇßÀ»¶§¸¸
+        if (iscan_hide)//Ä³ï¿½ï¿½Ý°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             player_hide();
         
         if(isrest)
@@ -165,6 +167,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                nowalk();
+                noRun();
                 Player_rb.velocity = Vector2.zero;
                 this.transform.position=cabinet_trs.position;
                 gameObject.tag = "Untouchable";
@@ -182,7 +186,7 @@ public class PlayerController : MonoBehaviour
             {
                 gameObject.tag = "Player";
                 ishide = false;
-                //½ºÅ×¹Ì³ª ÀÛ¿ë 
+                //ï¿½ï¿½ï¿½×¹Ì³ï¿½ ï¿½Û¿ï¿½ 
                 {
                     speed = nomal_speed;
                     ispenalti = false;
@@ -193,10 +197,30 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    void setRun()
+    {
+        animator.SetBool("IsRun", true);
+    }
+    void noRun()
+    {
+        animator.SetBool("IsRun", false);
+    }
+
+    void setwalk()
+    {
+        animator.SetBool("IsWalk", true);
+    }
+    void nowalk()
+    {
+        animator.SetBool("IsWalk",false);
+    }
     void player_move()
     {
         if (Input.GetKey(KeyCode.A))
         {
+            //ë°©í–¥ë’¤ì§‘ê¸°ìš©
+            transform.localScale = new Vector3(localscale.x, localscale.y, localscale.z);
+            setwalk();
             direction = -1;
 
             // Player_rb.AddForce(new Vector2(direction * power * speed, 0f));
@@ -204,28 +228,35 @@ public class PlayerController : MonoBehaviour
             //  Debug.Log("left");
         }
 
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
+            setwalk();
+            //ë°©í–¥ë’¤ì§‘ê¸°ìš©
+            transform.localScale=new Vector3(localscale.x*-1,localscale.y,localscale.z);
             direction = 1;
 
             //Player_rb.AddForce(new Vector2(direction * power * speed, 0f));
             transform.Translate(new Vector2(direction * power * speed * Time.deltaTime, 0f));
             //   Debug.Log("right");
         }
-    /*    if (Input.GetKeyUp(KeyCode.A)) ¸®Áöµå ¹Ùµð·Î ÇÒ½Ã¿¡ velocity¸¦ ¾ø¾Ö¾ß ¸ØÃß±â¿¡ ÀÌ¸¦ ¼³Á¤
+        else
         {
-
-            //Player_rb.velocity = Vector2.zero;
-            transform.Translate(new Vector2(direction * power * speed, 0f));
-            //   Debug.Log("leftstop");
+            nowalk();
         }
+        /*    if (Input.GetKeyUp(KeyCode.A)) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ï¿½ ï¿½Ò½Ã¿ï¿½ velocityï¿½ï¿½ ï¿½ï¿½ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ß±â¿¡ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+            {
 
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            //Player_rb.velocity = Vector2.zero;
-            transform.Translate(new Vector2(direction * power * speed, 0f));
-            // Debug.Log("rightstop");
-        }*/
+                //Player_rb.velocity = Vector2.zero;
+                transform.Translate(new Vector2(direction * power * speed, 0f));
+                //   Debug.Log("leftstop");
+            }
+
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                //Player_rb.velocity = Vector2.zero;
+                transform.Translate(new Vector2(direction * power * speed, 0f));
+                // Debug.Log("rightstop");
+            }*/
     }
     void player_use_stamina()
     {
@@ -238,11 +269,14 @@ public class PlayerController : MonoBehaviour
                 speed = nomal_speed* stemina_speed ;
                 usestamina = true;
                 //  Debug.Log(speed);
+                setRun();
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 speed =nomal_speed/stemina_speed ;
                 usestamina = false;
+
+                noRun();
                 // Debug.Log(speed);
             }
         }
@@ -254,13 +288,14 @@ public class PlayerController : MonoBehaviour
             if(stamina_useable_time<0)
             {
                 Debug.Log("isp");
-                
+
+                noRun();
                 speed = nomal_speed / 2;
                 ispenalti = true;
                 usestamina = false;
             }
         }
-        else if(!ispenalti)//½ºÅ×¹Ì³ª¸¦ »ç¿ëÇÏÁö ¾Ê°í Æä³ÎÆ¼ »óÅÂ°¡ ¾Æ´Ò°æ¿ì
+        else if(!ispenalti)//ï¿½ï¿½ï¿½×¹Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ò°ï¿½ï¿½
         {
             if (stamina_useable_time < stamina_useable_time_max)
             {
@@ -287,9 +322,9 @@ public class PlayerController : MonoBehaviour
         
 
     }
-    void OnTriggerStay2D(Collider2D other)//°è¼Ó Ãæµ¹ÇÏ°í ÀÖÀ»½Ã¿¡ ÀÏ¾î³²
+    void OnTriggerStay2D(Collider2D other)//ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ï¾î³²
     {
-        if (other.CompareTag("Cabinet")) // Ãæµ¹ÇÑ °´Ã¼ÀÇ ÅÂ±×°¡ "Player"ÀÎ °æ¿ì
+        if (other.CompareTag("Cabinet")) // ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Â±×°ï¿½ "Player"ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
             cabinet_trs = other.transform;
             iscan_hide = true;
@@ -297,7 +332,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Cabinet")) // Ãæµ¹ÇÑ °´Ã¼ÀÇ ÅÂ±×°¡ "Player"ÀÎ °æ¿ì
+        if (other.CompareTag("Cabinet")) // ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Â±×°ï¿½ "Player"ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
             iscan_hide = false;
         }
