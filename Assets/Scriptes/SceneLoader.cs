@@ -36,9 +36,9 @@ public class SceneLoader : MonoBehaviour
             yield return null;
 
             if (loadType == 0)
-                Debug.Log("»õ°ÔÀÓ");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             else if (loadType == 1)
-                Debug.Log("Çå°ÔÀÓ");
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½");
 
             if (progressbar.value < 0.9f)
             {
