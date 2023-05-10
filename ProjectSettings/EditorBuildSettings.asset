@@ -6,18 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: 5798e057a53cb06439b7b4e5aeb9457b
-  - enabled: 1
-    path: Assets/Scenes/Loading.unity
-    guid: d02592081c8fbc8479a0652de6a8c300
-  - enabled: 1
-    path: Assets/Scenes/Play.unity
-    guid: 989a456475837c74d8d2f765544ad06d
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MeetEnemy.unity
-    guid: 96762bbd50922ef4680c75c3f4baea79
+    path: Assets/Scenes/Restroom.unity
+    guid: 8f6247bc8475f8847a93f715f26976d4
+  - enabled: 1
+    path: Assets/Scenes/inside.unity
+    guid: 4394f639628ba73448d694fbc1091b8c
   m_configObjects: {}
