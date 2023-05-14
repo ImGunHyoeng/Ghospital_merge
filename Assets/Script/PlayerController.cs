@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         Player_rb.gravityScale = 0;
         stamina_useable_time = 0;
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Play");
         ispenalti = true;
         //usestamina = false;
         Player_rb.gravityScale = 1;
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         Player_rb.gravityScale = 0;
         isbuff = true;
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Play");
         Player_rb.gravityScale = 1;
         stamina_useable_time = stamina_useable_time_max;
         speed =nomal_speed* restroom_speed ;
