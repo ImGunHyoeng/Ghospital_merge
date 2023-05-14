@@ -18,8 +18,8 @@ public class ViewOption : MonoBehaviour
     
     void InitUI()
     {
-        //resolutions.AddRange(Screen.resolutions); ¸ðµç ÇØ»óµµ ¹è¿­¿¡ ³Ö±â
-        //È­¸é Àç»ýºóµµ°¡ 60ÀÎ °ª¸¸ °¡Á®¿Í¼­ ¸ñ·Ï¿¡ ³Ö±â
+        //resolutions.AddRange(Screen.resolutions); ï¿½ï¿½ï¿½ ï¿½Ø»ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ö±ï¿½
+        //È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½óµµ°ï¿½ 60ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½Ö±ï¿½
         for(int i = 0;i<Screen.resolutions.Length;i++)
         {
             if (Screen.resolutions[i].refreshRate == 60 && Screen.resolutions[i].width >= 800)
@@ -27,20 +27,20 @@ public class ViewOption : MonoBehaviour
         }
         resolutionDropdown.options.Clear();
 
-        int optionNum = 0;//µå·Ó´Ù¿î ³Ñ¹ö ÃÊ±âÈ­
+        int optionNum = 0;//ï¿½ï¿½Ó´Ù¿ï¿½ ï¿½Ñ¹ï¿½ ï¿½Ê±ï¿½È­
         foreach(Resolution item in resolutions)
         {
             Dropdown.OptionData option = new Dropdown.OptionData();
             option.text = item.width + "x" + item.height + " "+ item.refreshRate + "hz";
             resolutionDropdown.options.Add(option);
 
-            if (item.width == Screen.width && item.height == Screen.height)//ÇöÀç ÇØ»óµµ¿Í ºñ±³ÇØ¼­ °°ÀºÁö È®ÀÎ ÈÄ ÃÊ±âÈ­½ÃÅ°±â
+            if (item.width == Screen.width && item.height == Screen.height)//ï¿½ï¿½ï¿½ï¿½ ï¿½Ø»óµµ¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½Å°ï¿½ï¿½
                 resolutionDropdown.value = optionNum;
             optionNum++;
         }
         resolutionDropdown.RefreshShownValue();
-        // resolutions: ¸ð´ÏÅÍÀÇ ÇØ»óµµ ¼³Á¤À» ÀúÀåÇÏ´Â ¹è¿­
-        // ¾Æ·¡ Ãâ·ÂÀ» ÅëÇØ ÇØ»óµµ°¡ ÀúÀåµÇ°í Ãâ·ÂµÊÀ» È®ÀÎ ÇÒ ¼ö ÀÖ´Ù.
+        // resolutions: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½è¿­
+        // ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø»óµµ°ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½Âµï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
         //foreach(Resolution item in resolutions)
         //{
         //    Debug.Log(item.width + "X" + item.height + " " + item.refreshRate);
@@ -54,7 +54,7 @@ public class ViewOption : MonoBehaviour
 
     public void OkBthClick()
     {
-        //Screen.SetResolution(³Êºñ,³ôÀÌ,ÀüÃ¼È­¸é,È­¸é Àç»ýºóµµ)
+        //Screen.SetResolution(ï¿½Êºï¿½,ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ã¼È­ï¿½ï¿½,È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½)
         Screen.SetResolution(resolutions[resolutionNum].width,
             resolutions[resolutionNum].height,
             screenMode);
