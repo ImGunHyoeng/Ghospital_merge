@@ -49,17 +49,7 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("col");
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("col");
-            this.director.GetComponent<GameDirector>().meetEnemy();
-        }
-    }
-
-    //public void OnTriggerEnter2D(Collider2D collision)
+    //public void OnCollisionEnter2D(Collision2D collision)
     //{
     //    Debug.Log("col");
     //    if (collision.gameObject.tag == "Player")
@@ -68,4 +58,14 @@ public class EnemyController : MonoBehaviour
     //        this.director.GetComponent<GameDirector>().meetEnemy();
     //    }
     //}
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("col");
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("col");
+            this.director.GetComponent<GameDirector>().meetEnemy();
+        }
+    }
 }
