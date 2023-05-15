@@ -94,7 +94,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         cg.blocksRaycasts = false;
     }
 
-    //¹öÆ°¿¡ ¸¶¿ì½º °®´Ù´ë¸é Å©±â Å°¿ì±â 
+    //ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ Å©ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ 
     void Start()
     {
         defaultScale = buttonScale.localScale;
