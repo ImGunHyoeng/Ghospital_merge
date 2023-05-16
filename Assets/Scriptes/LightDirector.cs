@@ -23,19 +23,27 @@ public class LightDirector : MonoBehaviour
     void Update()
     {
         GameObject[] light = GameObject.FindGameObjectsWithTag("Light");
-        int a = Random.Range(0, light.Length);
-        delta += Time.deltaTime;
-        if (delta > span)
-        {
-            int random = Random.Range(0, 10);
-            if (ratio > random)
-            {
-                if (light[a].GetComponent<LightController>().lightOff == 0)
-                {
-                    light[a].GetComponent<LightController>().lightOff = 1;
-                }
-            }
-            delta = 0;
-        }
+        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
+
+        for (int i = 0; i < light.Length; i++)
+            light[i].GetComponent<LightController>().lightOff = RoomLights[i];
+
+
+
+        //GameObject[] light = GameObject.FindGameObjectsWithTag("Light");
+        //int a = Random.Range(0, light.Length);
+        //delta += Time.deltaTime;
+        //if (delta > span)
+        //{
+        //    int random = Random.Range(0, 10);
+        //    if (ratio > random)
+        //    {
+        //        if (light[a].GetComponent<LightController>().lightOff == 0)
+        //        {
+        //            light[a].GetComponent<LightController>().lightOff = 1;
+        //        }
+        //    }
+        //    delta = 0;
+        //}
     }
 }

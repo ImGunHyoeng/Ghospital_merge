@@ -9,13 +9,16 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
     GameObject director;
     Transform playerpos;
-    public int patten = 1;
+    public int patten;
+    GameObject generator;
     
    
     void Start()
     {
         this.director = GameObject.Find("GameDirector");
-        this.playerpos = GameObject.Find("Player").GetComponent<Transform>();
+        this.generator = GameObject.Find("EnemyGenerator");
+        this.playerpos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        patten = generator.GetComponent<EnemyGenerator>().patten;
     }
 
     // Update is called once per frame

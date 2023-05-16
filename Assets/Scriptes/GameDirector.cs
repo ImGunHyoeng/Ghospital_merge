@@ -11,6 +11,23 @@ public class GameDirector : MonoBehaviour
     GameObject phone;
     public int show_ph;
 
+    public int[] RoomLights = { 0, 0, 0, 0, 0, 0 };
+    float span = 3.0f;
+    float delta = 0;
+    public int ratio = 5;
+
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<GameDirector>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
        
@@ -21,6 +38,26 @@ public class GameDirector : MonoBehaviour
 
     private void Update()
     {
+        //복도에서 불관리하기
+        
+        int a = Random.Range(0, RoomLights.Length);
+        delta += Time.deltaTime;
+        if (delta > span)
+        {
+            int random = Random.Range(0, 10);
+            if (ratio > random)
+            {
+                if (RoomLights[a] == 0)
+                {
+                    RoomLights[a] = 1;
+                }
+            }
+            delta = 0;
+        }
+
+       
+
+
         //if(Input.GetKeyDown(KeyCode.H)) //H로 폰 키기
         //{
         //    Debug.Log("here OK");
@@ -58,6 +95,10 @@ public class GameDirector : MonoBehaviour
 
 
     }
+
+    // 2 * 3 배열, 각각 방안의 전등의 꺼짐을 나타낸다. 각각의 전등이 일정한 시간 이후에 하나씩 꺼지고, 한 방에 모든 전구가 꺼지면 몬스터가 나온다.
+    // 만약 모든 방의 불이 꺼졌으면 몬스터가 플레이가가 있는 복도에도 나오고 플레이어를 빠르게 추격한다.
+    // 각 방안에 있는 전등은 자신의 번호에 맞게 적용된다. 
 
     public void allstop()
     {
