@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class ArrowBlink : MonoBehaviour
 {
 	[SerializeField]
-	private	float	fadeTime;	// ÆäÀÌµå µÇ´Â ½Ã°£
-	private	Image	fadeImage;	// ÆäÀÌµå È¿°ú¿¡ »ç¿ëµÇ´Â Image UI
+	private	float	fadeTime;	// íŽ˜ì´ë“œ ë˜ëŠ” ì‹œê°„
+	private	Image	fadeImage;	// íŽ˜ì´ë“œ íš¨ê³¼ì— ì‚¬ìš©ë˜ëŠ” Image UI
 
 	private void Awake()
 	{
@@ -15,7 +15,7 @@ public class ArrowBlink : MonoBehaviour
 
 	private void OnEnable()
 	{
-		// Fade È¿°ú¸¦ In -> Out ¹«ÇÑ ¹Ýº¹ÇÑ´Ù.
+		// Fade È¿ï¿½ï¿½ï¿½ï¿½ In -> Out ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½Ñ´ï¿½.
 		StartCoroutine("FadeInOut");
 	}
 

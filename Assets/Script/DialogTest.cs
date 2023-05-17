@@ -14,12 +14,11 @@ public class DialogTest : MonoBehaviour
 	private IEnumerator Start()
 	{
 		textCountdown.gameObject.SetActive(false);
-
-		// Ã¹ ¹øÂ° ´ë»ç ºĞ±â ½ÃÀÛ
+		//ì²« ë²ˆì§¸ ëŒ€ì‚¬ ë¶„ê¸° ì‹œì‘
 		yield return new WaitUntil(()=>dialogSystem01.UpdateDialog());
 
-		// ´ë»ç ºĞ±â »çÀÌ¿¡ ¿øÇÏ´Â Çàµ¿À» Ãß°¡ÇÒ ¼ö ÀÖ´Ù.
-		// Ä³¸¯ÅÍ¸¦ ¿òÁ÷ÀÌ°Å³ª ¾ÆÀÌÅÛÀ» È¹µæÇÏ´Â µîÀÇ.. ÇöÀç´Â 5-4-3-2-1 Ä«¿îÆ® ´Ù¿î ½ÇÇà
+		// ëŒ€ì‚¬ ë¶„ê¸° ì‚¬ì´ì— ì›í•˜ëŠ” í–‰ë™ì„ ì¶”ê°€í•  ìˆ˜ ìˆë‹¤.
+		// ìºë¦­í„°ë¥¼ ì›€ì§ì´ê±°ë‚˜ ì•„ì´í…œì„ íšë“í•˜ëŠ” ë“±ì˜ í˜„ì¬ëŠ”  5-4-3-2-1 ì¹´ìš´íŠ¸ ë‹¤ìš´ ì‹¤í–‰
 		textCountdown.gameObject.SetActive(true);
 		int count = 5;
 		while ( count > 0 )
@@ -31,13 +30,13 @@ public class DialogTest : MonoBehaviour
 		}
 		textCountdown.gameObject.SetActive(false);
 
-		// µÎ ¹øÂ° ´ë»ç ºĞ±â ½ÃÀÛ
+		// ë‘ë²ˆì§¸ ëŒ€ì‚¬ ë¶„ê¸° ì‹œì‘
 		yield return new WaitUntil(()=>dialogSystem02.UpdateDialog());
 
 		textCountdown.gameObject.SetActive(true);
 		textCountdown.text = "The End";
 
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(2);//2ì´ˆë’¤ì— ìœ ë‹ˆí‹° ì—ë””í„° ì¢…ë£Œ
 
 		UnityEditor.EditorApplication.ExitPlaymode();
 	}

@@ -5,6 +5,10 @@ using TMPro;
 
 public class DialogSystem : MonoBehaviour
 {
+	[SerializeField]
+	private int branch;
+	[SerializeField]
+	private DialogDB dialogDB;
 	[SerializeField]//직렬화
 	private	Speaker[]		speakers;					// 대화에 참여하는 캐릭터들의 UI 배열
 	[SerializeField]
@@ -19,6 +23,16 @@ public class DialogSystem : MonoBehaviour
 
 	private void Awake()
 	{
+		int index = 0;//DB에는 모든 것이 불러와져 있음
+		for (int i=0;i<dialogDB.Sheet1.Count;i++)
+		{
+			if (dialogDB.Sheet1[i].branch==branch)
+			{
+				dialogs[index].name = dialogDB.Sheet1[i].name;
+				dialogs[index].dialogue = dialogDB.Sheet1[i].dialog;
+				index++;
+			}
+		}
 		Setup();
 	}
 
@@ -117,7 +131,7 @@ public class DialogSystem : MonoBehaviour
 
 		// 캐릭터 알파 값 변경
 		Color color = speaker.spriteRenderer.color;
-		color.a = visible == true ? 1 : 0.2f;
+		color.a = visible == true ? 1 : 0.2f;//청자는 알파값을 0.2로 설정
 		speaker.spriteRenderer.color = color;
 	}
 
