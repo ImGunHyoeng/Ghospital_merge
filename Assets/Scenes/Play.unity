@@ -2352,6 +2352,7 @@ GameObject:
   - component: {fileID: 322931374}
   - component: {fileID: 322931376}
   - component: {fileID: 322931375}
+  - component: {fileID: 322931377}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -2416,6 +2417,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322931373}
   m_CullTransparentMesh: 1
+--- !u!114 &322931377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322931373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44dbc84f256bf644ac454f9d3744adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &324098793
 GameObject:
   m_ObjectHideFlags: 0

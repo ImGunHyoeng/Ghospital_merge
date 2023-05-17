@@ -7,8 +7,8 @@ public class EnemyGenerator : MonoBehaviour
    
     GameObject enemy;
     public GameObject enemyPrefab;
-    int exist = 0; //enemy ÀÌ¹Ì ÀÖÀ¸¸é Ãß°¡ »ý¼º x
-    float AllLightOff =  0; //¸ðµç ºÒÀÌ ²¨Á®ÀÖ´ÂÁö Ã¼Å©
+    int exist = 0; //enemy ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ x
+    float AllLightOff =  0; //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©
     public int patten; 
    
 
@@ -30,7 +30,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         float check = 1.0f;
         GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
-        if (off == ) //º¹µµ¿¡¼­ ¸ðµç ¹æÀÇ ºÒÀÌ ´Ù ²¨Áø °æ¿ì
+        if (off==null ) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
             
             int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
@@ -50,10 +50,10 @@ public class EnemyGenerator : MonoBehaviour
                 this.patten = 2;
             }
         }
-        else //¹æ¾ÈÀÇ ºÒÀÌ ²¨Áø °æ¿ì
+        else //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         {
             Debug.Log("IM Here");
-            for (int i = 0; i < off.Length; i++) // ¸ðµç ºÒÀÌ ²¨Á®ÀÖÀ¸¸é AllLightoff =  1ÀÌ µÇµµ·Ï ³í¸®°ö »ç¿ë
+            for (int i = 0; i < off.Length; i++) // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ AllLightoff =  1ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             {
                 check *= off[i].GetComponent<LightController>().lightOff;
             }
