@@ -9,7 +9,7 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject enemyPrefab;
     int exist = 0; //enemy 이미 있으면 추가 생성 x
     float AllLightOff =  0; //모든 불이 꺼져있는지 체크
-    public int patten;
+    public int patten; 
    
 
     private void Awake()
