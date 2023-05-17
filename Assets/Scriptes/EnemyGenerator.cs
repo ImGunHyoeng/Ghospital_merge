@@ -44,6 +44,7 @@ public class EnemyGenerator : MonoBehaviour
             
             if (this.exist == 0 && this.AllLightOff == 1.0f)
             {
+                Debug.Log("IM Here");
                 this.enemy = Instantiate(enemyPrefab);
                 this.exist = 1;
                 this.patten = 2;
