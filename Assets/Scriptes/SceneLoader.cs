@@ -36,9 +36,9 @@ public class SceneLoader : MonoBehaviour
             yield return null;
 
             if (loadType == 0)
-                Debug.Log("������");
+                Debug.Log("New game"); //새 게임
             else if (loadType == 1)
-                Debug.Log("�����");
+                Debug.Log("Old game"); //헌 게임
 
             if (progressbar.value < 0.9f)
             {

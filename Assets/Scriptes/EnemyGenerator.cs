@@ -30,7 +30,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         float check = 1.0f;
         GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
-        if (off.Length <= 0) //복도에서 모든 방의 불이 다 꺼진 경우
+        if (off == ) //복도에서 모든 방의 불이 다 꺼진 경우
         {
             
             int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
@@ -44,7 +44,7 @@ public class EnemyGenerator : MonoBehaviour
             
             if (this.exist == 0 && this.AllLightOff == 1.0f)
             {
-                Debug.Log("IM Here");
+               
                 this.enemy = Instantiate(enemyPrefab);
                 this.exist = 1;
                 this.patten = 2;
@@ -52,7 +52,7 @@ public class EnemyGenerator : MonoBehaviour
         }
         else //방안의 불이 꺼진 경우
         {
-            
+            Debug.Log("IM Here");
             for (int i = 0; i < off.Length; i++) // 모든 불이 꺼져있으면 AllLightoff =  1이 되도록 논리곱 사용
             {
                 check *= off[i].GetComponent<LightController>().lightOff;
