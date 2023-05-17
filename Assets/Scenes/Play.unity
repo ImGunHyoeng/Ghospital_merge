@@ -1013,6 +1013,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   show_ph: 0
+  RoomLights: 000000000000000000000000000000000000000000000000
+  ratio: 5
 --- !u!4 &65476083
 Transform:
   m_ObjectHideFlags: 0
@@ -2626,7 +2628,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1384241774788827978, guid: c4d5f8ebfbcb8e3449bfec5bad95554a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2ac00b3d1d01a78438dc63662e2a7819, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7753,6 +7755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  patten: 0
 --- !u!4 &1612229054
 Transform:
   m_ObjectHideFlags: 0

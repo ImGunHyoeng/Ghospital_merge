@@ -122,4 +122,9 @@ public class GameDirector : MonoBehaviour
     {
         SceneManager.LoadScene("MeetEnemy");
     }
+
+    public void IntoRoom()
+    {
+        SceneManager.LoadScene("Play");
+    }
 }

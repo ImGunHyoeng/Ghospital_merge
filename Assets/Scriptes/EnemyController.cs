@@ -11,8 +11,10 @@ public class EnemyController : MonoBehaviour
     Transform playerpos;
     public int patten;
     GameObject generator;
-    
-   
+    public Sprite fast_monster;
+
+
+
     void Start()
     {
         this.director = GameObject.Find("GameDirector");
@@ -43,6 +45,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case 2:
                 transform.position = Vector3.MoveTowards(transform.position, this.playerpos.position, speed * Time.deltaTime);
+                gameObject.GetComponent<SpriteRenderer>().sprite = fast_monster;
                 break;
         }
         

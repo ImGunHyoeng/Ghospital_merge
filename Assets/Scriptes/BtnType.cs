@@ -18,12 +18,13 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         switch (currentType)
         {
             case BTNType.New:
-                SceneLoader.LoadSceneHandle("Play", 0);
+                SceneLoader.LoadSceneHandle("Path", 0);
                 break;
 
             case BTNType.Countinue:
-                SceneLoader.LoadSceneHandle("Play", 1);
+                SceneLoader.LoadSceneHandle("Play", 0);
                 break;
+
 
             case BTNType.Option:
                 CanvasGroupOn(MenuIn);
