@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     Transform playerpos;
     public int patten;
     GameObject generator;
+    float enemyOn;
     public Sprite fast_monster;
 
 
@@ -21,11 +22,13 @@ public class EnemyController : MonoBehaviour
         this.generator = GameObject.Find("EnemyGenerator");
         this.playerpos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         patten = generator.GetComponent<EnemyGenerator>().patten;
+        
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        
         switch(patten)
         {
             case 1:

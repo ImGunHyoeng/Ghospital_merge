@@ -6380,6 +6380,7 @@ GameObject:
   - component: {fileID: 1225894652}
   - component: {fileID: 1225894654}
   - component: {fileID: 1225894655}
+  - component: {fileID: 1225894656}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Untagged
@@ -6490,6 +6491,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.77, y: 2.46}
   m_EdgeRadius: 0
+--- !u!114 &1225894656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225894651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image_e: {fileID: 2800000, guid: 1c774dc28aa63704c858afb1a0209b7d, type: 3}
 --- !u!1 &1243756503
 GameObject:
   m_ObjectHideFlags: 0
@@ -7989,6 +8003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  AllLightOff: 0
   patten: 0
 --- !u!4 &1612229054
 Transform:
@@ -9424,7 +9439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1901875954
 MonoBehaviour:
   m_ObjectHideFlags: 0
