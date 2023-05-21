@@ -4,6 +4,7 @@ using TMPro;
 
 public class DialogTest : MonoBehaviour
 {
+	public Camera cam;
 	[SerializeField]
 	private	DialogSystem	dialogSystem01;
 	[SerializeField]
@@ -40,5 +41,9 @@ public class DialogTest : MonoBehaviour
 
 		UnityEditor.EditorApplication.ExitPlaymode();
 	}
+	IEnumerator effect()
+    {
+		yield return null;
+    }
 }
 

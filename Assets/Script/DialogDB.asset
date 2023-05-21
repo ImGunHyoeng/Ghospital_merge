@@ -15,7 +15,7 @@ MonoBehaviour:
   Sheet1:
   - branch: 1
     name: "\uC9C1\uC6D0"
-    dialog: "\uD5C9 \uAD34\uBB3C\uC774\uB2E4.."
+    dialog: "\uD5C9 \uAD34\uBB3C\uC774\uB2E4.. (\uB4A4\uB85C \uC2AC\uCA4D \uBE60\uC9C4\uB2E4)"
   - branch: 1
     name: "\uC801"
     dialog: "\uD53C\uAC00 \uD544\uC694\uD574..."
