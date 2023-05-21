@@ -1,31 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyGenerator : MonoBehaviour
 {
    
     GameObject enemy;
     public GameObject enemyPrefab;
-    int exist = 0; //enemy ÀÌ¹Ì ÀÖÀ¸¸é Ãß°¡ »ý¼º x
-    float AllLightOff =  0; //¸ðµç ºÒÀÌ ²¨Á®ÀÖ´ÂÁö Ã¼Å©
-    
+    int exist = 0; //enemy ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ x
+    public float AllLightOff; //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©
+    public int patten;
+    Scene scene;
+
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<EnemyGenerator>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
+    {
+        AllLightOff = 0;
+    }
+
 
     void Update()
     {
-        
-        GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
+        scene = SceneManager.GetActiveScene();
+        Debug.Log(scene.name);
         float check = 1.0f;
-        for (int i = 0; i < off.Length; i++) // ¸ðµç ºÒÀÌ ²¨Á®ÀÖÀ¸¸é AllLightoff =  1ÀÌ µÇµµ·Ï ³í¸®°ö »ç¿ë
+        
+        if (scene.name == "Play")//When the room getting dark
         {
-           check *= off[i].GetComponent<LightController>().lightOff;
-        }
-        AllLightOff += check;
+            GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
 
-        if (this.exist == 0 && this.AllLightOff == 1.0f)
-        {
-            this.enemy = Instantiate(enemyPrefab);
-            this.exist = 1;
+            for (int i = 0; i < off.Length; i++) // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ AllLightoff =  1ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+            {
+                check *= off[i].GetComponent<LightController>().lightOff;
+            }
+            
+            //AllLightOff *= check;
+            AllLightOff = check;
+
+            if (this.exist == 0 && this.AllLightOff == 1.0f)
+            {
+                this.enemy = Instantiate(enemyPrefab);
+                this.exist = 1;
+                this.patten = 1;
+            }
+
         }
+        if (scene.name == "Path")
+        {
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+            Debug.Log("IM Here");
+            int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
+
+            for (int i = 0; i < RoomLights.Length; i++)
+            {
+                check *= RoomLights[i];
+
+            }
+            AllLightOff = check;
+
+            if (this.exist == 0 && this.AllLightOff == 1.0f)
+            {
+
+                this.enemy = Instantiate(enemyPrefab);
+                this.exist = 1;
+                this.patten = 2;
+            }
+
+        }
+
+       
+        if (AllLightOff == 0f) //when the player turn on any light
+        {
+            Destroy(enemy);
+            exist = 0;
+        }
+
+
     }
 }

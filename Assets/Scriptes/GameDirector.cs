@@ -11,6 +11,23 @@ public class GameDirector : MonoBehaviour
     GameObject phone;
     public int show_ph;
 
+    public int[] RoomLights = { 0, 0, 0, 0, 0, 0 };
+    float span = 3.0f;
+    float delta = 0;
+    public int ratio = 5;
+
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<GameDirector>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
        
@@ -21,7 +38,27 @@ public class GameDirector : MonoBehaviour
 
     private void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.H)) //H�� �� Ű��
+        //�������� �Ұ����ϱ�
+        
+        int a = Random.Range(0, RoomLights.Length);
+        delta += Time.deltaTime;
+        if (delta > span)
+        {
+            int random = Random.Range(0, 10);
+            if (ratio > random)
+            {
+                if (RoomLights[a] == 0)
+                {
+                    RoomLights[a] = 1;
+                }
+            }
+            delta = 0;
+        }
+
+       
+
+
+        //if(Input.GetKeyDown(KeyCode.H)) //H�� �� Ű��
         //{
         //    Debug.Log("here OK");
         //    if (show_ph == 0)
@@ -59,6 +96,10 @@ public class GameDirector : MonoBehaviour
 
     }
 
+    // 2 * 3 �迭, ���� ����� ������ ������ ��Ÿ����. ������ ������ ������ �ð� ���Ŀ� �ϳ��� ������, �� �濡 ��� ������ ������ ���Ͱ� ���´�.
+    // ���� ��� ���� ���� �������� ���Ͱ� �÷��̰��� �ִ� �������� ������ �÷��̾ ������ �߰��Ѵ�.
+    // �� ��ȿ� �ִ� ������ �ڽ��� ��ȣ�� �°� ����ȴ�. 
+
     public void allstop()
     {
         lightdir.GetComponent<LightDirector>().ratio = 0;
@@ -80,5 +121,10 @@ public class GameDirector : MonoBehaviour
    public void meetEnemy()
     {
         SceneManager.LoadScene("MeetEnemy");
+    }
+
+    public void IntoRoom()
+    {
+        SceneManager.LoadScene("Play");
     }
 }

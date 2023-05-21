@@ -9,18 +9,26 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
     GameObject director;
     Transform playerpos;
-    public int patten = 1;
-    
-   
+    public int patten;
+    GameObject generator;
+    float enemyOn;
+    public Sprite fast_monster;
+
+
+
     void Start()
     {
         this.director = GameObject.Find("GameDirector");
-        this.playerpos = GameObject.Find("Player").GetComponent<Transform>();
+        this.generator = GameObject.Find("EnemyGenerator");
+        this.playerpos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        patten = generator.GetComponent<EnemyGenerator>().patten;
+        
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        
         switch(patten)
         {
             case 1:
@@ -40,6 +48,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case 2:
                 transform.position = Vector3.MoveTowards(transform.position, this.playerpos.position, speed * Time.deltaTime);
+                gameObject.GetComponent<SpriteRenderer>().sprite = fast_monster;
                 break;
         }
         
@@ -49,17 +58,7 @@ public class EnemyController : MonoBehaviour
 
 
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("col");
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("col");
-            this.director.GetComponent<GameDirector>().meetEnemy();
-        }
-    }
-
-    //public void OnTriggerEnter2D(Collider2D collision)
+    //public void OnCollisionEnter2D(Collision2D collision)
     //{
     //    Debug.Log("col");
     //    if (collision.gameObject.tag == "Player")
@@ -68,4 +67,14 @@ public class EnemyController : MonoBehaviour
     //        this.director.GetComponent<GameDirector>().meetEnemy();
     //    }
     //}
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("col");
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("col");
+            this.director.GetComponent<GameDirector>().meetEnemy();
+        }
+    }
 }
