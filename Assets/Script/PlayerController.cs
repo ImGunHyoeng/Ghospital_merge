@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-
+    Scene scene;
     Rigidbody2D Player_rb;
     BoxCollider2D Player_col;
     Slider slider;
@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
     public float power;
     public float nomal_speed;
     Vector3 localscale;
+    SpriteRenderer sprite;
 
+    int s_namesize;
+    string []not_visible_S_name;
 
     public float stamina_useable_time_max;
     public float stamina_de_time_max;
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         localscale = transform.localScale;
         animator=GetComponent<Animator>();
         see_cool = skill_time;
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
         //speed = 0.3f;
         Player_rb= GetComponent<Rigidbody2D>();
         Player_col= GetComponent<BoxCollider2D>();
+        P_set_Not_visble_name_set();
     }
     
     // Update is called once per frame
@@ -88,19 +93,75 @@ public class PlayerController : MonoBehaviour
             skill_coolUI();
         }
     }
+    //create game set names not visible scene
+    void P_set_Not_visble_name_set()
+    {
+        s_namesize = 10;
+        not_visible_S_name = new string[s_namesize];//c#에서는 garbage콜렉터가 해당하는 공간을 삭제해줌
+        not_visible_S_name[0] = "Loading";
+        not_visible_S_name[1] = "inside";
+        not_visible_S_name[2] = "Title";
+    }
+    void P_spawn() { transform.position = localscale; }
+    //is not visible scene? check function
+    public void P_isnotvisible_scene()
+    {
+        scene = SceneManager.GetActiveScene();
+        Debug.Log(scene.name);
+        int count = 0;
+        for (int i = 0; i < s_namesize; i++)
+        {
+            if (not_visible_S_name[i] == null)
+                break;
+            if (not_visible_S_name[i] == scene.name)
+            {
+                P_sprite_N_visible();
+                //count++;
+                break;
+            }
+        }
+        if (count != 0)
+        {
+            P_sprite_Y_visible();
+            P_spawn();
+        }
+        
+    }
+    void P_defaultSetting()
+    {
+        stamina_de_time = stamina_de_time_max;
+        speed = nomal_speed;
+        stamina_useable_time = stamina_useable_time_max;
+    }
+    void P_sprite_N_visible() { sprite.enabled = false; }
+    void P_sprite_Y_visible() { sprite.enabled = true; }
     IEnumerator goinside()
     {
         isinside = true;
         SceneManager.LoadScene("inside");
+        yield return new WaitForSeconds(0.1f);
+        P_isnotvisible_scene();
+        //P_sprite_N_visible();
         Player_rb.gravityScale = 0;
         stamina_useable_time = 0;
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Play");
-        ispenalti = true;
-        //usestamina = false;
-        Player_rb.gravityScale = 1;
         yield return new WaitForSeconds(2f);
-        isinside = false;
+        while (true)
+        {
+            if (GameObject.Find("DialogTest").GetComponent<DialogTest>().IsDialogEnd()==true)
+            {
+                if (Input.anyKeyDown||Input.anyKey)
+                {
+                    SceneManager.LoadScene("Title");
+                    yield return new WaitForSeconds(0.1f);
+                    //P_isnotvisible_scene();
+                    P_sprite_Y_visible();
+                    P_spawn();
+                    break;
+                }
+            }
+            yield return new WaitForSeconds(2f);
+        }
+        
     }
     void door_in()
     {

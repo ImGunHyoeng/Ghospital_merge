@@ -90,7 +90,7 @@ public class GameDirector : MonoBehaviour
         if (phone.GetComponent<CanvasGroup>().alpha == 1)
         {
             show_ph = 0;
-            allbegin();
+            //allbegin();오류남
         }
 
 

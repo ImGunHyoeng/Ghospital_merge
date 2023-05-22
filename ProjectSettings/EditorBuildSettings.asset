@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Play.unity
     guid: 989a456475837c74d8d2f765544ad06d
   - enabled: 1
+    path: Assets/Scenes/Bloody_room_talk.unity
+    guid: 02ece6757389efc4fa989b2d4a66b523
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: ef4155fd89a42604090753daf8a3450d
   - enabled: 1

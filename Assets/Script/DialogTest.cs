@@ -4,6 +4,8 @@ using TMPro;
 
 public class DialogTest : MonoBehaviour
 {
+	private bool dialogEnd;
+	public Camera cam;
 	[SerializeField]
 	private	DialogSystem	dialogSystem01;
 	[SerializeField]
@@ -36,9 +38,14 @@ public class DialogTest : MonoBehaviour
 		textCountdown.gameObject.SetActive(true);
 		textCountdown.text = "The End";
 
-		yield return new WaitForSeconds(2);//2초뒤에 유니티 에디터 종료
-
-		UnityEditor.EditorApplication.ExitPlaymode();
+		yield return new WaitForSeconds(0.1f);//0.1초뒤에 유니티 에디터 종료
+		dialogEnd = true;
+		//UnityEditor.EditorApplication.ExitPlaymode();
 	}
+	public bool IsDialogEnd() { return dialogEnd; }
+	IEnumerator effect()
+    {
+		yield return null;
+    }
 }
 
