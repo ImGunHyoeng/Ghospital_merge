@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     public float power;
     public float nomal_speed;
-    Vector3 localscale;
+    static Vector3 localscale;
     SpriteRenderer sprite;
 
     int s_namesize;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     float skill_time = 30f;
     float see_cool;
 
-
+    bool isspawn = false;
     bool isinside = false;
     bool isbuff=false;
     bool isrest = true;
@@ -48,12 +48,15 @@ public class PlayerController : MonoBehaviour
     bool usestamina = false;
     bool ispenalti = false;
 
-    
+
     // Start is called before the first frame update
+    private void Awake()
+    {
+        localscale = transform.localScale;
+    }
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        localscale = transform.localScale;
         animator=GetComponent<Animator>();
         see_cool = skill_time;
         skill=GameObject.Find("Skill").GetComponent<Text>();
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(P_isnotvisible_scene());
         player_slider_update();//�����̴��� ������Ʈ ����
         
         if (!ishide)//���� �ʴ°�쿡 �����̱� ����
@@ -104,8 +108,9 @@ public class PlayerController : MonoBehaviour
     }
     void P_spawn() { transform.position = localscale; }
     //is not visible scene? check function
-    public void P_isnotvisible_scene()
+    IEnumerator P_isnotvisible_scene()
     {
+        yield return new WaitForSeconds(0.8f);
         scene = SceneManager.GetActiveScene();
         Debug.Log(scene.name);
         int count = 0;
@@ -116,14 +121,20 @@ public class PlayerController : MonoBehaviour
             if (not_visible_S_name[i] == scene.name)
             {
                 P_sprite_N_visible();
-                //count++;
+                count++;
+                
                 break;
             }
         }
-        if (count != 0)
+        if (count == 0)
         {
             P_sprite_Y_visible();
+            //P_spawn();
+        }
+        if(isspawn)
+        {
             P_spawn();
+            isspawn = false;
         }
         
     }
@@ -140,8 +151,8 @@ public class PlayerController : MonoBehaviour
         isinside = true;
         SceneManager.LoadScene("inside");
         yield return new WaitForSeconds(0.1f);
-        P_isnotvisible_scene();
-        //P_sprite_N_visible();
+        //P_isnotvisible_scene();
+        P_sprite_N_visible();
         Player_rb.gravityScale = 0;
         stamina_useable_time = 0;
         yield return new WaitForSeconds(2f);
@@ -153,9 +164,10 @@ public class PlayerController : MonoBehaviour
                 {
                     SceneManager.LoadScene("Title");
                     yield return new WaitForSeconds(0.1f);
+                    isspawn = true;
                     //P_isnotvisible_scene();
-                    P_sprite_Y_visible();
-                    P_spawn();
+                    /*P_sprite_N_visible();
+                    P_spawn();*/
                     break;
                 }
             }
