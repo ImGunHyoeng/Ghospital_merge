@@ -8,8 +8,8 @@ public class EnemyGenerator : MonoBehaviour
    
     GameObject enemy;
     public GameObject enemyPrefab;
-    int exist = 0; //enemy �̹� ������ �߰� ���� x
-    public float AllLightOff; //��� ���� �����ִ��� üũ
+    int exist = 0; 
+    public float AllLightOff; 
     public int patten;
     Scene scene;
 
@@ -36,16 +36,15 @@ public class EnemyGenerator : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         float check = 1.0f;
         
-        if (scene.name == "Play")//When the room getting dark
+        if (scene.name == "Play")
         {
             GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
 
-            for (int i = 0; i < off.Length; i++) // ��� ���� ���������� AllLightoff =  1�� �ǵ��� ������ ���
+            for (int i = 0; i < off.Length; i++)
             {
-                check *= off[i].GetComponent<LightController>().lightOff;
+                check *= off[i].GetComponent<LightController>().lightOff; 
             }
             
-            //AllLightOff *= check;
             AllLightOff = check;
 
             if (this.exist == 0 && this.AllLightOff == 1.0f)
@@ -58,7 +57,6 @@ public class EnemyGenerator : MonoBehaviour
         }
         if (scene.name == "Path")
         {
-            //�������� ��� ���� ���� �� ���� ���
             
             int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
 

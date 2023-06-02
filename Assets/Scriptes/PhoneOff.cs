@@ -15,6 +15,6 @@ public class PhoneOff : MonoBehaviour
 
     public void phoneoff()
     {
-        director.GetComponent<GameDirector>().PhoneOff();
+        director.GetComponent<GameDirector>().TimeStart();
     }
 }

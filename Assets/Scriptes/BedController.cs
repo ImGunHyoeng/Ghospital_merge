@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BedController : MonoBehaviour
 {
-    // 특정 시간이 되면 랜덤하게 사라진다, 커튼에 e를 눌러서 열어보면 환자가 있는지 없는지 알 수 있다. 환자가 없어지면 랜점한 장소에 환자가 쓰러져있고 상호작용해서 일으켜 돌아갈 수 있다.
-    //방을 벗어나도 계속 동작해야한다.
+    // 특정 시간이 되면 랜덤하게 사라진다,
+    // 커튼에 e를 눌러서 열어보면 환자가 있는지 없는지 알 수 있다.
+    // 환자가 없어지면 랜점한 장소에 환자가 쓰러져있고 상호작용해서 일으켜 돌아갈 수 있다.
+    // 방을 벗어나도 계속 동작해야한다.
+
     public int trigger_time;
     float delta;
     public Sprite inperson;

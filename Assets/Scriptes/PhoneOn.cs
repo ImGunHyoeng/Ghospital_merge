@@ -15,6 +15,6 @@ public class PhoneOn : MonoBehaviour
 
     public void phoneon()
     {
-        director.GetComponent<GameDirector>().PhoneOn();
+        director.GetComponent<GameDirector>().TimeStop();
     }
 }

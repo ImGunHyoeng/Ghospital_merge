@@ -40,8 +40,8 @@ public class GameDirector : MonoBehaviour
 
     private void Update()
     {
-        //�������� �Ұ����ϱ�
-        Time.timeScale = timeScale;
+        Time.timeScale = timeScale; //Manage game Runing
+
         int a = Random.Range(0, RoomLights.Length);
         delta += Time.deltaTime;
         if (delta > span)
@@ -101,19 +101,14 @@ public class GameDirector : MonoBehaviour
 
     }
 
-    // 2 * 3 �迭, ���� ����� ������ ������ ��Ÿ����. ������ ������ ������ �ð� ���Ŀ� �ϳ��� ������, �� �濡 ��� ������ ������ ���Ͱ� ���´�.
-    // ���� ��� ���� ���� �������� ���Ͱ� �÷��̰��� �ִ� �������� ������ �÷��̾ ������ �߰��Ѵ�.
-    // �� ��ȿ� �ִ� ������ �ڽ��� ��ȣ�� �°� ����ȴ�. 
 
-    public void PhoneOn()
+    public void TimeStop()
     {
-        //show_ph = 1;
         timeScale = 0;
     }
 
-    public void PhoneOff()
+    public void TimeStart()
     {
-
         timeScale = 1;
     }
 
