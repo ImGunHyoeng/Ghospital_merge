@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Phone_TImer : MonoBehaviour
 {
+    public int one_hour;
     private int time;
     private bool isend;
     private Texture2D ph_time;
@@ -28,7 +29,7 @@ public class Phone_TImer : MonoBehaviour
     IEnumerator countHour()
     {
         Debug.Log("yes");
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(one_hour);
         time++;
         StartCoroutine(change());
     }
