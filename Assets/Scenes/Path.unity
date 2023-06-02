@@ -1061,6 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   show_ph: 0
+  timeScale: 0
   RoomLights: 000000000000000000000000000000000000000000000000
   ratio: 5
 --- !u!4 &65476083
@@ -4388,6 +4389,7 @@ GameObject:
   - component: {fileID: 569574554}
   - component: {fileID: 569574553}
   - component: {fileID: 569574552}
+  - component: {fileID: 569574556}
   m_Layer: 5
   m_Name: BackBtn
   m_TagString: Untagged
@@ -4487,6 +4489,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 569574556}
+        m_TargetAssemblyTypeName: PhoneOff, Assembly-CSharp
+        m_MethodName: phoneoff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &569574554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4525,6 +4539,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569574550}
   m_CullTransparentMesh: 1
+--- !u!114 &569574556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569574550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8703c73d4322d0644bf0c176ec28fb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &570630696
 GameObject:
   m_ObjectHideFlags: 0
@@ -10035,6 +10061,7 @@ GameObject:
   - component: {fileID: 2004978045}
   - component: {fileID: 2004978044}
   - component: {fileID: 2004978043}
+  - component: {fileID: 2004978047}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -10134,6 +10161,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2004978047}
+        m_TargetAssemblyTypeName: PhoneOn, Assembly-CSharp
+        m_MethodName: phoneon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2004978045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10172,6 +10211,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004978041}
   m_CullTransparentMesh: 1
+--- !u!114 &2004978047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004978041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee66146b448584c814eb3d2ce71711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2009909042
 GameObject:
   m_ObjectHideFlags: 0

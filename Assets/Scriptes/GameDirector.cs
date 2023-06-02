@@ -10,6 +10,7 @@ public class GameDirector : MonoBehaviour
     GameObject lightdir;
     GameObject phone;
     public int show_ph;
+    public float timeScale;
 
     public int[] RoomLights = { 0, 0, 0, 0, 0, 0 };
     float span = 3.0f;
@@ -34,12 +35,13 @@ public class GameDirector : MonoBehaviour
         lightdir = GameObject.Find("LightDirector");
         phone = GameObject.Find("Playmenu");
         show_ph = 0;
+        timeScale = 1;
     }
 
     private void Update()
     {
         //�������� �Ұ����ϱ�
-        
+        Time.timeScale = timeScale;
         int a = Random.Range(0, RoomLights.Length);
         delta += Time.deltaTime;
         if (delta > span)
@@ -82,16 +84,19 @@ public class GameDirector : MonoBehaviour
         //}
 
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        if(phone.GetComponent<CanvasGroup>().alpha == 0)
-        {
-            show_ph = 1;
-            allstop();
-        }
-        if (phone.GetComponent<CanvasGroup>().alpha == 1)
-        {
-            show_ph = 0;
-            allbegin();//오류남
-        }
+
+
+        //if(phone.GetComponent<CanvasGroup>().alpha == 0) //if pohone On all stop
+        //{
+        //    PhoneOn();
+           
+        //    //allstop();
+        //}
+        //if (phone.GetComponent<CanvasGroup>().alpha == 1)
+        //{
+        //    show_ph = 0;
+        //    //allbegin();//오류남
+        //}
 
 
     }
@@ -100,24 +105,36 @@ public class GameDirector : MonoBehaviour
     // ���� ��� ���� ���� �������� ���Ͱ� �÷��̰��� �ִ� �������� ������ �÷��̾ ������ �߰��Ѵ�.
     // �� ��ȿ� �ִ� ������ �ڽ��� ��ȣ�� �°� ����ȴ�. 
 
-    public void allstop()
+    public void PhoneOn()
     {
-        lightdir.GetComponent<LightDirector>().ratio = 0;
-        for(int i = 0;i<enemy.Length;i++)
-        {
-            enemy[i].GetComponent<EnemyController>().speed = 0f;
-        }
-       
+        //show_ph = 1;
+        timeScale = 0;
     }
 
-    public void allbegin()
+    public void PhoneOff()
     {
-        //lightdir.GetComponent<LightDirector>().ratio = 5;//93번째 줄때문에 오류
-        for (int i = 0; i < enemy.Length; i++)
-        {
-            enemy[i].GetComponent<EnemyController>().speed = 3.0f;
-        }
+
+        timeScale = 1;
     }
+
+    //public void allstop()
+    //{
+    //    lightdir.GetComponent<LightDirector>().ratio = 0;
+    //    for(int i = 0;i<enemy.Length;i++)
+    //    {
+    //        enemy[i].GetComponent<EnemyController>().speed = 0f;
+    //    }
+       
+    //}
+
+    //public void allbegin()
+    //{
+    //    lightdir.GetComponent<LightDirector>().ratio = 5;//93번째 줄때문에 오류
+    //    for (int i = 0; i < enemy.Length; i++)
+    //    {
+    //        enemy[i].GetComponent<EnemyController>().speed = 3.0f;
+    //    }
+    //}
    public void meetEnemy()
     {
         SceneManager.LoadScene("MeetEnemy");

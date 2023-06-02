@@ -34,7 +34,6 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        Debug.Log(scene.name);
         float check = 1.0f;
         
         if (scene.name == "Play")//When the room getting dark
@@ -60,7 +59,7 @@ public class EnemyGenerator : MonoBehaviour
         if (scene.name == "Path")
         {
             //�������� ��� ���� ���� �� ���� ���
-            Debug.Log("IM Here");
+            
             int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
 
             for (int i = 0; i < RoomLights.Length; i++)

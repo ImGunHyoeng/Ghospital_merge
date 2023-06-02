@@ -112,7 +112,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.8f);
         scene = SceneManager.GetActiveScene();
-        Debug.Log(scene.name);
         int count = 0;
         for (int i = 0; i < s_namesize; i++)
         {
