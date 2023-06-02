@@ -112,7 +112,7 @@ public class GameDirector : MonoBehaviour
 
     public void allbegin()
     {
-        lightdir.GetComponent<LightDirector>().ratio = 5;//93번째 줄때문에 오류
+        //lightdir.GetComponent<LightDirector>().ratio = 5;//93번째 줄때문에 오류
         for (int i = 0; i < enemy.Length; i++)
         {
             enemy[i].GetComponent<EnemyController>().speed = 3.0f;
