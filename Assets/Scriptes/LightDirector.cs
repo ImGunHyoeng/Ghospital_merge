@@ -22,11 +22,11 @@ public class LightDirector : MonoBehaviour
     }
     void Update()
     {
-        GameObject[] light = GameObject.FindGameObjectsWithTag("Light");
-        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
+        GameObject[] light = GameObject.FindGameObjectsWithTag("Light");// Find Light in room
+        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights; //Direct Room Light get off
 
         for (int i = 0; i < light.Length; i++)
-            light[i].GetComponent<LightController>().lightOff = RoomLights[i];
+            light[i].GetComponent<LightController>().lightOff = RoomLights[i]; //Get the RoomLight's number and set Lightoff or on 
 
 
 

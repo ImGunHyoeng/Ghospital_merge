@@ -13,6 +13,7 @@ public class GameDirector : MonoBehaviour
     public float timeScale;
 
     public int[] RoomLights = { 0, 0, 0, 0, 0, 0 };
+    public int[] PatientinBed = { 0, 0, 0, 0, 0, 0 };
     float span = 3.0f;
     float delta = 0;
     public int ratio = 5;
@@ -56,49 +57,7 @@ public class GameDirector : MonoBehaviour
             }
             delta = 0;
         }
-
-       
-
-
-        //if(Input.GetKeyDown(KeyCode.H)) //H�� �� Ű��
-        //{
-        //    Debug.Log("here OK");
-        //    if (show_ph == 0)
-        //    {
-        //        Debug.Log("here OK");
-        //        show_ph = 1;
-        //        phone.GetComponent<CanvasGroup>().alpha = 1;
-        //        phone.GetComponent<CanvasGroup>().interactable = true;
-        //        phone.GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-        //    }
-        //    if (show_ph == 1)
-        //    {
-        //        show_ph = 0;
-        //        phone.GetComponent<CanvasGroup>().alpha = 0;
-        //        phone.GetComponent<CanvasGroup>().interactable = false;
-        //        phone.GetComponent<CanvasGroup>().blocksRaycasts = false;
-
-        //    }
-
-        //}
-
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
-
-
-        //if(phone.GetComponent<CanvasGroup>().alpha == 0) //if pohone On all stop
-        //{
-        //    PhoneOn();
-           
-        //    //allstop();
-        //}
-        //if (phone.GetComponent<CanvasGroup>().alpha == 1)
-        //{
-        //    show_ph = 0;
-        //    //allbegin();//오류남
-        //}
-
-
     }
 
 
@@ -112,24 +71,6 @@ public class GameDirector : MonoBehaviour
         timeScale = 1;
     }
 
-    //public void allstop()
-    //{
-    //    lightdir.GetComponent<LightDirector>().ratio = 0;
-    //    for(int i = 0;i<enemy.Length;i++)
-    //    {
-    //        enemy[i].GetComponent<EnemyController>().speed = 0f;
-    //    }
-       
-    //}
-
-    //public void allbegin()
-    //{
-    //    lightdir.GetComponent<LightDirector>().ratio = 5;//93번째 줄때문에 오류
-    //    for (int i = 0; i < enemy.Length; i++)
-    //    {
-    //        enemy[i].GetComponent<EnemyController>().speed = 3.0f;
-    //    }
-    //}
    public void meetEnemy()
     {
         SceneManager.LoadScene("MeetEnemy");

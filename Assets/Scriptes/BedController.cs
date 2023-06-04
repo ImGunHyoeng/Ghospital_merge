@@ -15,42 +15,53 @@ public class BedController : MonoBehaviour
     public Sprite empty;
     public int ratio;
     GameObject patient;
+    GameObject clock;
+    public int patient_ON;
 
     private void Start()
     {
         delta = 0;
         ratio = 5;
         patient = GameObject.Find("Patient");
+        clock = GameObject.Find("Time");
+        patient_ON = 1;
     }
 
     private void Update()
     {
-        delta += Time.deltaTime;
-        if (delta > 5.0f)
+        if (clock.GetComponent<Phone_TImer>().gettime() >= 3) //if clock time is more than 3AM
         {
-            int rand_num = Random.Range(0, 10);
-            if(rand_num > ratio)
+            delta += Time.deltaTime; //Patient Event Start
+            if (delta > 5.0f)
             {
-                PatientGone();
+                int rand_num = Random.Range(0, 10);
+                if (rand_num > ratio)
+                {
+                    PatientGone();
+                }
+                delta = 0f;
             }
-            delta = 0f;
         }
+
+        //if (patient.GetComponent<PatientController>().PatientMove())
+        //{
+        //    PatientGone();
+        //}
 
     }
 
     //환자 생성과 삭제
-    void PatientGone()
+    public void PatientGone()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = this.empty;
-        
-        patient.SetActive(true);
-        
+        patient_ON = 0;
+        patient.SetActive(true);   
     }
 
     public void PatientComeback()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = this.inperson;
-
+        patient_ON = 1;
         patient.SetActive(false);
     }
 
