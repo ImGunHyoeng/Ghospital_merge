@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D Player_col;
     Slider slider;
     GameObject door;
+    public Canvas stamina_skill_ui;
+    public Canvas phone;
     Animator animator;
     public float power;
     public float nomal_speed;
@@ -120,6 +122,7 @@ public class PlayerController : MonoBehaviour
             if (not_visible_S_name[i] == scene.name)
             {
                 P_sprite_N_visible();
+                canvas_invisible();
                 count++;
                 
                 break;
@@ -128,6 +131,7 @@ public class PlayerController : MonoBehaviour
         if (count == 0)
         {
             P_sprite_Y_visible();
+            canvas_visible();
             //P_spawn();
         }
         if(isspawn)
@@ -136,6 +140,17 @@ public class PlayerController : MonoBehaviour
             isspawn = false;
         }
         
+    }
+    void canvas_invisible()
+    {
+        stamina_skill_ui.enabled = false;
+        phone.enabled = false;
+    }
+
+    void canvas_visible()
+    {
+        stamina_skill_ui.enabled = true;
+        phone.enabled = true;
     }
     void P_defaultSetting()
     {
