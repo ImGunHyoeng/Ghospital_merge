@@ -7,8 +7,10 @@ public class EnemyGenerator : MonoBehaviour
 {
    
     GameObject enemy;
-    public GameObject enemyPrefab;
-    int exist = 0; 
+    public GameObject slow_enemyPrefab;
+    public GameObject fast_enemyPrefab;
+    public int exist = 0; 
+    public float All_RoomLightOff; 
     public float AllLightOff; 
     public int patten;
     Scene scene;
@@ -28,6 +30,7 @@ public class EnemyGenerator : MonoBehaviour
     private void Start()
     {
         AllLightOff = 0;
+        All_RoomLightOff = 0;
     }
 
 
@@ -38,6 +41,7 @@ public class EnemyGenerator : MonoBehaviour
         
         if (scene.name == "Play")
         {
+            
             GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
 
             for (int i = 0; i < off.Length; i++)
@@ -45,45 +49,48 @@ public class EnemyGenerator : MonoBehaviour
                 check *= off[i].GetComponent<LightController>().lightOff; 
             }
             
-            AllLightOff = check;
+            All_RoomLightOff = check;
 
-            if (this.exist == 0 && this.AllLightOff == 1.0f)
+            if (this.exist == 0 && this.All_RoomLightOff == 1.0f && AllLightOff == 0.0f)
             {
-                this.enemy = Instantiate(enemyPrefab);
-                this.exist = 1;
-                this.patten = 1;
+                Appear_SlowEnemy();
+            }
+
+            if (All_RoomLightOff == 0f) //when the player turn on any light
+            {
+                Destroy(enemy);
+                exist = 0;
             }
 
         }
-        if (scene.name == "Path")
-        {
+        
             
-            int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
+        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
 
-            for (int i = 0; i < RoomLights.Length; i++)
-            {
-                check *= RoomLights[i];
-
-            }
-            AllLightOff = check;
-
-            if (this.exist == 0 && this.AllLightOff == 1.0f)
-            {
-
-                this.enemy = Instantiate(enemyPrefab);
-                this.exist = 1;
-                this.patten = 2;
-            }
-
-        }
-
-       
-        if (AllLightOff == 0f) //when the player turn on any light
+        for (int i = 0; i < RoomLights.Length; i++)
         {
-            Destroy(enemy);
-            exist = 0;
+            check *= RoomLights[i];
+        }
+        AllLightOff = check;
+
+        if (this.exist == 0 && this.AllLightOff == 1.0f)
+        {
+            Appear_FastEnemy();
         }
 
+    }
 
+    void Appear_SlowEnemy()
+    {
+        this.enemy = Instantiate(slow_enemyPrefab);
+        this.exist = 1;
+        this.patten = 1;
+    }
+
+    void Appear_FastEnemy()
+    {
+        this.enemy = Instantiate(fast_enemyPrefab);
+        this.exist = 1;
+        this.patten = 2;
     }
 }

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Untouchable
   - Cabinet
+  - Enemy
+  - Light
+  - ExitRoom
+  - IntoRoom
   layers:
   - Default
   - TransparentFX

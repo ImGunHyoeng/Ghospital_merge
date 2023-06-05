@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
-    GameObject[] enemy;
     GameObject lightdir;
     GameObject phone;
     public int show_ph;
@@ -57,7 +56,7 @@ public class GameDirector : MonoBehaviour
             }
             delta = 0;
         }
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        
     }
 
 
@@ -76,8 +75,14 @@ public class GameDirector : MonoBehaviour
         SceneManager.LoadScene("MeetEnemy");
     }
 
+    public void ExitRoom()
+    {
+        GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().exist = 0;
+        SceneManager.LoadScene("Path");
+    }
     public void IntoRoom()
     {
+        GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().exist = 0;
         SceneManager.LoadScene("Play");
     }
 }
