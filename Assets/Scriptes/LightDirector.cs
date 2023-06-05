@@ -18,7 +18,11 @@ public class LightDirector : MonoBehaviour
                */
     public void Start()
     {
-      
+        GameObject[] light = GameObject.FindGameObjectsWithTag("Light");// Find Light in room
+        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights; //Direct Room Light get off
+
+        for (int i = 0; i < light.Length; i++)
+            light[i].GetComponent<LightController>().lightOff = RoomLights[i]; //Get the RoomLight's number and set Lightoff or on 
     }
     void Update()
     {
@@ -26,24 +30,18 @@ public class LightDirector : MonoBehaviour
         int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights; //Direct Room Light get off
 
         for (int i = 0; i < light.Length; i++)
-            light[i].GetComponent<LightController>().lightOff = RoomLights[i]; //Get the RoomLight's number and set Lightoff or on 
+              RoomLights[i] = light[i].GetComponent<LightController>().lightOff; //Get the RoomLight's number and set Lightoff or on 
 
+    }
 
-
-        //GameObject[] light = GameObject.FindGameObjectsWithTag("Light");
-        //int a = Random.Range(0, light.Length);
-        //delta += Time.deltaTime;
-        //if (delta > span)
-        //{
-        //    int random = Random.Range(0, 10);
-        //    if (ratio > random)
-        //    {
-        //        if (light[a].GetComponent<LightController>().lightOff == 0)
-        //        {
-        //            light[a].GetComponent<LightController>().lightOff = 1;
-        //        }
-        //    }
-        //    delta = 0;
-        //}
+    public void Player_Turn_On_the_Light()
+    {
+        
+        GameObject[] light = GameObject.FindGameObjectsWithTag("Light");
+        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
+        for (int i = 0; i < light.Length; i++)
+        {
+            light[i].GetComponent<LightController>().lightOff = 0;
+        }
     }
 }
