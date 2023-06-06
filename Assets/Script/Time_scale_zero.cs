@@ -8,6 +8,7 @@ public class Time_scale_zero : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
+        Debug.Log(Time.timeScale);
     }
 
     // Update is called once per frame
