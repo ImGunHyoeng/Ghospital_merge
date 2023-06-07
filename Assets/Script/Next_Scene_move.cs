@@ -14,7 +14,6 @@ public class Next_Scene_move: MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
         StartCoroutine(move_scene());
         
     }

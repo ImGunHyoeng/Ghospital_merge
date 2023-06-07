@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float power;
     public float nomal_speed;
     static Vector3 localscale;
+    Vector3 spawn_point;
     SpriteRenderer sprite;
 
     int s_namesize;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         localscale = transform.localScale;
+        spawn_point = transform.position;
     }
     void Start()
     {
@@ -75,6 +77,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(spawn_point);
         StartCoroutine(P_isnotvisible_scene());
         player_slider_update();//�����̴��� ������Ʈ ����
         
@@ -108,7 +111,12 @@ public class PlayerController : MonoBehaviour
         not_visible_S_name[1] = "inside";
         not_visible_S_name[2] = "Title";
     }
-    void P_spawn() { transform.position = localscale; }
+    IEnumerator Velocity_zero()
+    {
+        Player_rb.velocity= Vector3.zero;
+        yield return new WaitForSeconds(0.5f);
+    }
+    void P_spawn() { transform.position = spawn_point; Player_rb.gravityScale = 1; }
     //is not visible scene? check function
     IEnumerator P_isnotvisible_scene()
     {
@@ -133,12 +141,14 @@ public class PlayerController : MonoBehaviour
             P_sprite_Y_visible();
             canvas_visible();
             //P_spawn();
+            if (isspawn)
+            {
+                StartCoroutine(Velocity_zero());
+                P_spawn();
+                isspawn = false;
+            }
         }
-        if(isspawn)
-        {
-            P_spawn();
-            isspawn = false;
-        }
+        
         
     }
     void canvas_invisible()
@@ -166,8 +176,9 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene("inside");
         yield return new WaitForSeconds(0.1f);
         //P_isnotvisible_scene();
-        P_sprite_N_visible();
         Player_rb.gravityScale = 0;
+        P_sprite_N_visible();
+        
         stamina_useable_time = 0;
         yield return new WaitForSeconds(2f);
         while (true)

@@ -8417,9 +8417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f71bb29be75c047bede52d305d6c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   slow_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
   fast_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
   enemy_exist: 0
+=======
+  slow_enemyPrefab: {fileID: 0}
+  fast_enemyPrefab: {fileID: 0}
+  exist: 0
+>>>>>>> 1fdcaf6987671d1c8858f9f7a7c8c7cf1ddc4904
   All_RoomLightOff: 0
   AllLightOff: 0
   patten: 0
