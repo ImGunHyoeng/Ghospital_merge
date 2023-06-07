@@ -9,9 +9,10 @@ public class EnemyGenerator : MonoBehaviour
     GameObject enemy;
     public GameObject slow_enemyPrefab;
     public GameObject fast_enemyPrefab;
-    public int exist = 0; 
-    public float All_RoomLightOff; 
-    public float AllLightOff; 
+    public bool enemy_exist; 
+    [SerializeField] bool All_RoomLightOff;
+    [SerializeField] bool AllLightOff;
+    [SerializeField] float check;
     public int patten;
     Scene scene;
 
@@ -29,68 +30,94 @@ public class EnemyGenerator : MonoBehaviour
     }
     private void Start()
     {
-        AllLightOff = 0;
-        All_RoomLightOff = 0;
+        AllLightOff = false;
+        All_RoomLightOff = false;
+        enemy_exist = false;
     }
 
 
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        float check = 1.0f;
+        check = 1.0f;
         
-        if (scene.name == "Play")
+        if (scene.name == "PatientRoom101" || scene.name == "PatientRoom102")
         {
-            
+
+            Check_Room_Light();
+
+        }
+
+        Check_ALL_Light();
+
+    }
+
+    void Check_Room_Light()
+    {
             GameObject[] off = GameObject.FindGameObjectsWithTag("Light");
 
             for (int i = 0; i < off.Length; i++)
             {
-                check *= off[i].GetComponent<LightController>().lightOff; 
+                check *= off[i].GetComponent<LightController>().lightOff;
             }
-            
-            All_RoomLightOff = check;
 
-            if (this.exist == 0 && this.All_RoomLightOff == 1.0f && AllLightOff == 0.0f)
+            if (check == 1)
+            {
+                All_RoomLightOff = true;
+            }
+            if (check == 0)
+            {
+                All_RoomLightOff = false;
+            }
+
+            if (this.enemy_exist == false && this.All_RoomLightOff == true && AllLightOff == false)
             {
                 Appear_SlowEnemy();
             }
 
-            if (All_RoomLightOff == 0f) //when the player turn on any light
+            if (All_RoomLightOff == false) //when the player turn on any light
             {
                 Destroy(enemy);
-                exist = 0;
+                enemy_exist = false;
             }
+    }
 
-        }
-        
-            
+    void Check_ALL_Light()
+    {
         int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
 
         for (int i = 0; i < RoomLights.Length; i++)
         {
             check *= RoomLights[i];
         }
-        AllLightOff = check;
 
-        if (this.exist == 0 && this.AllLightOff == 1.0f)
+        if (check == 1)
+        {
+            AllLightOff = true;
+        }
+        if (check == 0)
+        {
+            AllLightOff = false;
+        }
+
+
+        if (this.enemy_exist == false && this.AllLightOff == true)
         {
             Appear_FastEnemy();
         }
-
     }
 
     void Appear_SlowEnemy()
     {
         this.enemy = Instantiate(slow_enemyPrefab);
-        this.exist = 1;
+        this.enemy_exist = true;
         this.patten = 1;
     }
 
     void Appear_FastEnemy()
     {
         this.enemy = Instantiate(fast_enemyPrefab);
-        this.exist = 1;
+        this.enemy_exist = true;
         this.patten = 2;
     }
 }

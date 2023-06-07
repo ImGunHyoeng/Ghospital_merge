@@ -41,4 +41,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Path.unity
     guid: f80db60754d49524f86723005d358845
+  - enabled: 1
+    path: Assets/Scenes/PatientRoom101.unity
+    guid: 2a66e60472eb84a46bbcb662d5253f16
+  - enabled: 1
+    path: Assets/Scenes/PatientRoom102.unity
+    guid: b927f3b9d3e276a468618b34eb43f984
+  - enabled: 1
+    path: Assets/Scenes/TestPath.unity
+    guid: 46c03c385dee36e4dbadc33d82790413
   m_configObjects: {}

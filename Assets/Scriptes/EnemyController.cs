@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
     Transform playerpos;
     public int patten;
     GameObject generator;
-    float enemyOn;
     public Sprite fast_monster;
 
 
@@ -56,24 +55,12 @@ public class EnemyController : MonoBehaviour
         
     }
 
-
-
-    //public void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log("col");
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("col");
-    //        this.director.GetComponent<GameDirector>().meetEnemy();
-    //    }
-    //}
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("col");
+        
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("col");
+            
             this.director.GetComponent<GameDirector>().meetEnemy();
         }
     }

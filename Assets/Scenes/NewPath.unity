@@ -1196,9 +1196,10 @@ GameObject:
   - component: {fileID: 95646621}
   - component: {fileID: 95646624}
   - component: {fileID: 95646625}
+  - component: {fileID: 95646626}
   m_Layer: 0
   m_Name: Door_101
-  m_TagString: IntoRoom
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1319,6 +1320,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.75, y: 3.76}
   m_EdgeRadius: 0
+--- !u!114 &95646626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95646620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e4f49407e90c40adc60069cddd42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newScene: PatientRoom101
 --- !u!1 &106942431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7831,6 +7845,7 @@ MonoBehaviour:
   enemy_exist: 0
   All_RoomLightOff: 0
   AllLightOff: 0
+  check: 0
   patten: 0
 --- !u!4 &1612229054
 Transform:
@@ -8624,10 +8639,11 @@ GameObject:
   - component: {fileID: 1715432116}
   - component: {fileID: 1715432115}
   - component: {fileID: 1715432113}
+  - component: {fileID: 1715432118}
   - component: {fileID: 1715432114}
   m_Layer: 0
   m_Name: Door_102
-  m_TagString: IntoRoom
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8748,6 +8764,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1715432118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715432112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e4f49407e90c40adc60069cddd42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newScene: PatientRoom102
 --- !u!1 &1717615825
 GameObject:
   m_ObjectHideFlags: 0

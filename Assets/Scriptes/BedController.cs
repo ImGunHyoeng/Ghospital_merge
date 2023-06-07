@@ -11,20 +11,19 @@ public class BedController : MonoBehaviour
 
     public int trigger_time;
     float delta;
-    public Sprite inperson;
+    public Sprite full;
     public Sprite empty;
     public int ratio;
-    GameObject patient;
+    public GameObject GetDown_patient;
     GameObject clock;
-    public int patient_ON;
+    public bool patient_exit;
 
     private void Start()
     {
         delta = 0;
         ratio = 5;
-        patient = GameObject.Find("Patient");
         clock = GameObject.Find("Time");
-        patient_ON = 1;
+        patient_exit = true;
     }
 
     private void Update()
@@ -43,32 +42,20 @@ public class BedController : MonoBehaviour
             }
         }
 
-        //if (patient.GetComponent<PatientController>().PatientMove())
-        //{
-        //    PatientGone();
-        //}
-
     }
 
     //환자 생성과 삭제
     public void PatientGone()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = this.empty;
-        patient_ON = 0;
-        patient.SetActive(true);   
+        patient_exit = false;
+       // GetDown_patient.SetActive(true);   
     }
 
     public void PatientComeback()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = this.inperson;
-        patient_ON = 1;
-        patient.SetActive(false);
+        gameObject.GetComponent<SpriteRenderer>().sprite = this.full;
+        patient_exit = true;
+      //  GetDown_patient.SetActive(false);
     }
-
-
-    
-
-    
-
-
 }

@@ -1012,10 +1012,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296816f92bf82304a8e5c7b15c1eaa44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  show_ph: 0
   timeScale: 0
   RoomLights: 000000000000000000000000000000000000000000000000
   PatientinBed: 000000000000000000000000000000000000000000000000
+  check_Time: 3
+  delay_Time: 3
   ratio: 5
 --- !u!4 &65476083
 Transform:
@@ -6082,10 +6083,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger_time: 0
-  inperson: {fileID: 21300000, guid: 20e445e86b428ed4093731d19f51bb8a, type: 3}
+  full: {fileID: 0}
   empty: {fileID: 21300000, guid: abb4f1a62a10b5849b7bcddac5135e36, type: 3}
   ratio: 0
-  patient_ON: 0
+  GetDown_patient: {fileID: 0}
+  patient_exit: 0
 --- !u!1 &1001236209
 GameObject:
   m_ObjectHideFlags: 0
@@ -8371,6 +8373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ratio: 5
+  Room_number: 101
 --- !u!4 &1607900160
 Transform:
   m_ObjectHideFlags: 0
@@ -8414,7 +8417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f71bb29be75c047bede52d305d6c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  slow_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  fast_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  enemy_exist: 0
+  All_RoomLightOff: 0
   AllLightOff: 0
   patten: 0
 --- !u!4 &1612229054

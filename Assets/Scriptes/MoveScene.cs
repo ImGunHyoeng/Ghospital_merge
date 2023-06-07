@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveScene : MonoBehaviour
 {
     GameObject director;
     bool Can_Enter;
+    
     private void Start()
     {
         Can_Enter = false;
@@ -18,15 +20,10 @@ public class MoveScene : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                if(gameObject.CompareTag("ExitRoom"))
+                if(gameObject.CompareTag("Door"))
                 {
-                    director.GetComponent<GameDirector>().ExitRoom();
-                }
-
-                if(gameObject.CompareTag("IntoRoom"))
-                {
-                    Debug.Log("Check Overlap with Door");
-                    director.GetComponent<GameDirector>().IntoRoom();
+                    GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().enemy_exist = false;
+                    GetComponent<SceneSelector>().ChangeScene();
                 }
             }
         }
@@ -48,4 +45,6 @@ public class MoveScene : MonoBehaviour
             Can_Enter = false;
         }
     }
+
+    
 }

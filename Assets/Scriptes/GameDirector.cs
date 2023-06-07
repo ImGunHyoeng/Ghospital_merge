@@ -6,16 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
-    GameObject lightdir;
-    GameObject phone;
-    public int show_ph;
     public float timeScale;
 
     public int[] RoomLights = { 0, 0, 0, 0, 0, 0 };
     public int[] PatientinBed = { 0, 0, 0, 0, 0, 0 };
-    float span = 3.0f;
+    [SerializeField]float check_Time = 3.0f; 
+    [SerializeField]float delay_Time = 3.0f; //when the one light off, set delay
     float delta = 0;
-    public int ratio = 5;
+    [SerializeField] int ratio = 5; //probability of light turn off randomly
+   
 
     private void Awake()
     {
@@ -31,32 +30,47 @@ public class GameDirector : MonoBehaviour
     }
     private void Start()
     {
-       
-        lightdir = GameObject.Find("LightDirector");
-        phone = GameObject.Find("Playmenu");
-        show_ph = 0;
         timeScale = 1;
     }
 
     private void Update()
     {
-        Time.timeScale = timeScale; //Manage game Runing
+        Time.timeScale = timeScale; //Manage Fps
 
-        int a = Random.Range(0, RoomLights.Length);
+        Automatically_light_OFF();
+
+
+    }
+
+    public void Automatically_light_OFF()
+    {
+        int a = Random.Range(0, RoomLights.Length); //get random light_number
+
         delta += Time.deltaTime;
-        if (delta > span)
+        if (delta > check_Time) // check light every checktime
         {
+           
             int random = Random.Range(0, 10);
             if (ratio > random)
             {
                 if (RoomLights[a] == 0)
                 {
                     RoomLights[a] = 1;
+                    Delay();
                 }
             }
             delta = 0;
         }
-        
+    }
+
+    private void Delay()
+    {
+        delta += Time.deltaTime;
+        if (delta > delay_Time)
+        {
+            delta = 0;
+            return;
+        }
     }
 
 
@@ -75,14 +89,5 @@ public class GameDirector : MonoBehaviour
         SceneManager.LoadScene("MeetEnemy");
     }
 
-    public void ExitRoom()
-    {
-        GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().exist = 0;
-        SceneManager.LoadScene("Path");
-    }
-    public void IntoRoom()
-    {
-        GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().exist = 0;
-        SceneManager.LoadScene("Play");
-    }
+    
 }

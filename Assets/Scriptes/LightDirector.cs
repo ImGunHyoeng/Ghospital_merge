@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class LightDirector : MonoBehaviour
 {
-    float span = 3.0f;
-    float delta = 0;
     public int ratio = 5; // 매 프레임마다 50%확률
+    public int Room_number;
 
 
     /* 플레이어가 방안에 있거나 다른 전등이 꺼진 시간이  얼마 지나지 않았거나 불을 킨지 얼마 지나지 않았다면 꺼지지 않기
@@ -22,7 +21,7 @@ public class LightDirector : MonoBehaviour
         int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights; //Direct Room Light get off
 
         for (int i = 0; i < light.Length; i++)
-            light[i].GetComponent<LightController>().lightOff = RoomLights[i]; //Get the RoomLight's number and set Lightoff or on 
+            light[i].GetComponent<LightController>().lightOff = RoomLights[i + (light.Length * (Room_number - 101))]; //Get the RoomLight's number and set Lightoff or on 
     }
     void Update()
     {
@@ -30,7 +29,7 @@ public class LightDirector : MonoBehaviour
         int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights; //Direct Room Light get off
 
         for (int i = 0; i < light.Length; i++)
-              RoomLights[i] = light[i].GetComponent<LightController>().lightOff; //Get the RoomLight's number and set Lightoff or on 
+              RoomLights[i + (light.Length * (Room_number - 101))] = light[i].GetComponent<LightController>().lightOff; //Get the RoomLight's number and set Lightoff or on 
 
     }
 
