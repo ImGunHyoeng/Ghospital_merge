@@ -84,7 +84,7 @@ public class EnemyGenerator : MonoBehaviour
 
     void Check_ALL_Light()
     {
-        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().RoomLights;
+        int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().Room_Lights;
 
         for (int i = 0; i < RoomLights.Length; i++)
         {

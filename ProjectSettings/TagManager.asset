@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Light
   - Door
+  - Bed
   layers:
   - Default
   - TransparentFX

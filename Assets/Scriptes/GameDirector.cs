@@ -8,13 +8,18 @@ public class GameDirector : MonoBehaviour
 {
     public float timeScale;
 
-    public int[] RoomLights = { 0, 0, 0, 0, 0, 0 };
-    public int[] PatientinBed = { 0, 0, 0, 0, 0, 0 };
+    public int[] Room_Lights = { 0, 0, 0, 0, 0, 0 };
+    public int[] Room_Patients = { 1, 1, 1, 1, 1, 1 };
+
     [SerializeField]float check_Time = 3.0f; 
-    [SerializeField]float delay_Time = 3.0f; //when the one light off, set delay
+    [SerializeField]float delay_Time = 5.0f; //when the one light off, set delay
     float delta = 0;
-    [SerializeField] int ratio = 5; //probability of light turn off randomly
-   
+    float delay_delta = 0;
+    [SerializeField] int TurnOFF_ratio = 5; //probability of light turn off randomly
+    [SerializeField] int Disappear_ratio = 5; //probability of patient disappear randomly
+
+    [SerializeField] bool one_light_off_immediately;
+    [SerializeField] bool one_patient_disappear_immediately;
 
     private void Awake()
     {
@@ -31,47 +36,74 @@ public class GameDirector : MonoBehaviour
     private void Start()
     {
         timeScale = 1;
+        one_light_off_immediately = false;
+        one_patient_disappear_immediately = false;
     }
 
     private void Update()
     {
         Time.timeScale = timeScale; //Manage Fps
-
-        Automatically_light_OFF();
+        delay_delta -= Time.deltaTime;
+        if(delay_delta <= 0f)
+        {
+            Automatically_light_OFF();
+            Automatically_Patient_disappear();
+            delay_delta = 0f;
+        }
+       
+        if(one_light_off_immediately == true || one_patient_disappear_immediately == true)
+        {
+            delay_delta = delay_Time;
+            one_light_off_immediately = false;
+            one_patient_disappear_immediately = false;
+        }
+        
 
 
     }
 
     public void Automatically_light_OFF()
     {
-        int a = Random.Range(0, RoomLights.Length); //get random light_number
+        int a = Random.Range(0, Room_Lights.Length); //get random light_number
 
         delta += Time.deltaTime;
         if (delta > check_Time) // check light every checktime
         {
            
             int random = Random.Range(0, 10);
-            if (ratio > random)
+            if (TurnOFF_ratio > random)
             {
-                if (RoomLights[a] == 0)
+                if (Room_Lights[a] == 0)
                 {
-                    RoomLights[a] = 1;
-                    Delay();
+                    Room_Lights[a] = 1;
+                    one_light_off_immediately = true;
                 }
             }
             delta = 0;
         }
     }
 
-    private void Delay()
+    public void Automatically_Patient_disappear()
     {
+        int a = Random.Range(0, Room_Patients.Length); //get random light_number
+
         delta += Time.deltaTime;
-        if (delta > delay_Time)
+        if (delta > check_Time) // check light every checktime
         {
+
+            int random = Random.Range(0, 10);
+            if (Disappear_ratio > random)
+            {
+                if (Room_Patients[a] == 1)
+                {
+                    Room_Patients[a] = 0;
+                    one_patient_disappear_immediately = true;
+                }
+            }
             delta = 0;
-            return;
         }
     }
+
 
 
     public void TimeStop()
@@ -87,6 +119,13 @@ public class GameDirector : MonoBehaviour
    public void meetEnemy()
     {
         SceneManager.LoadScene("MeetEnemy");
+    }
+
+    public void LiftPatient()
+    {
+        //1. play animation that patient get's up and go back to bed
+        //2. make patient's bed full
+        //3. set delay
     }
 
     

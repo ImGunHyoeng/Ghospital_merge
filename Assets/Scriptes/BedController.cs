@@ -8,54 +8,84 @@ public class BedController : MonoBehaviour
     // 커튼에 e를 눌러서 열어보면 환자가 있는지 없는지 알 수 있다.
     // 환자가 없어지면 랜점한 장소에 환자가 쓰러져있고 상호작용해서 일으켜 돌아갈 수 있다.
     // 방을 벗어나도 계속 동작해야한다.
+    bool Can_Check;
 
-    public int trigger_time;
-    float delta;
+    public GameObject director;
     public Sprite full;
     public Sprite empty;
-    public int ratio;
-    public GameObject GetDown_patient;
-    GameObject clock;
-    public bool patient_exit;
+    public Sprite cutton;
+
+    
+    public int patient_exist;
 
     private void Start()
     {
-        delta = 0;
-        ratio = 5;
-        clock = GameObject.Find("Time");
-        patient_exit = true;
+        Can_Check = false;
+        patient_exist = 1;
+       
     }
 
     private void Update()
     {
-        if (clock.GetComponent<Phone_TImer>().gettime() >= 3) //if clock time is more than 3AM
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            delta += Time.deltaTime; //Patient Event Start
-            if (delta > 5.0f)
+            if(Can_Check == true)
             {
-                int rand_num = Random.Range(0, 10);
-                if (rand_num > ratio)
-                {
-                    PatientGone();
-                }
-                delta = 0f;
+                Open_Cutton();
             }
         }
-
     }
 
-    //환자 생성과 삭제
+    void Open_Cutton()
+    {
+        if (patient_exist == 1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = this.full;
+            StartCoroutine(Close_Cutton());
+           
+        }
+
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = this.empty;
+            StartCoroutine(Close_Cutton());
+           
+        }
+    }
+
+
+    //change sprite according to patient exist
     public void PatientGone()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = this.empty;
-        patient_exit = false;
-       // GetDown_patient.SetActive(true);   
+        patient_exist = 0;
     }
 
     public void PatientComeback()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = this.full;
-        patient_exit = true;
-      //  GetDown_patient.SetActive(false);
+        patient_exist = 1;
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))      
+        {
+            Can_Check = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Can_Check = false;
+        }
+    }
+
+    IEnumerator Close_Cutton()
+    {
+        yield return new WaitForSeconds(3.0f);
+        gameObject.GetComponent<SpriteRenderer>().sprite = this.cutton;
+    }
+    
+
 }
