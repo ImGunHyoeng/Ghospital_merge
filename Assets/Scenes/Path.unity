@@ -1065,6 +1065,8 @@ MonoBehaviour:
   Room_Patients: 010000000100000001000000010000000100000001000000
   check_Time: 3
   delay_Time: 3
+  patient_Limit_Time: 30
+  patient_Limit_Timer: {fileID: 0}
   TurnOFF_ratio: 5
   Disappear_ratio: 5
   one_light_off_immediately: 0

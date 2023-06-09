@@ -23,6 +23,7 @@ public class Next_Scene_move_R : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (timer != null)
         if (timer.isWork())
         {
             if (collision.tag == "Player")
