@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6642164135887028237, guid: 9d63343f80585ea4394e49e873bfd823, type: 3}
       propertyPath: newScene
-      value: PatientRoom101
+      value: NewPath
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d63343f80585ea4394e49e873bfd823, type: 3}
@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786989243555345693, guid: b86a4f263d4685941a92721ba80628e9, type: 3}
       propertyPath: newScene
-      value: PatientRoom101
+      value: NewPath
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86a4f263d4685941a92721ba80628e9, type: 3}
