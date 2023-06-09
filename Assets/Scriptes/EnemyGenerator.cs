@@ -39,7 +39,7 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        check = 1.0f;
+        check = 0f;
         
         if (scene.name == "PatientRoom101" || scene.name == "PatientRoom102")
         {
@@ -58,14 +58,14 @@ public class EnemyGenerator : MonoBehaviour
 
             for (int i = 0; i < off.Length; i++)
             {
-                check *= off[i].GetComponent<LightController>().lightOff;
+                check += off[i].GetComponent<LightController>().lightOff;
             }
 
-            if (check == 1)
+            if (check == 0)
             {
                 All_RoomLightOff = true;
             }
-            if (check == 0)
+            if (check == 1)
             {
                 All_RoomLightOff = false;
             }
@@ -88,14 +88,14 @@ public class EnemyGenerator : MonoBehaviour
 
         for (int i = 0; i < RoomLights.Length; i++)
         {
-            check *= RoomLights[i];
+            check += RoomLights[i];
         }
 
-        if (check == 1)
+        if (check == 0)
         {
             AllLightOff = true;
         }
-        if (check == 0)
+        if (check == 1)
         {
             AllLightOff = false;
         }

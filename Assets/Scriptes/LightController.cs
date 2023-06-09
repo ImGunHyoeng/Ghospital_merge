@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightController : MonoBehaviour
 {
     SpriteRenderer sr;
-    public int lightOff = 0;
+    public int lightOff = 1;
 
     private void Start()
     {
@@ -14,11 +14,11 @@ public class LightController : MonoBehaviour
     void Update()
     {
 
-       if(lightOff == 0)
+       if(lightOff == 1)
         {
             sr.material.color = new Color(1, 1, 1);
         }
-        if (lightOff == 1)
+        if (lightOff == 0)
         {
             sr.material.color = new Color(0, 0, 0);
         }
