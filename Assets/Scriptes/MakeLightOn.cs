@@ -7,6 +7,7 @@ public class MakeLightOn : MonoBehaviour
 
     bool Can_TurnOn;
     GameObject lightdirector;
+    AudioSource light;
    
     void Start()
     {
@@ -38,6 +39,7 @@ public class MakeLightOn : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 lightdirector.GetComponent<LightDirector>().Player_Turn_On_the_Light();
+                light.Play();
             }
         }
         
