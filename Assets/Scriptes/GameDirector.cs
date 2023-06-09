@@ -72,7 +72,7 @@ public class GameDirector : MonoBehaviour
             patient_delta += Time.deltaTime;
             if (patient_delta >= 1.0f)
             {
-                Debug.Log(patient_delta);
+                
                 patient_Limit_Time -= 1.0f;
                 if (patient_Limit_Time <= 20f)
                 {
