@@ -127,9 +127,9 @@ public class PlayerController : MonoBehaviour
         {
             DataManager.instance.LoadData();
             int div = DataManager.instance.playerData.movedirection;
-            
-            if (div == -1)transform.position = right.position;
-            if(div==1)transform.position=left.position;
+
+            if (div == -1) transform.position = right.position;// +new Vector3(-10,0,0);
+            if (div == 1) transform.position = left.position;// +new Vector3(10,0,0);
             scene_update=false;
         }
         //Debug.Log(spawn_point);

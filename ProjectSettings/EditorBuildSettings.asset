@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Next Path.unity
     guid: ee7bf8d45b3376e4fbfbe01ae4a1c78a
   - enabled: 1
+    path: Assets/Scenes/BathRoom.unity
+    guid: 351abd070e7ec304983fa2c07b8f8704
+  - enabled: 1
     path: Assets/Scenes/Path.unity
     guid: f80db60754d49524f86723005d358845
   - enabled: 1
@@ -47,9 +50,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PatientRoom102.unity
     guid: b927f3b9d3e276a468618b34eb43f984
-  - enabled: 0
-    path: Assets/Scenes/TestPath.unity
-    guid: 46c03c385dee36e4dbadc33d82790413
   - enabled: 1
     path: Assets/Scenes/NewPath.unity
     guid: 275168483771f734bba37bd9463a10e8
