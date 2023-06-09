@@ -39,7 +39,7 @@ public class LightDirector : MonoBehaviour
         int[] RoomLights = GameObject.Find("GameDirector").GetComponent<GameDirector>().Room_Lights;
         for (int i = 0; i < light.Length; i++)
         {
-            light[i].GetComponent<LightController>().lightOff = 0;
+            light[i].GetComponent<LightController>().lightOff = 1;
         }
     }
 }
