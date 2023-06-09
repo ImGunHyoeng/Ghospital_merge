@@ -21,7 +21,7 @@ public class DataManager : MonoBehaviour
     //싱글톤
     public static DataManager instance;
     // Start is called before the first frame update
-    public Player_Data playerData = new Player_Data();
+    public Player_Data playerData=new Player_Data();// Player_Data();
     private void Awake()
     {
         #region 싱글톤//해당하는공간 나타내기
@@ -36,6 +36,7 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         #endregion  
         path = Application.persistentDataPath+ "/player_data";//유니티에서 제공해주는 파일
+        
     }
 
     private void Start()
@@ -43,7 +44,7 @@ public class DataManager : MonoBehaviour
         string data=JsonUtility.ToJson(playerData);
         //print(path);
         File.WriteAllText(path+nowSlot, data);//path+filename을 한다면은 파일의 저장공간과 파일의 이름까지 지정이 가능하다.
-
+        print(data);
     }
     public void SaveData()
     {

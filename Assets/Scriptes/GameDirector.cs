@@ -46,7 +46,7 @@ public class GameDirector : MonoBehaviour
         delay_delta -= Time.deltaTime;
         if(delay_delta <= 0f)
         {
-            Debug.Log("End Delay");
+            //Debug.Log("End Delay");
             Automatically_light_OFF();
             Automatically_Patient_disappear();
             delay_delta = 0f;
@@ -55,7 +55,7 @@ public class GameDirector : MonoBehaviour
         if(one_light_off_immediately == true || one_patient_disappear_immediately == true)
         {
             delay_delta = delay_Time;
-            Debug.Log("Make Delay");
+            //Debug.Log("Make Delay");
             one_light_off_immediately = false;
             one_patient_disappear_immediately = false;
         }
