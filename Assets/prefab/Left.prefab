@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3998083871053398283}
   - component: {fileID: -8448464136520937878}
   - component: {fileID: -6598190433130393669}
+  - component: {fileID: 5871605863800269520}
   - component: {fileID: 8786989243555345693}
   m_Layer: 0
   m_Name: Left
@@ -73,7 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab149c502bf550f41bd8a6b2666dca87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSelector: {fileID: 0}
+  timer: {fileID: 5871605863800269520}
+  SceneSelector: {fileID: 8786989243555345693}
 --- !u!331 &-8448464136520937878
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -175,6 +177,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5871605863800269520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998083871053398286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2658f18d2d3b9c0479f0afa450196e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
 --- !u!114 &8786989243555345693
 MonoBehaviour:
   m_ObjectHideFlags: 0

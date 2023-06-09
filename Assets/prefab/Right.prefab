@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6105460961712954559}
   - component: {fileID: 6642164135887028237}
   - component: {fileID: 296241161724794534}
+  - component: {fileID: 540092695605684416}
   m_Layer: 0
   m_Name: Right
   m_TagString: Right
@@ -187,3 +188,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fe06edd1eeafd4d9371e3d1ef57d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 540092695605684416}
+  SceneSelector: {fileID: 6642164135887028237}
+--- !u!114 &540092695605684416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5630720109659566823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2658f18d2d3b9c0479f0afa450196e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2

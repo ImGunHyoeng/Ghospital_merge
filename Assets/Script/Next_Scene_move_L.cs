@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Next_Scene_move_L: MonoBehaviour
 {
+    public Scene_timer timer;
     public SceneSelector SceneSelector;
     // Start is called before the first frame update
-    IEnumerator move_scene ()
+    IEnumerator move_scene()
     {
-        
+
         DataManager.instance.playerData.movedirection = -1;
         DataManager.instance.SaveData();
 
         SceneSelector.ChangeScene();
-        //SceneManager.LoadScene( SceneSelector.ChangeScene());
+        //SceneManager.LoadScene("Next Path");
         //yield return new WaitForSeconds(1);
         PlayerController.set_move_scene();
         Debug.Log(PlayerController.scene_move.ToString());
@@ -22,10 +23,14 @@ public class Next_Scene_move_L: MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if(timer != null)
+        if (timer.isWork())
         {
-            StartCoroutine(move_scene());
+            if (collision.tag == "Player")
+            {
+                StartCoroutine(move_scene());
+            }
         }
-        
+
     }
 }
