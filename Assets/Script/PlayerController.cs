@@ -4,9 +4,14 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
+
+
+    public static bool scene_move = false;
+    public static bool scene_update = false;
     Scene scene;
     Rigidbody2D Player_rb;
     BoxCollider2D Player_col;
@@ -23,7 +28,6 @@ public class PlayerController : MonoBehaviour
 
     int s_namesize;
     string []not_visible_S_name;
-
     public float stamina_useable_time_max;
     public float stamina_de_time_max;
 
@@ -52,6 +56,8 @@ public class PlayerController : MonoBehaviour
     bool ispenalti = false;
 
 
+    Transform left = null; //왼쪽 포탈의 위치
+    Transform right = null;//오른쪽 포탈의 위치
     // Start is called before the first frame update
     private void Awake()
     {
@@ -74,9 +80,58 @@ public class PlayerController : MonoBehaviour
         P_set_Not_visble_name_set();
     }
     
+    IEnumerator Find_left_right(Transform left, Transform right)
+    {
+
+        yield return new WaitForSeconds(0.3f);
+        if (scene_move == false) yield return null;
+        else if (GameObject.FindWithTag("Left") == null)
+        {
+            StartCoroutine(Find_left_right(left, right));
+        }
+        else if (GameObject.FindWithTag("Right") == null)
+        {
+            StartCoroutine(Find_left_right(left, right));
+        }
+        else
+        {
+            scene_move = false;
+            scene_update = true;
+            left = GameObject.FindWithTag("Left").GetComponent<Transform>();
+            right = GameObject.FindWithTag("Right").GetComponent<Transform>();
+            set_l_R(left, right);
+            Debug.Log(left.position);
+            Debug.Log(right.position);
+
+        }
+ /*       if (left != null && right != null)
+            yield return null;
+        else 
+        {
+            StartCoroutine(Find_left_right(left,right));
+        }*/
+        yield return null;
+    }
+    void set_l_R(Transform _left, Transform _right) { left = _left;right = _right; }
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(scene_move);
+        if(scene_move)
+        {
+             
+            StartCoroutine(Find_left_right( left, right));
+
+        }
+        if(scene_update)
+        {
+            DataManager.instance.LoadData();
+            int div = DataManager.instance.playerData.movedirection;
+            
+            if (div == -1)transform.position = right.position;
+            if(div==1)transform.position=left.position;
+            scene_update=false;
+        }
         //Debug.Log(spawn_point);
         StartCoroutine(P_isnotvisible_scene());
         player_slider_update();//�����̴��� ������Ʈ ����
@@ -103,6 +158,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     //create game set names not visible scene
+    static public void set_move_scene() { scene_move = true; }
     void P_set_Not_visble_name_set()
     {
         s_namesize = 10;
@@ -231,7 +287,7 @@ public class PlayerController : MonoBehaviour
         Player_rb.gravityScale = 0;
         isbuff = true;
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Play");
+        SceneManager.LoadScene("NewPath");
         Player_rb.gravityScale = 1;
         stamina_useable_time = stamina_useable_time_max;
         speed =nomal_speed* restroom_speed ;
