@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatientController : MonoBehaviour
 {
     // when gameobject that has patients'tag is acting,  patient can teleport to random Path or Other Room one by one randomly
-    GameObject bed;
+   
     GameObject director;
     public int number_of_patient;
 
@@ -38,7 +38,8 @@ public class PatientController : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                director.GetComponent<GameDirector>().LiftPatient();
+                // Play patient's wake up animation with Coroutine
+                director.GetComponent<GameDirector>().Room_Patients[number_of_patient] = 1;
             }
         }
     }

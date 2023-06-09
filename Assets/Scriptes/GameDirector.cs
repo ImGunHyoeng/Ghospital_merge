@@ -12,7 +12,7 @@ public class GameDirector : MonoBehaviour
     public int[] Room_Patients = { 1, 1, 1, 1, 1, 1 };
 
     [SerializeField]float check_Time = 3.0f; 
-    [SerializeField]float delay_Time = 5.0f; //when the one light off, set delay
+    [SerializeField]float delay_Time = 10.0f; //when the one light off, set delay
     float delta = 0;
     float delay_delta = 0;
     [SerializeField] int TurnOFF_ratio = 5; //probability of light turn off randomly
@@ -46,6 +46,7 @@ public class GameDirector : MonoBehaviour
         delay_delta -= Time.deltaTime;
         if(delay_delta <= 0f)
         {
+            Debug.Log("End Delay");
             Automatically_light_OFF();
             Automatically_Patient_disappear();
             delay_delta = 0f;
@@ -54,6 +55,7 @@ public class GameDirector : MonoBehaviour
         if(one_light_off_immediately == true || one_patient_disappear_immediately == true)
         {
             delay_delta = delay_Time;
+            Debug.Log("Make Delay");
             one_light_off_immediately = false;
             one_patient_disappear_immediately = false;
         }
@@ -121,7 +123,7 @@ public class GameDirector : MonoBehaviour
         SceneManager.LoadScene("MeetEnemy");
     }
 
-    public void LiftPatient()
+    public void Patient_selfDie()
     {
         //1. play animation that patient get's up and go back to bed
         //2. make patient's bed full
