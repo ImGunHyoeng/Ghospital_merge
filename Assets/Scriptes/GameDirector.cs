@@ -15,7 +15,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField]float check_Time = 3.0f; 
     [SerializeField]float delay_Time = 10.0f; //when the one light off, set delay
     [SerializeField]float patient_Limit_Time = 30.0f;
-    public GameObject patient_Limit_Timer;
+    GameObject patient_Limit_Timer;
 
     float delta = 0;
     float patient_delta = 0;
@@ -45,6 +45,7 @@ public class GameDirector : MonoBehaviour
         one_light_off_immediately = false;
         one_patient_disappear_immediately = false;
         Check_All_patient_exist = true;
+        patient_Limit_Timer = GameObject.Find("LimitTimer");
     }
 
     private void Update()
