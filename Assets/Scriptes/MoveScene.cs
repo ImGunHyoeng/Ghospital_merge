@@ -22,8 +22,8 @@ public class MoveScene : MonoBehaviour
             {
                 if(gameObject.CompareTag("Door"))
                 {
-                    GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().enemy_exist = false;
                     GetComponent<SceneSelector>().ChangeScene();
+                    //GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().enemy_exist = false;
                 }
             }
         }

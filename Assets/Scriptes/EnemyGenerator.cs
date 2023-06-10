@@ -38,6 +38,8 @@ public class EnemyGenerator : MonoBehaviour
 
     void Update()
     {
+        Check_Enemy_Exist();
+
         scene = SceneManager.GetActiveScene();
         check = 0f;
         
@@ -65,10 +67,11 @@ public class EnemyGenerator : MonoBehaviour
             {
                 All_RoomLightOff = true;
             }
-            if (check == 1)
+            if (check >= 1)
             {
                 All_RoomLightOff = false;
             }
+       
 
             if (this.enemy_exist == false && this.All_RoomLightOff == true && AllLightOff == false)
             {
@@ -78,7 +81,7 @@ public class EnemyGenerator : MonoBehaviour
             if (All_RoomLightOff == false) //when the player turn on any light
             {
                 Destroy(enemy);
-                enemy_exist = false;
+                //enemy_exist = false;
             }
     }
 
@@ -95,7 +98,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             AllLightOff = true;
         }
-        if (check == 1)
+        if (check >= 1)
         {
             AllLightOff = false;
         }
@@ -110,14 +113,26 @@ public class EnemyGenerator : MonoBehaviour
     void Appear_SlowEnemy()
     {
         this.enemy = Instantiate(slow_enemyPrefab);
-        this.enemy_exist = true;
+        //this.enemy_exist = true;
         this.patten = 1;
     }
 
     void Appear_FastEnemy()
     {
         this.enemy = Instantiate(fast_enemyPrefab);
-        this.enemy_exist = true;
+        //this.enemy_exist = true;
         this.patten = 2;
+    }
+
+    void Check_Enemy_Exist()
+    {
+        if(GameObject.FindGameObjectWithTag("Enemy"))
+        {
+            enemy_exist = true;
+        }
+        else
+        {
+            enemy_exist = false;
+        }
     }
 }

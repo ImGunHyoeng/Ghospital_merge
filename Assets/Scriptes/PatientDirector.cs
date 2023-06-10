@@ -20,7 +20,7 @@ void Start()
     
     void Update()
     {
-        Debug.Log("patient num: " + patient_num);
+        
         if(disappear_patients[patient_num] == 0)
         {
             //get_down_patient.SetActive(true);

@@ -8,7 +8,7 @@ public class MakeLightOn : MonoBehaviour
     bool Can_TurnOn;
     GameObject lightdirector;
     AudioSource light;
-   
+
     void Start()
     {
         Can_TurnOn = false;
