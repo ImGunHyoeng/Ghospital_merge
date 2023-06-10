@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,8 @@ public class Next_Scene_move_L: MonoBehaviour
     // Start is called before the first frame update
     IEnumerator move_scene()
     {
-
+        if (DataManager.instance == null)
+            yield break;//코루틴 멈추는 함수
         DataManager.instance.playerData.movedirection = -1;
         DataManager.instance.SaveData();
 
@@ -19,7 +21,8 @@ public class Next_Scene_move_L: MonoBehaviour
         //yield return new WaitForSeconds(1);
         PlayerController.set_move_scene();
         Debug.Log(PlayerController.scene_move.ToString());
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
+        yield return null;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

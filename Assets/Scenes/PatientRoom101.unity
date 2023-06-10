@@ -1018,7 +1018,6 @@ MonoBehaviour:
   check_Time: 3
   delay_Time: 3
   patient_Limit_Time: 30
-  patient_Limit_Timer: {fileID: 0}
   TurnOFF_ratio: 5
   Disappear_ratio: 5
   one_light_off_immediately: 0
@@ -4007,7 +4006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image_e: {fileID: 2800000, guid: 1c774dc28aa63704c858afb1a0209b7d, type: 3}
+  image_e: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
 --- !u!212 &558236835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6667,6 +6666,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4106792432491178525, guid: 7d24c4194f641114b8a7c6b87b2d1a26, type: 3}
+      propertyPath: image_e
+      value: 
+      objectReference: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d24c4194f641114b8a7c6b87b2d1a26, type: 3}
 --- !u!1 &1114496424
@@ -7842,6 +7845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4106792432491178525, guid: 7d24c4194f641114b8a7c6b87b2d1a26, type: 3}
+      propertyPath: image_e
+      value: 
+      objectReference: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d24c4194f641114b8a7c6b87b2d1a26, type: 3}
 --- !u!1 &1372732635
@@ -7875,7 +7882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image_e: {fileID: 2800000, guid: 1c774dc28aa63704c858afb1a0209b7d, type: 3}
+  image_e: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
 --- !u!212 &1372732637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12102,6 +12109,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4106792432491178525, guid: 7d24c4194f641114b8a7c6b87b2d1a26, type: 3}
+      propertyPath: image_e
+      value: 
+      objectReference: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d24c4194f641114b8a7c6b87b2d1a26, type: 3}
 --- !u!1001 &5579485779235958544
