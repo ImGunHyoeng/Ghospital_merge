@@ -10,9 +10,9 @@ TagManager:
   - Light
   - Door
   - Bed
-  - IntoRoom
   - Left
   - Right
+  - Patient
   layers:
   - Default
   - TransparentFX
