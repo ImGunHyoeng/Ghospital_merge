@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     bool ishide=false;
     bool usestamina = false;
     bool ispenalti = false;
-
+    int div;
 
     Transform left = null; //왼쪽 포탈의 위치
     Transform right = null;//오른쪽 포탈의 위치
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Find_left_right(Transform left, Transform right)
     {
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         if (scene_move == false) yield return null;
         else if (GameObject.FindWithTag("Left") == null)
         {
@@ -95,13 +95,15 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            
             scene_move = false;
             scene_update = true;
             left = GameObject.FindWithTag("Left").GetComponent<Transform>();
             right = GameObject.FindWithTag("Right").GetComponent<Transform>();
             set_l_R(left, right);
-            Debug.Log(left.position);
-            Debug.Log(right.position);
+            StopAllCoroutines();
+            //Debug.Log(left.position);
+            //Debug.Log(right.position);
 
         }
  /*       if (left != null && right != null)
@@ -110,7 +112,6 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Find_left_right(left,right));
         }*/
-        yield return null;
     }
     void set_l_R(Transform _left, Transform _right) { left = _left;right = _right; }
     // Update is called once per frame
@@ -125,9 +126,10 @@ public class PlayerController : MonoBehaviour
         }
         if(scene_update)
         {
+            //DataManager.instance.LoadData();
             DataManager.instance.LoadData();
-            int div = DataManager.instance.playerData.movedirection;
-
+            div = DataManager.instance.playerData.movedirection;
+            Debug.Log(div);
             if (div == -1) transform.position = right.position;// +new Vector3(-10,0,0);
             if (div == 1) transform.position = left.position;// +new Vector3(10,0,0);
             scene_update=false;

@@ -8,9 +8,10 @@ public class Scene_timer : MonoBehaviour
     bool isdone;
     private void Update()
     {
+        if(time>=0f)
         time -= Time.deltaTime;
         if(time<0f)
-            isdone = true;
+           isdone = true;
     }
     public bool isWork() { return isdone; }
 }

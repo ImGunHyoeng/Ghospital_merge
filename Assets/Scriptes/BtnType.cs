@@ -18,7 +18,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         switch (currentType)
         {
             case BTNType.New:
-                SceneLoader.LoadSceneHandle("Path", 0);
+                SceneLoader.LoadSceneHandle("NewPath", 0);
                 break;
 
             case BTNType.Countinue:

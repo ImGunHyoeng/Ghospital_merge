@@ -18,6 +18,7 @@ public class DataManager : MonoBehaviour
 {
     public string path;
     public int nowSlot;
+    static bool iswrite_start=false;
     //싱글톤
     public static DataManager instance;
     // Start is called before the first frame update
@@ -43,8 +44,11 @@ public class DataManager : MonoBehaviour
     {
         string data=JsonUtility.ToJson(playerData);
         //print(path);
-        File.WriteAllText(path+nowSlot, data);//path+filename을 한다면은 파일의 저장공간과 파일의 이름까지 지정이 가능하다.
-        print(data);
+        
+            File.WriteAllText(path + nowSlot, data);//path+filename을 한다면은 파일의 저장공간과 파일의 이름까지 지정이 가능하다.
+        //    iswrite_start = true;
+        
+        //print(data);
     }
     public void SaveData()
     {
@@ -59,9 +63,9 @@ public class DataManager : MonoBehaviour
         playerData=JsonUtility.FromJson<Player_Data>(data);//플레이어 데이터가 덮혀씌어진다.
 
     }
-    public void DataClear()
+ /*   public void DataClear()
     {
         nowSlot = -1;
         playerData=new Player_Data();
-    }
+    }*/
 }

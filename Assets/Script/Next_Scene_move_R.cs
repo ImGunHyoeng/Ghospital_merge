@@ -10,7 +10,8 @@ public class Next_Scene_move_R : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator move_scene()
     {
-
+        if (DataManager.instance == null)
+            yield break;
         DataManager.instance.playerData.movedirection = 1;
         DataManager.instance.SaveData();
 
@@ -19,7 +20,8 @@ public class Next_Scene_move_R : MonoBehaviour
         //yield return new WaitForSeconds(1);
         PlayerController.set_move_scene();
         Debug.Log(PlayerController.scene_move.ToString());
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
+        yield return null;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
