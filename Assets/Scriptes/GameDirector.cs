@@ -45,7 +45,7 @@ public class GameDirector : MonoBehaviour
         one_light_off_immediately = false;
         one_patient_disappear_immediately = false;
         Check_All_patient_exist = true;
-        patient_Limit_Timer = GameObject.Find("LimitTimer");
+        patient_Limit_Timer = GameObject.Find("Canvas_Timer");
     }
 
     private void Update()
@@ -75,13 +75,14 @@ public class GameDirector : MonoBehaviour
             {
                 
                 patient_Limit_Time -= 1.0f;
-                if (patient_Limit_Time <= 20f)
+                if (patient_Limit_Time <= 20f && patient_Limit_Time > 0f)
                 {
-                    patient_Limit_Timer.SetActive(true);
-                    patient_Limit_Timer.GetComponent<Text>().text = "Help...  " + patient_Limit_Time;
+                    patient_Limit_Timer.transform.Find("LimitTimer").gameObject.SetActive(true);
+                    patient_Limit_Timer.transform.Find("LimitTimer").gameObject.GetComponent<Text>().text = "Help...  " + patient_Limit_Time;
                 }
                 if (patient_Limit_Time <= 0f)
                 {
+                    Debug.Log("less than 0");
                     Check_Limit_Time();
                 }
                 patient_delta = 0f;
@@ -91,7 +92,7 @@ public class GameDirector : MonoBehaviour
         }
         else
         {
-            patient_Limit_Timer.SetActive(false);
+            patient_Limit_Timer.transform.Find("LimitTimer").gameObject.SetActive(false);
             patient_Limit_Time = 30f;
         }
         
