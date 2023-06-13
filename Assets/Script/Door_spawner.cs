@@ -38,12 +38,12 @@ public class Door_spawner : MonoBehaviour
         bool canSpawnhere;
 
         float transform_x= Random.RandomRange(min_x, max_x);
-        Vector3 spawnPos = new Vector3(transform_x, 0.2f, 0f);
+        Vector2 spawnPos = new Vector2(transform_x, 0.2f);
         canSpawnhere=PreventSpawnOverlap(spawnPos);
         while(!canSpawnhere)
         {
             transform_x = Random.RandomRange(min_x, max_x);
-            spawnPos = new Vector3(transform_x, 0.2f, 0f);
+            spawnPos = new Vector2(transform_x, 0.2f);
             canSpawnhere = PreventSpawnOverlap(spawnPos);
             
             if (canSpawnhere) { break; }//������ �����ϴٸ��� ����
@@ -66,12 +66,12 @@ public class Door_spawner : MonoBehaviour
         }
     }
 
-    bool PreventSpawnOverlap(Vector3 spawnpos)
+    bool PreventSpawnOverlap(Vector2 spawnpos)
     { 
-        colliders = Physics2D.OverlapBoxAll(transform.position, boundry,0);
+        colliders = Physics2D.OverlapBoxAll(spawnpos, boundry,0);
         for (int i = 0; i < colliders.Length; i++)
         {
-            Vector3 centerPoint=colliders[i].bounds.center;
+            Vector2 centerPoint=colliders[i].bounds.center;
             //bounds�� ��ü�� �������� ��ü�� �浹�ϴ� ������ ��Ÿ����.
             //bounds.center�� ��ü�� �߽����� �ǹ��Ѵ�.
             float width=colliders[i].bounds.extents.x;
@@ -79,12 +79,12 @@ public class Door_spawner : MonoBehaviour
             float height=colliders[i].bounds.extents.y;
             //extents.y�� ��ü�� ���̸� �ǹ�
 
-            float leftExtent=centerPoint.x-1 - width;
+            float leftExtent=centerPoint.x-1.5f - width;
             //�׷��Ƿ� ������ �����Ϳ��� �ʺ� ������ ������ ��谪�� �� ���� �����°�
             //���� �ǵ������� ���ͺ��� �� ���� ũ��� �ؼ� �΋Hġ�� �ʴ°��� �ش�ȭ�س���
-            float rightExtent=centerPoint.x+1 + width;
-            float lowerExtent = centerPoint.y+1 - height;
-            float upperExtent=centerPoint.y+1 + height;
+            float rightExtent=centerPoint.x+1.5f + width;
+            float lowerExtent = centerPoint.y - height;
+            float upperExtent=centerPoint.y + height;
             if(spawnpos.x>=leftExtent && spawnpos.x<=rightExtent )
             {
                 if(spawnpos.y>=lowerExtent&&spawnpos.y<=upperExtent)
