@@ -1,14 +1,17 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using TMPro;
 
 public class DialogSystem_Opening : MonoBehaviour
 {
 	[SerializeField]
-	private	Speaker[]		speakers;					// 대화에 참여하는 캐릭터들의 UI 배열
+	private Speaker_Opening[] speakers_opening;					// 대화에 참여하는 캐릭터들의 UI 배열
 	[SerializeField]
-	private	DialogData[]	dialogs;					// 현재 분기의 대사 목록 배열
+	private DialogData_Opening[]	dialogs;                    // 현재 분기의 대사 목록 배열
+	[SerializeField]
+	private BackGround_Opening bg;                      // 현재 분기의 배경화면 설정
 	[SerializeField]
 	private	bool			isAutoStart = true;			// 자동 시작 여부
 	private	bool			isFirst = true;				// 최초 1회만 호출하기 위한 변수
@@ -25,12 +28,14 @@ public class DialogSystem_Opening : MonoBehaviour
 	private void Setup()
 	{
 		// 모든 대화 관련 게임오브젝트 비활성화
-		for ( int i = 0; i < speakers.Length; ++ i )
+		for ( int i = 0; i < speakers_opening.Length; ++ i )
 		{
-			SetActiveObjects(speakers[i], false);
+			SetActiveObjects(speakers_opening[i], false);
 			// 캐릭터 이미지는 보이도록 설정
 			//speakers[i].spriteRenderer.gameObject.SetActive(true);
 		}
+
+		bg.background.gameObject.SetActive(true);
 	}
 
 	public bool UpdateDialog()
@@ -56,9 +61,9 @@ public class DialogSystem_Opening : MonoBehaviour
 				
 				// 타이핑 효과를 중지하고, 현재 대사 전체를 출력한다
 				StopCoroutine("OnTypingText");
-				speakers[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue;
+				speakers_opening[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue;
 				// 대사가 완료되었을 때 출력되는 커서 활성화
-				speakers[currentSpeakerIndex].objectArrow.SetActive(true);
+				speakers_opening[currentSpeakerIndex].objectArrow.SetActive(true);
 
 				return false;
 			}
@@ -72,12 +77,13 @@ public class DialogSystem_Opening : MonoBehaviour
 			else
 			{
 				// 현재 대화에 참여했던 모든 캐릭터, 대화 관련 UI를 보이지 않게 비활성화
-				for ( int i = 0; i < speakers.Length; ++ i )
+				for ( int i = 0; i < speakers_opening.Length; ++ i )
 				{
-					SetActiveObjects(speakers[i], false);
+					SetActiveObjects(speakers_opening[i], false);
 					// SetActiveObjects()에 캐릭터 이미지를 보이지 않게 하는 부분이 없기 때문에 별도로 호출
 					//speakers[i].spriteRenderer.gameObject.SetActive(false);
 				}
+				bg.background.gameObject.SetActive(false);
 
 				return true;
 			}
@@ -89,7 +95,7 @@ public class DialogSystem_Opening : MonoBehaviour
 	private void SetNextDialog()
 	{
 		// 이전 화자의 대화 관련 오브젝트 비활성화
-		SetActiveObjects(speakers[currentSpeakerIndex], false);
+		SetActiveObjects(speakers_opening[currentSpeakerIndex], false);
 
 		// 다음 대사를 진행하도록 
 		currentDialogIndex ++;
@@ -98,22 +104,22 @@ public class DialogSystem_Opening : MonoBehaviour
 		currentSpeakerIndex = dialogs[currentDialogIndex].speakerIndex;
 
 		// 현재 화자의 대화 관련 오브젝트 활성화
-		SetActiveObjects(speakers[currentSpeakerIndex], true);
+		SetActiveObjects(speakers_opening[currentSpeakerIndex], true);
 		// 현재 화자 이름 텍스트 설정
-		speakers[currentSpeakerIndex].textName.text = dialogs[currentDialogIndex].name;
+		speakers_opening[currentSpeakerIndex].textName.text = dialogs[currentDialogIndex].name;
 		// 현재 화자의 대사 텍스트 설정
-		//speakers[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue;
+		speakers_opening[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue;
 		StartCoroutine("OnTypingText");
 	}
 
-	private void SetActiveObjects(Speaker speaker, bool visible)
+	private void SetActiveObjects(Speaker_Opening speaker_opening, bool visible)
 	{
-		speaker.imageDialog.gameObject.SetActive(visible);
-		speaker.textName.gameObject.SetActive(visible);
-		speaker.textDialogue.gameObject.SetActive(visible);
+		speaker_opening.imageDialog.gameObject.SetActive(visible);
+		speaker_opening.textName.gameObject.SetActive(visible);
+		speaker_opening.textDialogue.gameObject.SetActive(visible);
 
 		// 화살표는 대사가 종료되었을 때만 활성화하기 때문에 항상 false
-		speaker.objectArrow.SetActive(false);
+		speaker_opening.objectArrow.SetActive(false);
 
 		// 캐릭터 알파 값 변경
 		//Color color = speaker.spriteRenderer.color;
@@ -130,7 +136,7 @@ public class DialogSystem_Opening : MonoBehaviour
 		// 텍스트를 한글자씩 타이핑치듯 재생
 		while ( index < dialogs[currentDialogIndex].dialogue.Length )
 		{
-			speakers[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue.Substring(0, index);
+			speakers_opening[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue.Substring(0, index);
 
 			index ++;
 		
@@ -140,7 +146,7 @@ public class DialogSystem_Opening : MonoBehaviour
 		isTypingEffect = false;
 
 		// 대사가 완료되었을 때 출력되는 커서 활성화
-		speakers[currentSpeakerIndex].objectArrow.SetActive(true);
+		speakers_opening[currentSpeakerIndex].objectArrow.SetActive(true);
 	}
 }
 
@@ -151,7 +157,7 @@ public struct Speaker_Opening
 	public	Image			imageDialog;		// 대화창 Image UI
 	public	TextMeshProUGUI	textName;			// 현재 대사중인 캐릭터 이름 출력 Text UI
 	public	TextMeshProUGUI	textDialogue;		// 현재 대사 출력 Text UI
-	public	GameObject		objectArrow;		// 대사가 완료되었을 때 출력되는 커서 오브젝트
+	public	GameObject		objectArrow;        // 대사가 완료되었을 때 출력되는 커서 오브젝트
 }
 
 [System.Serializable]
@@ -162,4 +168,12 @@ public struct DialogData_Opening
 	[TextArea(3, 5)]
 	public	string	dialogue;		// 대사
 }
+
+[System.Serializable]
+
+public struct BackGround_Opening
+{
+	public RawImage background;
+}
+
 
