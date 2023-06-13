@@ -29,7 +29,7 @@ public class DialogSystem_Opening : MonoBehaviour
 		{
 			SetActiveObjects(speakers[i], false);
 			// 캐릭터 이미지는 보이도록 설정
-			speakers[i].spriteRenderer.gameObject.SetActive(true);
+			//speakers[i].spriteRenderer.gameObject.SetActive(true);
 		}
 	}
 
@@ -76,7 +76,7 @@ public class DialogSystem_Opening : MonoBehaviour
 				{
 					SetActiveObjects(speakers[i], false);
 					// SetActiveObjects()에 캐릭터 이미지를 보이지 않게 하는 부분이 없기 때문에 별도로 호출
-					speakers[i].spriteRenderer.gameObject.SetActive(false);
+					//speakers[i].spriteRenderer.gameObject.SetActive(false);
 				}
 
 				return true;
@@ -116,9 +116,9 @@ public class DialogSystem_Opening : MonoBehaviour
 		speaker.objectArrow.SetActive(false);
 
 		// 캐릭터 알파 값 변경
-		Color color = speaker.spriteRenderer.color;
-		color.a = visible == true ? 1 : 0.2f;
-		speaker.spriteRenderer.color = color;
+		//Color color = speaker.spriteRenderer.color;
+		//color.a = visible == true ? 1 : 0.2f;
+		//speaker.spriteRenderer.color = color;
 	}
 
 	private IEnumerator OnTypingText()
@@ -147,7 +147,7 @@ public class DialogSystem_Opening : MonoBehaviour
 [System.Serializable]
 public struct Speaker_Opening
 {
-	public	SpriteRenderer	spriteRenderer;		// 캐릭터 이미지 (청자/화자 알파값 제어)
+	//public	SpriteRenderer	spriteRenderer;		// 캐릭터 이미지 (청자/화자 알파값 제어)
 	public	Image			imageDialog;		// 대화창 Image UI
 	public	TextMeshProUGUI	textName;			// 현재 대사중인 캐릭터 이름 출력 Text UI
 	public	TextMeshProUGUI	textDialogue;		// 현재 대사 출력 Text UI

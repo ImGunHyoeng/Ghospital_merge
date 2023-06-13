@@ -638,7 +638,7 @@ MonoBehaviour:
     dialogue: "\uC5EC\uAE30\uC5D0 \uC624\uB294\uAC8C \uC544\uB2C8\uC5C8\uB2E4..."
   - speakerIndex: 1
     name: ???
-    dialogue: "\uC544\uC8FC \uC57D\uAC04\uC774\uB77C\uB3C4"
+    dialogue: "\uC544\uC8FC \uC57D\uAC04\uC774\uB77C\uB3C4..."
   - speakerIndex: 1
     name: ???
     dialogue: "\uC758\uC2EC\uD588\uB354\uB77C\uBA74..."
@@ -1474,13 +1474,13 @@ MonoBehaviour:
   dialogs:
   - speakerIndex: 0
     name: "\uAE40\uB2E4\uBBF8"
-    dialogue: "\uD558"
+    dialogue: "\uD558."
   - speakerIndex: 0
     name: "\uAE40\uB2E4\uBBF8"
-    dialogue: "\uB4DC\uB514\uC5B4 \uCCAB \uCD9C\uADFC\uC774\uB124"
+    dialogue: "\uB4DC\uB514\uC5B4 \uCCAB \uCD9C\uADFC\uC774\uB124."
   - speakerIndex: 0
     name: "\uAE40\uB2E4\uBBF8"
-    dialogue: "...\uC870\uAE08 \uB5A8\uB9B0\uB2E4"
+    dialogue: "...\uC870\uAE08 \uB5A8\uB9B0\uB2E4."
   isAutoStart: 1
 --- !u!4 &1686616557
 Transform:
