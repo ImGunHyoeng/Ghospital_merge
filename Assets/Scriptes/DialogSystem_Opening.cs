@@ -125,6 +125,7 @@ public class DialogSystem_Opening : MonoBehaviour
 		//Color color = speaker.spriteRenderer.color;
 		//color.a = visible == true ? 1 : 0.2f;
 		//speaker.spriteRenderer.color = color;
+		
 	}
 
 	private IEnumerator OnTypingText()
