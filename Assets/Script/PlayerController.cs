@@ -51,11 +51,13 @@ public class PlayerController : MonoBehaviour
     bool isbuff=false;
     bool isrest = true;
     bool iscan_hide=false;
-    bool ishide=false;
+    static bool ishide=false;
     bool usestamina = false;
     bool ispenalti = false;
     int div;
-    GameObject audio_director;
+
+    GameObject audio_director;//오디오 디렉터
+    GameObject blind;//암막용
     Transform left = null; //왼쪽 포탈의 위치
     Transform right = null;//오른쪽 포탈의 위치
     // Start is called before the first frame update
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        blind = transform.Find("Blind").gameObject;
         sprite = GetComponent<SpriteRenderer>();
         animator=GetComponent<Animator>();
         see_cool = skill_time;
@@ -315,6 +318,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(skill_time);
         isrest=true;
     }
+   
     void skill_coolUI()
     {
 
@@ -330,6 +334,7 @@ public class PlayerController : MonoBehaviour
     {
         slider.value = stamina_useable_time / stamina_useable_time_max;
     }
+    public static bool get_ishde() { return ishide; }//숨었는지 확인용
     void player_hide()
     {
        
@@ -344,6 +349,8 @@ public class PlayerController : MonoBehaviour
                 gameObject.tag = "Untouchable";
                 ishide = true;
                 // Player_col.enabled = false;
+                blind.SetActive(true);
+                
             }
         }
         else
@@ -362,6 +369,7 @@ public class PlayerController : MonoBehaviour
                     ispenalti = false;
                     stamina_de_time = stamina_de_time_max;
                     usestamina = false;
+                    blind.SetActive(false);
                 }
 
             }

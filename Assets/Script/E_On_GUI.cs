@@ -45,7 +45,7 @@ public class E_On_GUI : MonoBehaviour
         Rect labelRect = new Rect(screenPosition.x - 50, screenPosition.y - 300f, 100, 100);
 
         // ���ڿ��� ǥ���մϴ�.
-        if (ison)
+        if (ison&& !PlayerController.get_ishde())
             GUI.Label(labelRect, image_e);
     }
 
