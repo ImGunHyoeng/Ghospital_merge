@@ -28,7 +28,7 @@ public class Phone_TImer : MonoBehaviour
     }
     IEnumerator countHour()
     {
-        Debug.Log("yes");
+        //Debug.Log("yes");
         yield return new WaitForSeconds(one_hour);
         time++;
         StartCoroutine(change());

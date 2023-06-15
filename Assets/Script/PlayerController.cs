@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     bool usestamina = false;
     bool ispenalti = false;
     int div;
-
+    GameObject audio_director;
     Transform left = null; //왼쪽 포탈의 위치
     Transform right = null;//오른쪽 포탈의 위치
     // Start is called before the first frame update
@@ -78,8 +78,22 @@ public class PlayerController : MonoBehaviour
         Player_rb= GetComponent<Rigidbody2D>();
         Player_col= GetComponent<BoxCollider2D>();
         P_set_Not_visble_name_set();
+        StartCoroutine(Find_audio());
     }
-    
+
+    IEnumerator Find_audio()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if(GameObject.FindWithTag("Audio_director")==null)
+        {
+            StartCoroutine(Find_audio()); 
+        }
+        else 
+        {
+            audio_director = GameObject.FindWithTag("Audio_director");
+            yield break;
+        }
+    }
     IEnumerator Find_left_right(Transform left, Transform right)
     {
 

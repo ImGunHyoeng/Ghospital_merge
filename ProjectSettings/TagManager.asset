@@ -13,6 +13,8 @@ TagManager:
   - Left
   - Right
   - Patient
+  - IntoRoom
+  - Audio_director
   layers:
   - Default
   - TransparentFX
