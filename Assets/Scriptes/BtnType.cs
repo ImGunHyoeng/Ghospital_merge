@@ -20,7 +20,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         switch (currentType)
         {
             case BTNType.New:
-                SceneLoader.LoadSceneHandle("NewPath", 0);
+                SceneLoader.LoadSceneHandle("Main_Hall", 0);
                 break;
 
             case BTNType.Countinue:

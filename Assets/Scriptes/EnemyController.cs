@@ -19,7 +19,10 @@ public class EnemyController : MonoBehaviour
     {
         this.director = GameObject.Find("GameDirector");
         this.generator = GameObject.Find("EnemyGenerator");
-        this.playerpos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (GameObject.FindWithTag("Player") == null)
+            this.playerpos = GameObject.FindWithTag("Untouchable").gameObject.transform;
+        else
+            this.playerpos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         patten = generator.GetComponent<EnemyGenerator>().patten;
         
     }
@@ -63,5 +66,8 @@ public class EnemyController : MonoBehaviour
             
             this.director.GetComponent<GameDirector>().meetEnemy();
         }
+        if(patten==2)
+            if(collision.gameObject.tag=="Untouchable")
+                this.director.GetComponent<GameDirector>().meetEnemy(); 
     }
 }
