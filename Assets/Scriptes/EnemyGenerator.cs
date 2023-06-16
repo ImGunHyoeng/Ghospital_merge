@@ -33,6 +33,7 @@ public class EnemyGenerator : MonoBehaviour
         AllLightOff = false;
         All_RoomLightOff = false;
         enemy_exist = false;
+        //StartCoroutine(Check_Enemy_Exist());
     }
 
 
@@ -126,7 +127,7 @@ public class EnemyGenerator : MonoBehaviour
 
     void Check_Enemy_Exist()
     {
-        if(GameObject.FindGameObjectWithTag("Enemy"))
+        if (GameObject.FindGameObjectWithTag("Enemy"))
         {
             enemy_exist = true;
         }
@@ -135,4 +136,18 @@ public class EnemyGenerator : MonoBehaviour
             enemy_exist = false;
         }
     }
+    //IEnumerator Check_Enemy_Exist()
+    //{
+    //    if (GameObject.FindGameObjectWithTag("Enemy"))
+    //    {
+    //        enemy_exist = true;
+    //    }
+    //    else
+    //    {
+    //        enemy_exist = false;
+    //    }
+    //    yield return new WaitForSeconds(0.1f);
+    //    StartCoroutine(Check_Enemy_Exist());
+    //}
+
 }

@@ -13,14 +13,20 @@ public class DialogSystem_Opening : MonoBehaviour
 	[SerializeField]
 	private BackGround_Opening bg;                      // 현재 분기의 배경화면 설정
 	[SerializeField]
-	private	bool			isAutoStart = true;			// 자동 시작 여부
+	private	bool			isAutoStart = true;         // 자동 시작 여부
 	private	bool			isFirst = true;				// 최초 1회만 호출하기 위한 변수
 	private	int				currentDialogIndex = -1;	// 현재 대사 순번
 	private	int				currentSpeakerIndex = 0;	// 현재 말을 하는 화자(Speaker)의 speakers 배열 순번
 	private	float			typingSpeed = 0.1f;			// 텍스트 타이핑 효과의 재생 속도
-	private	bool			isTypingEffect = false;		// 텍스트 타이핑 효과를 재생중인지
+	private	bool			isTypingEffect = false;     // 텍스트 타이핑 효과를 재생중인지
 
-	private void Awake()
+
+    private void Start()
+    {
+		//typingSpeed *= 1000 * Time.unscaledDeltaTime;
+
+	}
+    private void Awake()
 	{
 		Setup();
 	}
@@ -54,6 +60,7 @@ public class DialogSystem_Opening : MonoBehaviour
 
 		if ( Input.GetMouseButtonDown(0) )
 		{
+			Debug.Log(isTypingEffect);
 			// 텍스트 타이핑 효과를 재생중일때 마우스 왼쪽 클릭하면 타이핑 효과 종료
 			if ( isTypingEffect == true )
 			{
@@ -67,11 +74,12 @@ public class DialogSystem_Opening : MonoBehaviour
 
 				return false;
 			}
-
+			
 			// 대사가 남아있을 경우 다음 대사 진행
 			if ( dialogs.Length > currentDialogIndex + 1 )
 			{
 				SetNextDialog();
+				Debug.Log("Start Next dialog");
 			}
 			// 대사가 더 이상 없을 경우 모든 오브젝트를 비활성화하고 true 반환
 			else
@@ -94,9 +102,10 @@ public class DialogSystem_Opening : MonoBehaviour
 
 	private void SetNextDialog()
 	{
+		
 		// 이전 화자의 대화 관련 오브젝트 비활성화
 		SetActiveObjects(speakers_opening[currentSpeakerIndex], false);
-
+		
 		// 다음 대사를 진행하도록 
 		currentDialogIndex ++;
 
@@ -109,6 +118,7 @@ public class DialogSystem_Opening : MonoBehaviour
 		speakers_opening[currentSpeakerIndex].textName.text = dialogs[currentDialogIndex].name;
 		// 현재 화자의 대사 텍스트 설정
 		speakers_opening[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue;
+		
 		StartCoroutine("OnTypingText");
 	}
 
@@ -128,20 +138,35 @@ public class DialogSystem_Opening : MonoBehaviour
 		
 	}
 
+	public void SetOrginal()
+    {
+		isAutoStart = true;         // 자동 시작 여부
+	    isFirst = true;                // 최초 1회만 호출하기 위한 변수
+		currentDialogIndex = -1;    // 현재 대사 순번
+		currentSpeakerIndex = 0;    // 현재 말을 하는 화자(Speaker)의 speakers 배열 순번
+		typingSpeed = 0.1f;           // 텍스트 타이핑 효과의 재생 속도
+		isTypingEffect = false;     // 텍스트 타이핑 효과를 재생중인지
+    }
+
 	private IEnumerator OnTypingText()
 	{
+		
+
 		int index = 0;
 		
 		isTypingEffect = true;
+		
 
 		// 텍스트를 한글자씩 타이핑치듯 재생
 		while ( index < dialogs[currentDialogIndex].dialogue.Length )
 		{
+			
 			speakers_opening[currentSpeakerIndex].textDialogue.text = dialogs[currentDialogIndex].dialogue.Substring(0, index);
-
+			
 			index ++;
-		
-			yield return new WaitForSeconds(typingSpeed);
+			
+			yield return new WaitForSecondsRealtime(0.1f);
+			
 		}
 
 		isTypingEffect = false;

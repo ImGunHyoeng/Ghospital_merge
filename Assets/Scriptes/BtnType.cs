@@ -11,6 +11,8 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     bool isSound;
     public CanvasGroup MenuIn;
     public CanvasGroup MenuQuit;
+    [SerializeField]
+    private DialogSystem_Opening dialogSystem01;
     //GameObject director;
 
     public void OnBthClick()
@@ -79,7 +81,18 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 CanvasGroupOn(MenuIn);
                 CanvasGroupOff(MenuQuit);
                 break;
+
+            case BTNType.Call:
+                StartCoroutine("Typing_text");
+                break;
         }
+    }
+
+    IEnumerator Typing_text()
+    {
+        dialogSystem01.SetOrginal();
+           yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
+        
     }
 
     public void CanvasGroupOn(CanvasGroup cg)
@@ -113,5 +126,4 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         buttonScale.localScale = defaultScale;
     }
 
-    
 }

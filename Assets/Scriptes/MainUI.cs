@@ -16,7 +16,8 @@ public enum BTNType
     Phone,
     Map,
     QR,
-    Message
+    Message,
+    Call
 }
 
 public class MainUI : MonoBehaviour
