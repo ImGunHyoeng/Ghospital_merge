@@ -9,7 +9,7 @@ using UnityEditor.Experimental.GraphView;
 public class PlayerController : MonoBehaviour
 {
 
-
+    static bool enemy_appear = false;
     public static bool scene_move = false;
     public static bool scene_update = false;
     Scene scene;
@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+
         blind = transform.Find("Blind").gameObject;
         sprite = GetComponent<SpriteRenderer>();
         animator=GetComponent<Animator>();
@@ -82,8 +83,37 @@ public class PlayerController : MonoBehaviour
         Player_col= GetComponent<BoxCollider2D>();
         P_set_Not_visble_name_set();
         StartCoroutine(Find_audio());
+        StartCoroutine(Find_enemy());
     }
+   
+    void Audio_play()
+    {
+        if (audio_director == null) return;
+        if (enemy_appear == true)
+        { 
+            audio_director.GetComponentInChildren<AudioSource>().Stop();
+            return;
+        }
+        if(enemy_appear == false)
+            if(audio_director.transform.Find("BGM").gameObject.GetComponent<AudioSource>().isPlaying==false)
+                audio_director.transform.Find("BGM").gameObject.GetComponent<AudioSource>().Play();
 
+        
+    }
+    IEnumerator Find_enemy()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (GameObject.FindWithTag("Enemy") == null)
+        {
+            enemy_appear = false;
+        }
+        else
+        {
+            enemy_appear = true;
+        }
+        Audio_play();
+        StartCoroutine(Find_enemy());
+    }
     IEnumerator Find_audio()
     {
         yield return new WaitForSeconds(0.3f);
@@ -292,6 +322,7 @@ public class PlayerController : MonoBehaviour
             //door = GameObject.Find("RandomDoor_ctr").GetComponent<Door_spawner>().Getobject();
         }
     }
+
     void useRest()
     {
         if(Input.GetKey(KeyCode.R)&&!isinside)
@@ -299,6 +330,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(gorest());
         }
     }
+
     IEnumerator gorest()
     {
         SceneManager.LoadScene("Restroom");
@@ -318,10 +350,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(skill_time);
         isrest=true;
     }
-   
+
     void skill_coolUI()
     {
-
         see_cool -= Time.deltaTime;
         skill.text = "Skill\n" + (int)see_cool;
     }
