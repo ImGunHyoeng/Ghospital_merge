@@ -65,6 +65,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 break;
 
             case BTNType.Message:
+                StartCoroutine("Typing_text");
                 CanvasGroupOn(MenuIn);
                 CanvasGroupOff(MenuQuit);
                 break;

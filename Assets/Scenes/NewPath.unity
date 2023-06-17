@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 0
-  Room_Lights: 010000000100000001000000010000000100000001000000
-  Room_Patients: 010000000100000001000000010000000100000001000000
+  Room_Lights: 01000000010000000100000001000000
+  Room_Patients: 01000000010000000100000001000000
   check_Time: 3
   delay_Time: 10
   patient_Limit_Time: 30
@@ -3205,6 +3205,61 @@ RectTransform:
   m_AnchoredPosition: {x: 70.8, y: -25}
   m_SizeDelta: {x: 140, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &530300586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 530300588}
+  - component: {fileID: 530300587}
+  m_Layer: 0
+  m_Name: Message_DialogSytem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &530300587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530300586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04fbe17adcf2e440a02faefd269546d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speakers_opening:
+  - imageDialog: {fileID: 6524670}
+    textName: {fileID: 1198947940}
+    textDialogue: {fileID: 113904976}
+    objectArrow: {fileID: 1484649023}
+  dialogs:
+  - speakerIndex: 0
+    name: 
+    dialogue: "\uCCAB \uBC88\uC9F8 \uBA54\uC2DC\uC9C0\uAC00 \uC640 \uC788\uB2E4."
+  bg:
+    background: {fileID: 2085382584}
+  isAutoStart: 1
+--- !u!4 &530300588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530300586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 991.5935, y: 569.3599, z: -57.81595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &539643259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,7 +3558,7 @@ MonoBehaviour:
   buttonScale: {fileID: 637809558}
   MenuIn: {fileID: 1521381260}
   MenuQuit: {fileID: 1793742025}
-  dialogSystem01: {fileID: 0}
+  dialogSystem01: {fileID: 530300587}
 --- !u!114 &637809561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5668,7 +5723,7 @@ GameObject:
   - component: {fileID: 967568181}
   - component: {fileID: 967568180}
   m_Layer: 0
-  m_Name: DialogSytem01
+  m_Name: Call_DialogSytem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5693,10 +5748,10 @@ MonoBehaviour:
     objectArrow: {fileID: 1484649023}
   dialogs:
   - speakerIndex: 0
-    name: "\uAE40\uB2E4\uBBF8"
+    name: 
     dialogue: "\uCE58\uC9C1....."
   - speakerIndex: 0
-    name: "\uAE40\uB2E4\uBBF8"
+    name: 
     dialogue: "..\uC804\uD654\uAC00 \uB418\uC9C0 \uC54A\uB294\uB2E4."
   bg:
     background: {fileID: 2085382584}
@@ -5713,7 +5768,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968653528
 GameObject:
@@ -7346,7 +7401,7 @@ RectTransform:
   - {fileID: 1754365733}
   - {fileID: 2098590396}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12426,7 +12481,7 @@ RectTransform:
   m_Children:
   - {fileID: 2085382583}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

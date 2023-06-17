@@ -9,11 +9,11 @@ public class GameDirector : MonoBehaviour
 {
     public float timeScale;
 
-    public int[] Room_Lights = { 1, 1, 1, 1, 1, 1 };
-    public int[] Room_Patients = { 1, 1, 1, 1, 1, 1 };
+    public int[] Room_Lights = { 1, 1, 1, 1};
+    public int[] Room_Patients = { 1, 1, 1, 1};
 
     [SerializeField]float check_Time = 3.0f; 
-    [SerializeField]float delay_Time = 10.0f; //when the one light off, set delay
+    [SerializeField]float delay_Time = 20.0f; //when the one light off, set delay
     [SerializeField]float patient_Limit_Time = 30.0f;
     GameObject patient_Limit_Timer;
 
