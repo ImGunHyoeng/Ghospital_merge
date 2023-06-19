@@ -25,7 +25,7 @@ public class Camera_Follow : MonoBehaviour
     }
     IEnumerator Find_player()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.01f);
         if (GameObject.FindWithTag("Player") == null)
         {
             StartCoroutine(Find_player());
