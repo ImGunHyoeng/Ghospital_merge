@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class EnemyGenerator : MonoBehaviour
 {
    
@@ -15,6 +16,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] float check;
     public int patten;
     Scene scene;
+ 
 
     private void Awake()
     {
@@ -34,6 +36,7 @@ public class EnemyGenerator : MonoBehaviour
         All_RoomLightOff = false;
         enemy_exist = false;
         //StartCoroutine(Check_Enemy_Exist());
+      
     }
 
 
@@ -82,8 +85,8 @@ public class EnemyGenerator : MonoBehaviour
 
             if (All_RoomLightOff == false) //when the player turn on any light
             {
-                Destroy(enemy);
-                //enemy_exist = false;
+                enemy_exist = false;
+                Disappear_Enemy();
             }
     }
 
@@ -136,6 +139,11 @@ public class EnemyGenerator : MonoBehaviour
         {
             enemy_exist = false;
         }
+    }
+
+    public bool Disappear_Enemy()
+    {
+        return enemy_exist;
     }
     //IEnumerator Check_Enemy_Exist()
     //{

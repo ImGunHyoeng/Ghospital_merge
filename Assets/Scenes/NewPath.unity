@@ -562,7 +562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image_e: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
 --- !u!212 &95646622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10188,7 +10187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slow_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
-  fast_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  fast_enemyPrefab: {fileID: 735914865512370449, guid: 2b1d5aa13be91c147a7657559e2796ff, type: 3}
   enemy_exist: 0
   All_RoomLightOff: 0
   AllLightOff: 0
@@ -10823,7 +10822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image_e: {fileID: 2800000, guid: 4f8d5afd136b1824295b6ae7d71dcdc9, type: 3}
 --- !u!212 &1715432116
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13126,7 +13124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2085382583
 RectTransform:
   m_ObjectHideFlags: 0
