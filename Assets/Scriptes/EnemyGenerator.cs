@@ -54,6 +54,7 @@ public class EnemyGenerator : MonoBehaviour
         Check_ALL_Light();
 
     }
+    //set anim  to walk, and set anim to disappear
 
     void Check_Room_Light()
     {
