@@ -5,8 +5,12 @@ using UnityEngine;
 public class E_On_GUI : MonoBehaviour
 {
     bool ison = false;
-    public Texture image_e;
+    Texture image_e;
     // Start is called before the first frame update
+    private void Start()
+    {
+        image_e = Resources.Load("e", typeof(Texture2D)) as Texture2D;
+    }
     public bool Getison() { return ison; }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +46,7 @@ public class E_On_GUI : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
 
         // ���ڿ��� ǥ���� Rect�� �����մϴ�.
-        Rect labelRect = new Rect(screenPosition.x - 50, screenPosition.y - 300f, 100, 100);
+        Rect labelRect = new Rect(screenPosition.x - 50, screenPosition.y +100, 100, 100);
 
         // ���ڿ��� ǥ���մϴ�.
         if (ison&& !PlayerController.get_ishde())
