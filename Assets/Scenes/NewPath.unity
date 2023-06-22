@@ -2383,11 +2383,7 @@ RectTransform:
   - {fileID: 1753185872}
   - {fileID: 1041068755}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
-  m_RootOrder: 16
-=======
-  m_RootOrder: 18
->>>>>>> 40236ecc5b522b3d427d2b0b370f33bb889139f3
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10733,8 +10729,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-<<<<<<< HEAD
-=======
 --- !u!1 &1707464787
 GameObject:
   m_ObjectHideFlags: 0
@@ -10817,6 +10811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80712a00425a09044bb530d108b3f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stamina_skill_ui: {fileID: 227279322}
+  phone: {fileID: 353109816}
   power: 1.2
   nomal_speed: 3
   stamina_useable_time_max: 3.5
@@ -10929,7 +10925,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707464787}
   m_Enabled: 1
->>>>>>> 40236ecc5b522b3d427d2b0b370f33bb889139f3
 --- !u!1 &1714263623
 GameObject:
   m_ObjectHideFlags: 0
