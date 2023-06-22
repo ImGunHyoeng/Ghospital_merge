@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     GameObject generator;
     //public Sprite fast_monster;
     Vector3 Stay;
+    Vector3 player_xpos;
     Animator animator;
    
 
@@ -54,7 +55,10 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case 2:
-                transform.position = Vector3.MoveTowards(transform.position, this.playerpos.position, speed * Time.deltaTime);
+                player_xpos = new Vector3(playerpos.position.x, transform.position.y, transform.position.z);
+                //transform.position = Vector3.MoveTowards(transform.position, this.playerpos.position, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player_xpos, speed * Time.deltaTime);
+                
                 //gameObject.GetComponent<SpriteRenderer>().sprite = fast_monster;
                 break;
         }

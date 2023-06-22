@@ -487,7 +487,7 @@ public class PlayerController : MonoBehaviour
     void nowalk()
     {
         walk.Stop();
-        animator.SetBool("IsWalk",false);
+        animator.SetBool("IsWalk", false);
     }
     void player_move()
     {
