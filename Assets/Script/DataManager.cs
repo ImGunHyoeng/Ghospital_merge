@@ -39,10 +39,6 @@ public class DataManager : MonoBehaviour
         path = Application.persistentDataPath+ "/player_data";//유니티에서 제공해주는 파일
         
     }
-    private void Update()
-    {
-        Debug.Log(instance);
-    }
 
     private void Start()
     {
