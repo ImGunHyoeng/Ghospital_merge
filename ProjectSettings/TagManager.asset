@@ -18,6 +18,7 @@ TagManager:
   - ExitRoom
   - Stamina
   - Phone
+  - Center
   layers:
   - Default
   - TransparentFX
