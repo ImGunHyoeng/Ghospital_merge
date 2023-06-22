@@ -26,6 +26,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] bool one_light_off_immediately;
     [SerializeField] bool one_patient_disappear_immediately;
     bool Check_All_patient_exist;
+    
 
     private void Awake()
     {
@@ -46,6 +47,7 @@ public class GameDirector : MonoBehaviour
         one_patient_disappear_immediately = false;
         Check_All_patient_exist = true;
         patient_Limit_Timer = GameObject.Find("Canvas_Timer");
+        
     }
 
     private void Update()
