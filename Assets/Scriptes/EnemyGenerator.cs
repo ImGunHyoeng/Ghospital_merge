@@ -16,7 +16,8 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] float check;
     public int patten;
     Scene scene;
- 
+    GameObject room_bg;
+
 
     private void Awake()
     {
@@ -49,7 +50,7 @@ public class EnemyGenerator : MonoBehaviour
         
         if (scene.name == "PatientRoom101" || scene.name == "PatientRoom102")
         {
-
+            room_bg = GameObject.Find("Canvas_BG");
             Check_Room_Light();
 
         }
@@ -80,13 +81,17 @@ public class EnemyGenerator : MonoBehaviour
 
             if (this.enemy_exist == false && this.All_RoomLightOff == true && AllLightOff == false)
             {
-                Appear_SlowEnemy();
+            room_bg.transform.Find("BG_LightOn").gameObject.SetActive(false);
+            
+            Appear_SlowEnemy();
             }
 
             if (All_RoomLightOff == false) //when the player turn on any light
             {
                 enemy_exist = false;
-                Disappear_Enemy();
+            room_bg.transform.Find("BG_LightOn").gameObject.SetActive(true);
+            
+            Disappear_Enemy();
             }
     }
 

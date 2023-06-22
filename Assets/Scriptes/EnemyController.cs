@@ -91,7 +91,6 @@ public class EnemyController : MonoBehaviour
     IEnumerator disappearanim()
     {
         animator.SetBool("LightOn", true);
-        Debug.Log("makeLightOn true");
         yield return new WaitForSeconds(2.0f);
 
     }
