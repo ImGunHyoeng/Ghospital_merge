@@ -17,14 +17,16 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D Player_col;
     Slider slider;
     GameObject door;
-    public Canvas stamina_skill_ui;
-    public Canvas phone;
+    Canvas stamina_skill_ui;
+    Canvas phone;
     Animator animator;
     public float power;
     public float nomal_speed;
     static Vector3 localscale;
     Vector3 spawn_point;
     SpriteRenderer sprite;
+    AudioSource walk;
+    AudioSource run;
 
     int s_namesize;
     string []not_visible_S_name;
@@ -41,10 +43,11 @@ public class PlayerController : MonoBehaviour
     float restroom_speed = 2.0f;
 
     
-    Text skill;
+    Image skill;
     float buff_time = 5f;
-    float skill_time = 30f;
-    float see_cool;
+    float skill_time = 10f;
+    float get_skill_cool;
+
 
     bool isspawn = false;
     bool isinside = false;
@@ -55,6 +58,7 @@ public class PlayerController : MonoBehaviour
     bool usestamina = false;
     bool ispenalti = false;
     int div;
+    bool cool=false;
 
     GameObject audio_director;//오디오 디렉터
     GameObject blind;//암막용
@@ -68,12 +72,14 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-
+        
+        walk = transform.Find("Walk").GetComponent<AudioSource>();
+        run = transform.Find("Run").GetComponent<AudioSource>();
         blind = transform.Find("Blind").gameObject;
         sprite = GetComponent<SpriteRenderer>();
         animator=GetComponent<Animator>();
-        see_cool = skill_time;
-        skill=GameObject.Find("Skill").GetComponent<Text>();
+        get_skill_cool= 0;
+        skill=GameObject.Find("Image").GetComponent<Image>();
         slider = GameObject.Find("Stamina").GetComponent<Slider>();//���׹̳���� ��ü�� ã�Ƽ� �׾��� slider�� �����´�
         stamina_de_time = stamina_de_time_max;
         speed = nomal_speed;
@@ -84,8 +90,35 @@ public class PlayerController : MonoBehaviour
         P_set_Not_visble_name_set();
         StartCoroutine(Find_audio());
         StartCoroutine(Find_enemy());
+        StartCoroutine(Find_canvas_st());
+        StartCoroutine(Find_canvas_ph());
     }
-   
+    IEnumerator Find_canvas_st() 
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (GameObject.FindWithTag("Stamina") == null)
+        {
+            StartCoroutine(Find_canvas_st());
+        }
+        else
+        {
+            stamina_skill_ui = GameObject.FindWithTag("Stamina").GetComponent<Canvas>();
+            yield break;
+        }
+    }
+    IEnumerator Find_canvas_ph()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (GameObject.FindWithTag("Phone") == null)
+        {
+            StartCoroutine(Find_canvas_ph());
+        }
+        else
+        {
+            phone = GameObject.FindWithTag("Phone").GetComponent<Canvas>();
+            yield break;
+        }
+    }
     void Audio_play()
     {
         if (audio_director == null) return;
@@ -183,7 +216,8 @@ public class PlayerController : MonoBehaviour
         }
         //Debug.Log(spawn_point);
         StartCoroutine(P_isnotvisible_scene());
-        player_slider_update();//�����̴��� ������Ʈ ����
+        if(stamina_skill_ui != null)
+            player_slider_update();//�����̴��� ������Ʈ ����
         
         if (!ishide)//���� �ʴ°�쿡 �����̱� ����
         {
@@ -203,7 +237,9 @@ public class PlayerController : MonoBehaviour
         }
         if(isrest==false&&isbuff==false)
         {
-            skill_coolUI();
+            //cool=true;
+            /*skill_coolUI();*/
+            StartCoroutine(cool_up());
         }
     }
     //create game set names not visible scene
@@ -258,14 +294,18 @@ public class PlayerController : MonoBehaviour
     }
     void canvas_invisible()
     {
-        stamina_skill_ui.enabled = false;
-        phone.enabled = false;
+        if(stamina_skill_ui != null)
+            stamina_skill_ui.enabled = false;
+        if (phone != null)
+            phone.enabled = false;
     }
 
     void canvas_visible()
     {
-        stamina_skill_ui.enabled = true;
-        phone.enabled = true;
+        if (stamina_skill_ui != null)
+            stamina_skill_ui.enabled = true;
+        if (phone != null)
+            phone.enabled = true;
     }
     void P_defaultSetting()
     {
@@ -338,28 +378,46 @@ public class PlayerController : MonoBehaviour
         Player_rb.gravityScale = 0;
         isbuff = true;
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("NewPath");
+        SceneManager.LoadScene("Restroom_floor");
         Player_rb.gravityScale = 1;
         stamina_useable_time = stamina_useable_time_max;
         speed =nomal_speed* restroom_speed ;
         usestamina = false;
+        skill.fillAmount = 0;
         yield return new WaitForSeconds(buff_time);
         isbuff = false;
         speed = nomal_speed/ restroom_speed ;
         //UnloadSceneOptions.
-        yield return new WaitForSeconds(skill_time);
-        isrest=true;
+        
     }
 
-    void skill_coolUI()
+    IEnumerator cool_up()
     {
-        see_cool -= Time.deltaTime;
-        skill.text = "Skill\n" + (int)see_cool;
+        if (!isrest)
+        {
+            while (get_skill_cool <= skill_time)
+            {
+                if (isrest)
+                    yield break;
+                get_skill_cool += Time.deltaTime%0.001f;
+                skill.fillAmount = get_skill_cool / skill_time;
+                yield return new WaitForSeconds(0.5f);
+            }
+            isrest = true;
+            get_skill_cool = 0;
+            yield break;
+        }
     }
+ /*   void skill_coolUI()
+    {
+        see_cool += Time.deltaTime;
+        skill.fillAmount += 0;//30초
+        //skill.text = "Skill\n" + (int)see_cool;
+    }*/
     void skill_readyUI()
     {
-        see_cool = skill_time;
-        skill.text = "Skill\n" +"Ready";
+        //see_cool = skill_time;
+        //skill.text = "Skill\n" +"Ready";
     }
     void player_slider_update()
     {
@@ -409,24 +467,33 @@ public class PlayerController : MonoBehaviour
     void setRun()
     {
         animator.SetBool("IsRun", true);
+        if (run.isPlaying == false)
+            run.Play();
     }
     void noRun()
     {
         animator.SetBool("IsRun", false);
+        run.Stop();
     }
 
     void setwalk()
     {
+        if (walk.isPlaying == false)
+            walk.Play();
+        if(run.isPlaying == true)
+            walk.Stop();
         animator.SetBool("IsWalk", true);
     }
     void nowalk()
     {
+        walk.Stop();
         animator.SetBool("IsWalk",false);
     }
     void player_move()
     {
         if (Input.GetKey(KeyCode.A))
         {
+            
             //방향뒤집기용
             transform.localScale = new Vector3(localscale.x, localscale.y, localscale.z);
             setwalk();
@@ -475,6 +542,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
+                
                 speed = nomal_speed* stemina_speed ;
                 usestamina = true;
                 //  Debug.Log(speed);
@@ -482,6 +550,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
+                
                 speed =nomal_speed/stemina_speed ;
                 usestamina = false;
 

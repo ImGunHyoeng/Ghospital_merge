@@ -15,6 +15,9 @@ TagManager:
   - Patient
   - IntoRoom
   - Audio_director
+  - ExitRoom
+  - Stamina
+  - Phone
   layers:
   - Default
   - TransparentFX

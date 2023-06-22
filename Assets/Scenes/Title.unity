@@ -271,6 +271,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1951390073}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &40826525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +556,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1748599533}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &218006179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +707,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1464607889}
   MenuIn: {fileID: 8547429}
   MenuQuit: {fileID: 872685230}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &504842540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,6 +1364,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792128637}
   m_CullTransparentMesh: 1
+--- !u!1 &811605586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811605588}
+  - component: {fileID: 811605587}
+  m_Layer: 0
+  m_Name: DestroyAll
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &811605587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811605586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2124c138838c4499b6a931aeab54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &811605588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811605586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849432717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,6 +1717,7 @@ MonoBehaviour:
   nowSlot: 0
   playerData:
     movedirection: 0
+    extralife: 0
 --- !u!4 &1391389649
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,6 +1788,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1115264858}
   MenuIn: {fileID: 872685230}
   MenuQuit: {fileID: 8547429}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1460084848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,6 +2109,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1696541834}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!1 &1696541833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2318,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1087672289}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1755411976
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,18 +26,22 @@ public class DataManager : MonoBehaviour
     private void Awake()
     {
         #region 싱글톤//해당하는공간 나타내기
-        if (instance == null)
+         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
-        else if(instance != this)
+        else
         {
-            Destroy(instance.gameObject);//하나를 만들어야한다.아니라면 삭제
+            Destroy(this.gameObject);//하나를 만들어야한다.아니라면 삭제
         }
-        DontDestroyOnLoad(this.gameObject);
         #endregion  
         path = Application.persistentDataPath+ "/player_data";//유니티에서 제공해주는 파일
         
+    }
+    private void Update()
+    {
+        Debug.Log(instance);
     }
 
     private void Start()
