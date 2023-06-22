@@ -24,7 +24,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 break;
 
             case BTNType.Countinue:
-                SceneLoader.LoadSceneHandle("Play", 0);
+                SceneLoader.LoadSceneHandle("NewPath", 0);
                 break;
 
 
