@@ -2751,6 +2751,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8448464136520937878, guid: b86a4f263d4685941a92721ba80628e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6598190433130393669, guid: b86a4f263d4685941a92721ba80628e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3998083871053398284, guid: b86a4f263d4685941a92721ba80628e9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -12723,9 +12731,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right
       objectReference: {fileID: 0}
+    - target: {fileID: 6105460961712954559, guid: 9d63343f80585ea4394e49e873bfd823, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6642164135887028237, guid: 9d63343f80585ea4394e49e873bfd823, type: 3}
       propertyPath: newScene
       value: Main_Hall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891582803430563635, guid: 9d63343f80585ea4394e49e873bfd823, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d63343f80585ea4394e49e873bfd823, type: 3}

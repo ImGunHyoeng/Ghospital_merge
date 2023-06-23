@@ -9,7 +9,6 @@ public class Door_spawner : MonoBehaviour
     public float min_x;
     public float max_x;
     public GameObject door;
-    public GameObject egg_door;
     GameObject newdoor;
     public Collider2D[] colliders;
     public Vector2 boundry;
@@ -39,12 +38,12 @@ public class Door_spawner : MonoBehaviour
         bool canSpawnhere;
 
         float transform_x= Random.RandomRange(min_x, max_x);
-        Vector2 spawnPos = new Vector2(transform_x, 0.2f);
+        Vector2 spawnPos = new Vector2(transform_x, 1.84f);
         canSpawnhere=PreventSpawnOverlap(spawnPos);
         while(!canSpawnhere)
         {
             transform_x = Random.RandomRange(min_x, max_x);
-            spawnPos = new Vector2(transform_x, 0.2f);
+            spawnPos = new Vector2(transform_x, 1.84f);
             canSpawnhere = PreventSpawnOverlap(spawnPos);
             
             if (canSpawnhere) { break; }//������ �����ϴٸ��� ����
