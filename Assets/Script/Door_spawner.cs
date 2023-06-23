@@ -9,6 +9,7 @@ public class Door_spawner : MonoBehaviour
     public float min_x;
     public float max_x;
     public GameObject door;
+    public GameObject egg_door;
     GameObject newdoor;
     public Collider2D[] colliders;
     public Vector2 boundry;
