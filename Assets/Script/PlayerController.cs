@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     GameObject blind;//암막용
     Transform left = null; //왼쪽 포탈의 위치
     Transform right = null;//오른쪽 포탈의 위치
+    Transform center=null;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -160,18 +161,18 @@ public class PlayerController : MonoBehaviour
             yield break;
         }
     }
-    IEnumerator Find_left_right(Transform left, Transform right)
+    IEnumerator Find_left_right(Transform left, Transform right,Transform center)
     {
 
         yield return new WaitForSeconds(0.1f);
         if (scene_move == false) yield return null;
         else if (GameObject.FindWithTag("Left") == null)
         {
-            StartCoroutine(Find_left_right(left, right));
+            StartCoroutine(Find_left_right(left, right, center));
         }
         else if (GameObject.FindWithTag("Right") == null)
         {
-            StartCoroutine(Find_left_right(left, right));
+            StartCoroutine(Find_left_right(left, right, center));
         }
         else
         {
@@ -180,7 +181,8 @@ public class PlayerController : MonoBehaviour
             scene_update = true;
             left = GameObject.FindWithTag("Left").GetComponent<Transform>();
             right = GameObject.FindWithTag("Right").GetComponent<Transform>();
-            set_l_R(left, right);
+            center = GameObject.FindWithTag("Center").GetComponent<Transform>();
+            set_l_R(left, right,center);
             StopAllCoroutines();
             //Debug.Log(left.position);
             //Debug.Log(right.position);
@@ -193,7 +195,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Find_left_right(left,right));
         }*/
     }
-    void set_l_R(Transform _left, Transform _right) { left = _left;right = _right; }
+    void set_l_R(Transform _left, Transform _right,Transform _center){ left = _left;right = _right;center = _center; }
     // Update is called once per frame
     void Update()
     {
@@ -201,7 +203,7 @@ public class PlayerController : MonoBehaviour
         if(scene_move)
         {
              
-            StartCoroutine(Find_left_right( left, right));
+            StartCoroutine(Find_left_right( left, right, center));
 
         }
         if(scene_update)
@@ -212,7 +214,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log(div);
             if (div == -1) transform.position = right.position;// +new Vector3(-10,0,0);
             if (div == 1) transform.position = left.position;// +new Vector3(10,0,0);
-            scene_update=false;
+            if(div==0) transform.position = center.position;
+            scene_update =false;
         }
         //Debug.Log(spawn_point);
         StartCoroutine(P_isnotvisible_scene());
