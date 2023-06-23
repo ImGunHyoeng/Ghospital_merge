@@ -159,12 +159,24 @@ public class GameDirector : MonoBehaviour
 
    public void meetEnemy()
     {
+        Stop_GeneratingEnemy();
         SceneManager.LoadScene("MeetEnemy");
     }
 
-    public void GameOver_1_didnt_Find_patient()
+    void Stop_GeneratingEnemy()
     {
-        SceneManager.LoadScene("PatientDie");
+        
+        for(int i = 0; i < Room_Lights.Length;i++ )
+        {
+            Room_Lights[i] = 1;
+        }
+        for (int i = 0; i < Room_Patients.Length; i++)
+        {
+            Room_Patients[i] = 1;
+        }
+        TurnOFF_ratio = 0;
+        Disappear_ratio = 0;
+        
     }
 
     void Check_Patient_disappear()
@@ -191,6 +203,11 @@ public class GameDirector : MonoBehaviour
             GameOver_1_didnt_Find_patient();
         }
        
+    }
+
+    public void GameOver_1_didnt_Find_patient()
+    {
+        SceneManager.LoadScene("PatientDie");
     }
 
 

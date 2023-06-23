@@ -7980,7 +7980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeScale: 0
   Room_Lights: 01000000010000000100000001000000
-  Room_Patients: 01000000000000000100000001000000
+  Room_Patients: 01000000010000000100000001000000
   check_Time: 3
   delay_Time: 10
   patient_Limit_Time: 30

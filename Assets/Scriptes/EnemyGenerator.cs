@@ -13,7 +13,7 @@ public class EnemyGenerator : MonoBehaviour
     public bool enemy_exist; 
     [SerializeField] bool All_RoomLightOff;
     [SerializeField] bool AllLightOff;
-    [SerializeField] float check;
+    float check; //this variable check room light off or not and check room patient gone or not
     public int patten;
     Scene scene;
     GameObject room_bg;
