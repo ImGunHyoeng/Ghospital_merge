@@ -41,7 +41,7 @@ public class DialogSystem_Opening : MonoBehaviour
 			//speakers[i].spriteRenderer.gameObject.SetActive(true);
 		}
 
-		bg.background.gameObject.SetActive(true);
+		//bg.background.gameObject.SetActive(true);
 	}
 
 	public bool UpdateDialog()
@@ -51,7 +51,7 @@ public class DialogSystem_Opening : MonoBehaviour
 		{
 			// 초기화. 캐릭터 이미지는 활성화하고, 대사 관련 UI는 모두 비활성화
 			Setup();
-
+			bg.background.gameObject.SetActive(true);
 			// 자동 재생(isAutoStart=true)으로 설정되어 있으면 첫 번째 대사 재생
 			if ( isAutoStart ) SetNextDialog();
 
