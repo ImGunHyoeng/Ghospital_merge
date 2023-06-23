@@ -531,8 +531,8 @@ MonoBehaviour:
 
     New Text'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
-  m_sharedMaterial: {fileID: -9170286716215525250, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
+  m_sharedMaterial: {fileID: -5354477289801446219, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -878,8 +878,8 @@ MonoBehaviour:
 
     New Text'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
-  m_sharedMaterial: {fileID: -9170286716215525250, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
+  m_sharedMaterial: {fileID: -5354477289801446219, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1327,8 +1327,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uAE40\uB2E4\uBBF8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
-  m_sharedMaterial: {fileID: -9170286716215525250, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
+  m_sharedMaterial: {fileID: -5354477289801446219, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1555,7 +1555,7 @@ GameObject:
   - component: {fileID: 1181126772}
   - component: {fileID: 1181126771}
   m_Layer: 5
-  m_Name: RI_OutHospital (1)
+  m_Name: RI_OutHospital
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2346,7 +2346,7 @@ MonoBehaviour:
       \uD588\uC9C0?\u201D\r\n\u201C\uC6D0\uB798 \uC2E0\uC785\uC740 \uC57C\uAC04\uADFC\uBB34
       \uC548 \uC2DC\uD0A4\uB294\uB370\u2026 \uB2E4\uBBF8\uC528\uAC00 \uAD73\uC774
       \uD558\uACA0\uB2E4\uACE0 \uD558\uB2C8\uAE4C \uB123\uC5B4\uC8FC\uB294\uAC70\uC57C.
-      \uC5B4\uCA0C\uB4E0 \uC870\uC2EC\uD558\uACE0\u2026\u201D]"
+      \uC5B4\uCA0C\uB4E0 \uC870\uC2EC\uD558\uACE0\u2026\u201D"
   bg:
     background: {fileID: 428990271}
   isAutoStart: 1
@@ -2423,8 +2423,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ???
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
-  m_sharedMaterial: {fileID: -9170286716215525250, guid: d1c08451878d45e42aaa1a1f5f721d01, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
+  m_sharedMaterial: {fileID: -5354477289801446219, guid: 6dd741befd90f3f47bcad835e0297f1e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

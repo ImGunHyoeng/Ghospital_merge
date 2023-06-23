@@ -46,6 +46,7 @@ public class DialogSystem_Opening : MonoBehaviour
 
 	public bool UpdateDialog()
 	{
+		
 		// 대사 분기가 시작될 때 1회만 호출
 		if ( isFirst == true )
 		{
@@ -53,14 +54,14 @@ public class DialogSystem_Opening : MonoBehaviour
 			Setup();
 			bg.background.gameObject.SetActive(true);
 			// 자동 재생(isAutoStart=true)으로 설정되어 있으면 첫 번째 대사 재생
-			if ( isAutoStart ) SetNextDialog();
-
+			/*if ( isAutoStart ) */
+			SetNextDialog();
+			Debug.Log("isTypingEffect: " + isTypingEffect);
 			isFirst = false;
 		}
 
 		if ( Input.GetMouseButtonDown(0) )
 		{
-			Debug.Log(isTypingEffect);
 			// 텍스트 타이핑 효과를 재생중일때 마우스 왼쪽 클릭하면 타이핑 효과 종료
 			if ( isTypingEffect == true )
 			{
@@ -79,7 +80,6 @@ public class DialogSystem_Opening : MonoBehaviour
 			if ( dialogs.Length > currentDialogIndex + 1 )
 			{
 				SetNextDialog();
-				Debug.Log("Start Next dialog");
 			}
 			// 대사가 더 이상 없을 경우 모든 오브젝트를 비활성화하고 true 반환
 			else

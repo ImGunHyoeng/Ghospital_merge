@@ -27,12 +27,17 @@ public class DialogTest_Opening : MonoBehaviour
 	{
         // 첫 번째 대사 분기 시작
         yield return new WaitUntil(()=>dialogSystem01.UpdateDialog());
+        yield return new WaitForSeconds(0.1f);
         // 대사 분기 사이에 원하는 행동을 추가할 수 있다.
         // 두 번째 대사 분기 시작
         yield return new WaitUntil(() => dialogSystem02.UpdateDialog());
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => dialogSystem03.UpdateDialog());
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => dialogSystem04.UpdateDialog());
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => dialogSystem05.UpdateDialog());
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => dialogSystem06.UpdateDialog());
        
         SceneManager.LoadScene("Main_Hall");
