@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class EndDirector : MonoBehaviour
 {
+    GameObject enemyvideo;
+
+    private void Start()
+    {
+        enemyvideo = GameObject.Find("Canvas_video");
+    }
     private void Update()
     {
        if(Input.GetMouseButton(0))
@@ -18,4 +24,13 @@ public class EndDirector : MonoBehaviour
     { 
       SceneLoader.LoadSceneHandle("Title", 0); 
     }
+    void MeetSlowEnemy()
+    {
+
+    }
+    void MeetFastEnemy()
+    {
+
+    }
+
 }

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14f823c57c165104b801850018b45b63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38733b8abf674bb4ebe81ff26c9e0c2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   director: {fileID: 0}
-  full: {fileID: 21300000, guid: 20e445e86b428ed4093731d19f51bb8a, type: 3}
-  empty: {fileID: 21300000, guid: abb4f1a62a10b5849b7bcddac5135e36, type: 3}
-  cutton: {fileID: 21300000, guid: 14f823c57c165104b801850018b45b63, type: 3}
+  full: {fileID: 21300000, guid: 1147e610ac2ed81459b827c9ebf4008a, type: 3}
+  empty: {fileID: 21300000, guid: a71362e9d73436f44967ad229311459d, type: 3}
+  cutton: {fileID: 21300000, guid: 38733b8abf674bb4ebe81ff26c9e0c2e, type: 3}
   patient_exist: 0
 --- !u!114 &4106792432491178525
 MonoBehaviour:
@@ -132,7 +132,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.99, y: 4.88}
+    oldSize: {x: 10.96, y: 5.29}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
