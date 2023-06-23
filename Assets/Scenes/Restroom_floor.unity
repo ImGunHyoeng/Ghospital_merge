@@ -254,6 +254,7 @@ MonoBehaviour:
   buttonScale: {fileID: 30134830}
   MenuIn: {fileID: 802372749}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &30134832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1021,7 @@ MonoBehaviour:
   buttonScale: {fileID: 170579306}
   MenuIn: {fileID: 1854089835}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &170579308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,6 +1658,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1216848919}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &267736229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,6 +2833,7 @@ MonoBehaviour:
   buttonScale: {fileID: 575823048}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 175245042}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &575823050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2980,6 +2984,7 @@ MonoBehaviour:
   buttonScale: {fileID: 605553761}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 802372749}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &605553763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,6 +3217,7 @@ MonoBehaviour:
   buttonScale: {fileID: 650249099}
   MenuIn: {fileID: 849735341}
   MenuQuit: {fileID: 175245042}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &650249101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3438,6 +3444,7 @@ MonoBehaviour:
   buttonScale: {fileID: 698671554}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 120040148}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &698671556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4220,6 +4227,7 @@ MonoBehaviour:
   buttonScale: {fileID: 834805614}
   MenuIn: {fileID: 1371305052}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &834805617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4490,6 +4498,7 @@ MonoBehaviour:
   buttonScale: {fileID: 686948714}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 1366993621}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &879414096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5262,6 +5271,7 @@ MonoBehaviour:
   buttonScale: {fileID: 966004240}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 849735341}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &966004242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7924,6 +7934,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1673012066}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 1371305052}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1673012068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8153,6 +8164,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1692357164}
   MenuIn: {fileID: 1366993621}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1692357167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8650,6 +8662,7 @@ MonoBehaviour:
   buttonScale: {fileID: 2145712391}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1770694950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8816,6 +8829,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1793015195}
   MenuIn: {fileID: 1523522869}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1793015198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9438,6 +9452,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1825693770}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 1854089835}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1825693772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10537,7 +10552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowSpeed: 2
-  Y_offset: 2.8
+  Y_offset: 5
 --- !u!81 &1919573214
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11118,6 +11133,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1991249200}
   MenuIn: {fileID: 1523522869}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1991249203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11268,6 +11284,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1994722563}
   MenuIn: {fileID: 120040148}
   MenuQuit: {fileID: 175245042}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1994722565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11497,6 +11514,7 @@ MonoBehaviour:
   buttonScale: {fileID: 2089215048}
   MenuIn: {fileID: 175245042}
   MenuQuit: {fileID: 1739368182}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &2089215050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12076,6 +12094,7 @@ MonoBehaviour:
   buttonScale: {fileID: 2118959654}
   MenuIn: {fileID: 1739368182}
   MenuQuit: {fileID: 1523522869}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &2118959656
 MonoBehaviour:
   m_ObjectHideFlags: 0
