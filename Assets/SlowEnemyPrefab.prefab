@@ -255,7 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   patten: 1
-  fast_monster: {fileID: 4977393477751672034, guid: dc6136f5b1b450849b5c586b2ecca891, type: 3}
 --- !u!114 &652971468809508750
 MonoBehaviour:
   m_ObjectHideFlags: 0

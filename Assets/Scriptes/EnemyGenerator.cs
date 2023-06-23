@@ -81,7 +81,7 @@ public class EnemyGenerator : MonoBehaviour
 
             if (this.enemy_exist == false && this.All_RoomLightOff == true && AllLightOff == false)
             {
-            room_bg.transform.Find("BG_LightOn").gameObject.SetActive(false);
+            //room_bg.transform.Find("BG_LightOn").gameObject.SetActive(false);
             
             Appear_SlowEnemy();
             }
@@ -89,7 +89,7 @@ public class EnemyGenerator : MonoBehaviour
             if (All_RoomLightOff == false) //when the player turn on any light
             {
                 enemy_exist = false;
-            room_bg.transform.Find("BG_LightOn").gameObject.SetActive(true);
+            //room_bg.transform.Find("BG_LightOn").gameObject.SetActive(true);
             
             Disappear_Enemy();
             }
