@@ -8,35 +8,47 @@ public class Next_Scene_move_Center : MonoBehaviour
 {
     static public bool center_move=false;
     public SceneSelector SceneSelector;
+    bool touch = false;
     // Start is called before the first frame update
     IEnumerator move_scene()
     {
         if (DataManager.instance == null)
-            yield break;//ÄÚ·çÆ¾ ¸ØÃß´Â ÇÔ¼ö
+            yield break;//ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½ï¿½ß´ï¿½ ï¿½Ô¼ï¿½
         DataManager.instance.playerData.movedirection = 0;
         DataManager.instance.SaveData();
 
         SceneSelector.ChangeScene();
         //SceneManager.LoadScene("Next Path");
         //yield return new WaitForSeconds(1);
-        PlayerController.set_move_scene();
+        PlayerController.set_move_scene_center();
         Debug.Log(PlayerController.scene_move.ToString());
         //yield return new WaitForSeconds(0.1f);
         yield return null;
+    }
+    private void Update()
+    {
+        if(touch)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(move_scene());
+                touch = false;
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
         if (collision.tag == "Player")
         {
-            center_move = true;
+           touch=true; 
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if(collision.tag == "Player")
         {
-            center_move = false;
+            touch = false;
         }
     }
 }

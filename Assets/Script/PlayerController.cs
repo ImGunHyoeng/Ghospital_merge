@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     static bool enemy_appear = false;
     public static bool scene_move = false;
     public static bool scene_update = false;
+    public static bool scene_move_center=false;
     Scene scene;
     Rigidbody2D Player_rb;
     BoxCollider2D Player_col;
@@ -161,18 +162,18 @@ public class PlayerController : MonoBehaviour
             yield break;
         }
     }
-    IEnumerator Find_left_right(Transform left, Transform right,Transform center)
+    IEnumerator Find_left_right(Transform left, Transform right)
     {
 
         yield return new WaitForSeconds(0.1f);
         if (scene_move == false) yield return null;
         else if (GameObject.FindWithTag("Left") == null)
         {
-            StartCoroutine(Find_left_right(left, right, center));
+            StartCoroutine(Find_left_right(left, right));
         }
         else if (GameObject.FindWithTag("Right") == null)
         {
-            StartCoroutine(Find_left_right(left, right, center));
+            StartCoroutine(Find_left_right(left, right));
         }
         else
         {
@@ -181,8 +182,8 @@ public class PlayerController : MonoBehaviour
             scene_update = true;
             left = GameObject.FindWithTag("Left").GetComponent<Transform>();
             right = GameObject.FindWithTag("Right").GetComponent<Transform>();
-            center = GameObject.FindWithTag("Center").GetComponent<Transform>();
-            set_l_R(left, right,center);
+            //center = GameObject.FindWithTag("Center").GetComponent<Transform>();
+            set_l_R(left, right);
             StopAllCoroutines();
             //Debug.Log(left.position);
             //Debug.Log(right.position);
@@ -195,7 +196,29 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Find_left_right(left,right));
         }*/
     }
-    void set_l_R(Transform _left, Transform _right,Transform _center){ left = _left;right = _right;center = _center; }
+    IEnumerator Find_center(Transform center)
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (scene_move_center == false) yield return null;
+        else if (GameObject.FindWithTag("Center") == null)
+        {
+            StartCoroutine(Find_center(center));
+        }
+        else
+        {
+            scene_move_center = false;
+            scene_update = true;
+            center = GameObject.FindWithTag("Center").GetComponent<Transform>();
+            set_C(center);
+            //center = GameObject.FindWithTag("Center").GetComponent<Transform>();
+            StopAllCoroutines();
+            //Debug.Log(left.position);
+            //Debug.Log(right.position);
+
+        }
+    }
+    void set_l_R(Transform _left, Transform _right){ left = _left;right = _right; }
+    void set_C(Transform _center) { center = _center; }
     // Update is called once per frame
     void Update()
     {
@@ -203,8 +226,12 @@ public class PlayerController : MonoBehaviour
         if(scene_move)
         {
              
-            StartCoroutine(Find_left_right( left, right, center));
+            StartCoroutine(Find_left_right( left, right));
 
+        }
+        if(scene_move_center)
+        {
+            StartCoroutine(Find_center(center));
         }
         if(scene_update)
         {
@@ -212,9 +239,9 @@ public class PlayerController : MonoBehaviour
             DataManager.instance.LoadData();
             div = DataManager.instance.playerData.movedirection;
             Debug.Log(div);
-            if (div == -1) transform.position = right.position;// +new Vector3(-10,0,0);
-            if (div == 1) transform.position = left.position;// +new Vector3(10,0,0);
-            if(div==0) transform.position = center.position;
+            if (div == -1) transform.position = new Vector3(right.position.x,transform.position.y,0);// +new Vector3(-10,0,0);
+            if (div == 1) transform.position = new Vector3(left.position.x, transform.position.y, 0);// +new Vector3(10,0,0);
+            if(div==0) transform.position = new Vector3(center.position.x, transform.position.y, 0);
             scene_update =false;
         }
         //Debug.Log(spawn_point);
@@ -246,6 +273,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     //create game set names not visible scene
+    static public void set_move_scene_center() { scene_move_center = true; }
     static public void set_move_scene() { scene_move = true; }
     void P_set_Not_visble_name_set()
     {
@@ -380,7 +408,7 @@ public class PlayerController : MonoBehaviour
         isrest = false;
         Player_rb.gravityScale = 0;
         isbuff = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         SceneManager.LoadScene("Restroom_floor");
         Player_rb.gravityScale = 1;
         stamina_useable_time = stamina_useable_time_max;
@@ -437,7 +465,7 @@ public class PlayerController : MonoBehaviour
                 nowalk();
                 noRun();
                 Player_rb.velocity = Vector2.zero;
-                this.transform.position=cabinet_trs.position;
+                this.transform.position=new Vector3(cabinet_trs.position.x,transform.position.y,0);
                 gameObject.tag = "Untouchable";
                 ishide = true;
                 // Player_col.enabled = false;
