@@ -12,7 +12,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public CanvasGroup MenuIn;
     public CanvasGroup MenuQuit;
     [SerializeField]
-    private DialogSystem_Opening dialogSystem01;
+    public DialogSystem_Opening dialogSystem01;
     //GameObject director;
 
     public void OnBthClick()

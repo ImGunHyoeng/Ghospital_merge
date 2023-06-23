@@ -26,7 +26,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField] bool one_light_off_immediately;
     [SerializeField] bool one_patient_disappear_immediately;
     bool Check_All_patient_exist;
-    
+    int ph_time;
+
+
 
     private void Awake()
     {
@@ -52,11 +54,13 @@ public class GameDirector : MonoBehaviour
 
     private void Update()
     {
+        ph_time = GameObject.Find("Time").GetComponent<Phone_TImer>().gettime();
         Time.timeScale = timeScale; //Manage Fps
         delay_delta -= Time.deltaTime;
         if(delay_delta <= 0f)
         {
             Automatically_light_OFF();
+            if(ph_time >= 3)
             Automatically_Patient_disappear();
             delay_delta = 0f;
         }

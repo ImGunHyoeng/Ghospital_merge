@@ -56,7 +56,6 @@ public class DialogSystem_Opening : MonoBehaviour
 			// 자동 재생(isAutoStart=true)으로 설정되어 있으면 첫 번째 대사 재생
 			/*if ( isAutoStart ) */
 			SetNextDialog();
-			Debug.Log("isTypingEffect: " + isTypingEffect);
 			isFirst = false;
 		}
 
