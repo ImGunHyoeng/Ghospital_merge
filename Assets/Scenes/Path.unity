@@ -270,6 +270,7 @@ MonoBehaviour:
   buttonScale: {fileID: 8198039}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 602743788}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &8198041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,12 +1062,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 0
-  Room_Lights: 000000000000000000000000000000000000000000000000
+  Room_Lights: 010000000100000001000000010000000100000001000000
   Room_Patients: 010000000100000001000000010000000100000001000000
   check_Time: 3
   delay_Time: 3
   patient_Limit_Time: 30
-  patient_Limit_Timer: {fileID: 0}
   TurnOFF_ratio: 5
   Disappear_ratio: 5
   one_light_off_immediately: 0
@@ -1220,7 +1220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image_e: {fileID: 2800000, guid: 1c774dc28aa63704c858afb1a0209b7d, type: 3}
 --- !u!212 &95646622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1380,6 +1379,7 @@ MonoBehaviour:
   buttonScale: {fileID: 106942432}
   MenuIn: {fileID: 602743788}
   MenuQuit: {fileID: 895615518}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &106942434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,6 +1814,7 @@ MonoBehaviour:
   buttonScale: {fileID: 145598092}
   MenuIn: {fileID: 1250877584}
   MenuQuit: {fileID: 4556084}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &145598094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,6 +2188,7 @@ MonoBehaviour:
   buttonScale: {fileID: 221175785}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 1243756505}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &221175787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2974,6 +2976,7 @@ MonoBehaviour:
   buttonScale: {fileID: 351533650}
   MenuIn: {fileID: 1243756505}
   MenuQuit: {fileID: 895615518}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &351533652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3476,6 +3479,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1948702420}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &413691846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4214,6 +4218,7 @@ MonoBehaviour:
   buttonScale: {fileID: 387490395}
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &560581338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4365,6 +4370,7 @@ MonoBehaviour:
   buttonScale: {fileID: 569574551}
   MenuIn: {fileID: 175603156}
   MenuQuit: {fileID: 895615518}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &569574553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4539,6 +4545,7 @@ MonoBehaviour:
   buttonScale: {fileID: 570630697}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 2055664220}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &570630699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5194,6 +5201,7 @@ MonoBehaviour:
   buttonScale: {fileID: 738495610}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 4556084}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &738495612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5324,7 +5332,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -623, y: 360}
-  m_SizeDelta: {x: 600, y: 150}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &793424767
 MonoBehaviour:
@@ -5346,7 +5354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f8ff492554184d74e949ccc632038d9c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5945,6 +5953,7 @@ MonoBehaviour:
   buttonScale: {fileID: 936313154}
   MenuIn: {fileID: 4556084}
   MenuQuit: {fileID: 895615518}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &936313156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6228,6 +6237,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1032229576}
   MenuIn: {fileID: 1613323168}
   MenuQuit: {fileID: 895615518}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1032229579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6353,6 +6363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: 
   nowSlot: 0
+  playerData:
+    movedirection: 0
+    extralife: 0
 --- !u!4 &1097788745
 Transform:
   m_ObjectHideFlags: 0
@@ -6936,6 +6949,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1292046683}
   MenuIn: {fileID: 2055664220}
   MenuQuit: {fileID: 4556084}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1292046685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7822,7 +7836,6 @@ MonoBehaviour:
   enemy_exist: 0
   All_RoomLightOff: 0
   AllLightOff: 0
-  check: 0
   patten: 0
 --- !u!4 &1612229054
 Transform:
@@ -8056,6 +8069,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1622630634}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 1250877584}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1622630636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8499,8 +8513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80712a00425a09044bb530d108b3f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stamina_skill_ui: {fileID: 227279322}
-  phone: {fileID: 1383355939}
   power: 1.2
   nomal_speed: 3
   stamina_useable_time_max: 3.5
@@ -8674,7 +8686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image_e: {fileID: 2800000, guid: 1c774dc28aa63704c858afb1a0209b7d, type: 3}
 --- !u!212 &1715432116
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9106,6 +9117,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1852037677}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 324098795}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1852037679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9697,6 +9709,7 @@ MonoBehaviour:
   buttonScale: {fileID: 1934439045}
   MenuIn: {fileID: 324098795}
   MenuQuit: {fileID: 895615518}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1934439047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10123,7 +10136,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004978041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10133,8 +10146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: 1, y: -288}
+  m_SizeDelta: {x: -1340, y: -950}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004978043
 MonoBehaviour:
@@ -10152,6 +10165,7 @@ MonoBehaviour:
   buttonScale: {fileID: 793424766}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 175603156}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &2004978044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10227,7 +10241,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004978041}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -10618,6 +10632,7 @@ MonoBehaviour:
   buttonScale: {fileID: 2054212537}
   MenuIn: {fileID: 895615518}
   MenuQuit: {fileID: 1613323168}
+  dialogSystem01: {fileID: 0}
 --- !u!114 &2054212539
 MonoBehaviour:
   m_ObjectHideFlags: 0
