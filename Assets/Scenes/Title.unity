@@ -274,6 +274,7 @@ MonoBehaviour:
   MenuIn: {fileID: 929728989}
   MenuQuit: {fileID: 872685230}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &40826525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +919,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &267735535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1324,7 @@ MonoBehaviour:
   MenuIn: {fileID: 8547429}
   MenuQuit: {fileID: 872685230}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &504842540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,7 +1774,7 @@ AudioSource:
   m_GameObject: {fileID: 789375084}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1384241774788827978, guid: c4d5f8ebfbcb8e3449bfec5bad95554a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5eb13dbce3ccdc54ca65182c84cd487a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2431,6 +2434,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &993372637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,6 +2586,7 @@ MonoBehaviour:
   MenuIn: {fileID: 872685230}
   MenuQuit: {fileID: 8547429}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1004894471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3683,6 +3688,7 @@ MonoBehaviour:
   MenuIn: {fileID: 8547429}
   MenuQuit: {fileID: 929728989}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1907896782
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public DialogSystem_Opening dialogSystem01;
     //GameObject director;
 
+    public AudioSource click_btn;
+
     public void OnBthClick()
     {
         switch (currentType)
@@ -50,6 +52,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 
             case BTNType.Phone:
                 //director.GetComponent<GameDirector>().show_ph = 1;
+                click_btn.Play();
                 CanvasGroupOn(MenuIn);
                 CanvasGroupOff(MenuQuit);
                 break;
@@ -84,6 +87,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 break;
 
             case BTNType.Call:
+                click_btn.Play();
                 StartCoroutine("Typing_text");
                 break;
         }

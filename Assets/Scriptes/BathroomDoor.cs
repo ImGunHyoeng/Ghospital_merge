@@ -8,7 +8,7 @@ public class BathroomDoor : MonoBehaviour
     bool something_exist;
     public Sprite close;
     public Sprite open;
-
+    public AudioSource open_snd;
     private void Start()
     {
         Can_Check = false;
@@ -22,6 +22,7 @@ public class BathroomDoor : MonoBehaviour
         {
             if (Can_Check == true)
             {
+                open_snd.Play();
                 Open_Door();
             }
         }

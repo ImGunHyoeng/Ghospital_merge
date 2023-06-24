@@ -14,8 +14,9 @@ public class BedController : MonoBehaviour
     public Sprite full;
     public Sprite empty;
     public Sprite cutton;
+    public AudioSource open;
 
-    
+
     public int patient_exist;
 
     private void Start()
@@ -31,6 +32,7 @@ public class BedController : MonoBehaviour
         {
             if(Can_Check == true)
             {
+                open.Play();
                 Open_Cutton();
             }
         }
