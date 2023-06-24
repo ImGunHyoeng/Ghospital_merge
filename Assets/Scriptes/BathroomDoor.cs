@@ -31,6 +31,7 @@ public class BathroomDoor : MonoBehaviour
     {
         if (something_exist == true)
         {
+            
             gameObject.GetComponent<SpriteRenderer>().sprite = this.open;
             StartCoroutine(Close_Door());
 
