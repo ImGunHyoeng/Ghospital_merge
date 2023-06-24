@@ -19,7 +19,7 @@ public class Phone_TImer : MonoBehaviour
         curr_img = GetComponent<Image>(); //getcomponent는 레퍼런스 변수를 반환시켜줌 그렇기에 변환하면 원본이 변환됨
         //curr_sprite = GetComponent<Image>().sprite;
         time_path = string.Format("TIme_" + time.ToString());
-        one_hour = 10;
+        one_hour = 30;
         isend = false;
         time = 0;
         ph_time = Resources.Load(time_path, typeof(Texture2D)) as Texture2D;//리소스 파일에 있는 것을 가져오는 식이다.
