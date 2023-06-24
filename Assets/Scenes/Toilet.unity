@@ -10917,11 +10917,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1513065777961857735, guid: 7fa476b8cc5a2c5428205cdfc2d21b0a, type: 3}
       propertyPath: newScene
-      value: NewPath
+      value: Main_Hall
       objectReference: {fileID: 0}
     - target: {fileID: 2695271528321777750, guid: 7fa476b8cc5a2c5428205cdfc2d21b0a, type: 3}
       propertyPath: m_Name
       value: Door_
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695271528321777750, guid: 7fa476b8cc5a2c5428205cdfc2d21b0a, type: 3}
+      propertyPath: m_TagString
+      value: Center
       objectReference: {fileID: 0}
     - target: {fileID: 2975027393353114912, guid: 7fa476b8cc5a2c5428205cdfc2d21b0a, type: 3}
       propertyPath: m_RootOrder
@@ -12934,7 +12938,7 @@ MonoBehaviour:
   FollowSpeed: 2
   Y_offset: 1.5
   center: {x: 0, y: 0}
-  size: {x: 37.5, y: 20}
+  size: {x: 32.17, y: 20}
 --- !u!20 &2009909044
 Camera:
   m_ObjectHideFlags: 0
