@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
@@ -78,7 +79,8 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 break;
 
             case BTNType.ReStart:
-                SceneLoader.LoadSceneHandle("Title",0);
+                //SceneLoader.LoadSceneHandle("Title",0);
+                SceneManager.LoadScene("Title");
                 break;
 
             case BTNType.Resolution:
