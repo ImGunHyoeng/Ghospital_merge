@@ -362,7 +362,7 @@ public class PlayerController : MonoBehaviour
         P_sprite_N_visible();
         
         stamina_useable_time = 0;
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
         while (true)
         {
             if (GameObject.Find("DialogTest").GetComponent<DialogTest>().IsDialogEnd()==true)
@@ -378,7 +378,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.1f);
         }
         
     }
