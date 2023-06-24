@@ -2204,8 +2204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d6b460f2ce7b547a6ab43bd6c8e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_x: -60
-  max_x: -39
+  min_x: -57.52
+  max_x: -41.96
   door: {fileID: 975951957240304070, guid: 4864438a1d91eee4582af96cc29d411a, type: 3}
   colliders: []
   boundry: {x: 3, y: 3}
@@ -6291,7 +6291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44dbc84f256bf644ac454f9d3744adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  one_hour: 10
+  one_hour: 2
 --- !u!114 &809431751
 MonoBehaviour:
   m_ObjectHideFlags: 0
