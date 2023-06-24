@@ -486,10 +486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d6b460f2ce7b547a6ab43bd6c8e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_x: 16.49
-  max_x: 27.96
+  min_x: 18.9
+  max_x: 25.82
   door: {fileID: 975951957240304070, guid: 4864438a1d91eee4582af96cc29d411a, type: 3}
-  egg_door: {fileID: 0}
   colliders: []
   boundry: {x: 3, y: 3}
 --- !u!4 &93438868
@@ -3291,7 +3290,6 @@ MonoBehaviour:
   enemy_exist: 0
   All_RoomLightOff: 0
   AllLightOff: 0
-  check: 0
   patten: 0
 --- !u!4 &523487399
 Transform:

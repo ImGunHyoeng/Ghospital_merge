@@ -38,12 +38,12 @@ public class Door_spawner : MonoBehaviour
         bool canSpawnhere;
 
         float transform_x= Random.RandomRange(min_x, max_x);
-        Vector2 spawnPos = new Vector2(transform_x, 1.84f);
+        Vector2 spawnPos = new Vector2(transform_x, 2.96f);
         canSpawnhere=PreventSpawnOverlap(spawnPos);
         while(!canSpawnhere)
         {
             transform_x = Random.RandomRange(min_x, max_x);
-            spawnPos = new Vector2(transform_x, 1.84f);
+            spawnPos = new Vector2(transform_x, 2.96f);
             canSpawnhere = PreventSpawnOverlap(spawnPos);
             
             if (canSpawnhere) { break; }//������ �����ϴٸ��� ����
