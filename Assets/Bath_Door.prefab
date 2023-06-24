@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9201080099383772970}
   - component: {fileID: 3933875914587760069}
   - component: {fileID: 5275931836576839897}
+  - component: {fileID: 8736718620298788525}
   m_Layer: 0
   m_Name: Bath_Door
   m_TagString: Untagged
@@ -124,3 +125,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.812767, y: 7.4}
   m_EdgeRadius: 0
+--- !u!114 &8736718620298788525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2754548764878840873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

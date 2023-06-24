@@ -41,13 +41,15 @@ public class EnemyController : MonoBehaviour
         {
             case 1:
                 delta += Time.deltaTime;
-                if (transform.position.x >= 10)
+                if (transform.position.x >= 17)
                 {
                     direction = -1;
+                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 }
-                if (transform.position.x <= -10)
+                if (transform.position.x <= -17)
                 {
                     direction = 1;
+                    gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 }
                 if (delta > 2.0f)
                 {
@@ -57,7 +59,7 @@ public class EnemyController : MonoBehaviour
             case 2:
                 player_xpos = new Vector3(playerpos.position.x, transform.position.y, transform.position.z);
                 //transform.position = Vector3.MoveTowards(transform.position, this.playerpos.position, speed * Time.deltaTime);
-                transform.position = Vector3.MoveTowards(transform.position, player_xpos, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player_xpos, speed * Time.deltaTime * 2);
                 
                 //gameObject.GetComponent<SpriteRenderer>().sprite = fast_monster;
                 break;

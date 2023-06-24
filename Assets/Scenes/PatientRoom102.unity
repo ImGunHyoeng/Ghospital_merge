@@ -10183,7 +10183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slow_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
-  fast_enemyPrefab: {fileID: 1149553353611015252, guid: 309e33d9986f7934cbe757c27c07babb, type: 3}
+  fast_enemyPrefab: {fileID: 735914865512370449, guid: 2b1d5aa13be91c147a7657559e2796ff, type: 3}
   enemy_exist: 0
   All_RoomLightOff: 0
   AllLightOff: 0

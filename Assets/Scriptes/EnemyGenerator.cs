@@ -17,6 +17,7 @@ public class EnemyGenerator : MonoBehaviour
     public int patten;
     Scene scene;
     GameObject room_bg;
+    GameObject player;
 
 
     private void Awake()
@@ -37,7 +38,7 @@ public class EnemyGenerator : MonoBehaviour
         All_RoomLightOff = false;
         enemy_exist = false;
         //StartCoroutine(Check_Enemy_Exist());
-      
+        player = GameObject.Find("Player ");
     }
 
 
@@ -82,7 +83,7 @@ public class EnemyGenerator : MonoBehaviour
             if (this.enemy_exist == false && this.All_RoomLightOff == true && AllLightOff == false)
             {
             //room_bg.transform.Find("BG_LightOn").gameObject.SetActive(false);
-            
+            player.transform.Find("SlowEnemyAppear_bg").gameObject.SetActive(true);
             Appear_SlowEnemy();
             }
 
@@ -90,7 +91,7 @@ public class EnemyGenerator : MonoBehaviour
             {
                 enemy_exist = false;
             //room_bg.transform.Find("BG_LightOn").gameObject.SetActive(true);
-            
+            player.transform.Find("SlowEnemyAppear_bg").gameObject.SetActive(false);
             Disappear_Enemy();
             }
     }
@@ -116,6 +117,7 @@ public class EnemyGenerator : MonoBehaviour
 
         if (this.enemy_exist == false && this.AllLightOff == true)
         {
+            player.transform.Find("FastEnemyAppear_bg").gameObject.SetActive(true);
             Appear_FastEnemy();
         }
     }
