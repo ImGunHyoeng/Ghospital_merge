@@ -6,6 +6,8 @@ public class E_On_GUI : MonoBehaviour
 {
     bool ison = false;
     Texture image_e;
+    public float Y_pos;
+    public float X_pos;
     // Start is called before the first frame update
     private void Start()
     {
@@ -46,7 +48,7 @@ public class E_On_GUI : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
 
         // ���ڿ��� ǥ���� Rect�� �����մϴ�.
-        Rect labelRect = new Rect(screenPosition.x - 50, screenPosition.y +100, 100, 100);
+        Rect labelRect = new Rect(screenPosition.x - 50+X_pos, screenPosition.y +100+Y_pos, 100, 100);
 
         // ���ڿ��� ǥ���մϴ�.
         if (ison&& !PlayerController.get_ishde())

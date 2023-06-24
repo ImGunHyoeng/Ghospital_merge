@@ -25,6 +25,7 @@ public class Next_Scene_move_Center : MonoBehaviour
         //yield return new WaitForSeconds(0.1f);
         yield return null;
     }
+    
     private void Update()
     {
         if(touch)

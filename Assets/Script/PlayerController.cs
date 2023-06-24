@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer sprite;
     AudioSource walk;
     AudioSource run;
-
+    AudioSource doorEf;
     int s_namesize;
     string []not_visible_S_name;
     public float stamina_useable_time_max;
@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
         
         walk = transform.Find("Walk").GetComponent<AudioSource>();
         run = transform.Find("Run").GetComponent<AudioSource>();
+        doorEf=transform.Find("DoorEf").GetComponent<AudioSource>() ;
         blind = transform.Find("Blind").gameObject;
         sprite = GetComponent<SpriteRenderer>();
         animator=GetComponent<Animator>();
@@ -232,6 +233,7 @@ public class PlayerController : MonoBehaviour
         if(scene_move_center)
         {
             StartCoroutine(Find_center(center));
+            play_door_ef();
         }
         if(scene_update)
         {
@@ -338,6 +340,10 @@ public class PlayerController : MonoBehaviour
         if (phone != null)
             phone.enabled = true;
     }
+    public void play_door_ef()
+    {
+        doorEf.Play();
+    }
     void P_defaultSetting()
     {
         stamina_de_time = stamina_de_time_max;
@@ -387,6 +393,7 @@ public class PlayerController : MonoBehaviour
                 bool ison = door.GetComponent<E_On_GUI>().Getison();
                 if (door != null && ison == true)
                 {
+                    play_door_ef();
                     StartCoroutine(goinside());
                 }
             }
@@ -464,6 +471,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowalk();
                 noRun();
+                play_door_ef();
                 Player_rb.velocity = Vector2.zero;
                 this.transform.position=new Vector3(cabinet_trs.position.x,transform.position.y,0);
                 gameObject.tag = "Untouchable";
@@ -485,6 +493,8 @@ public class PlayerController : MonoBehaviour
                 ishide = false;
                 //���׹̳� �ۿ� 
                 {
+
+                    play_door_ef();
                     speed = nomal_speed;
                     ispenalti = false;
                     stamina_de_time = stamina_de_time_max;
