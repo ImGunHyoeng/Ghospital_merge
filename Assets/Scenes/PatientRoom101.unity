@@ -11441,7 +11441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2695271528321777750, guid: 7fa476b8cc5a2c5428205cdfc2d21b0a, type: 3}
       propertyPath: m_TagString
-      value: Center
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 2975027393353114912, guid: 7fa476b8cc5a2c5428205cdfc2d21b0a, type: 3}
       propertyPath: m_RootOrder
