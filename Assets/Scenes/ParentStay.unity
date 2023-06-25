@@ -216,6 +216,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 278494426}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &21759723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,6 +1022,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &147965357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1861,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1662300490}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &248490472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,6 +2029,7 @@ MonoBehaviour:
   MenuIn: {fileID: 484371907}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &252558071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2430,6 +2434,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 1087704499}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &342761851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,6 +2887,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1121020585}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &418231129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3069,6 +3075,7 @@ MonoBehaviour:
   MenuIn: {fileID: 2043190729}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &465339852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3463,6 +3470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5579485780191102446, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
+      propertyPath: number_of_patient
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
 --- !u!4 &593591316 stripped
@@ -3690,6 +3701,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1087704499}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &610486019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3853,6 +3865,7 @@ MonoBehaviour:
   MenuIn: {fileID: 721793294}
   MenuQuit: {fileID: 2043190729}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &610876443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4738,6 +4751,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 1662300490}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &798540520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,6 +5547,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 484371907}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &894741322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5720,6 +5735,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 1124222053}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &947190437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5953,6 +5969,7 @@ MonoBehaviour:
   MenuIn: {fileID: 278494426}
   MenuQuit: {fileID: 2043190729}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &954714756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6179,6 +6196,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1124222053}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &995309099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8040,6 +8058,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 1121020585}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1246509278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8542,6 +8561,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1307022516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9069,6 +9089,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 2043190729}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1406670655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9951,6 +9972,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1595184272}
   MenuQuit: {fileID: 721793294}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1657665453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13049,6 +13071,7 @@ MonoBehaviour:
   MenuIn: {fileID: 484371907}
   MenuQuit: {fileID: 1595184272}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &2131142768
 MonoBehaviour:
   m_ObjectHideFlags: 0
