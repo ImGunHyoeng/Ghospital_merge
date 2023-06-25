@@ -3352,6 +3352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Y_pos: 0
+  X_pos: 0
 --- !u!212 &558236835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13909,6 +13910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Y_pos: 0
+  X_pos: 0
 --- !u!82 &2058774035
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13918,7 +13920,7 @@ AudioSource:
   m_GameObject: {fileID: 2058774030}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -545821018737162947, guid: c4d5f8ebfbcb8e3449bfec5bad95554a, type: 2}
   m_audioClip: {fileID: 8300000, guid: d2dc383106b24094dbd93230375c7850, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

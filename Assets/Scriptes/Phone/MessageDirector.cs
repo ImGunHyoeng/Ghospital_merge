@@ -11,6 +11,9 @@ public class MessageDirector : MonoBehaviour
     
     [SerializeField] Sprite SecondMes;
 
+    public AudioSource mes_aram;
+    bool checkfirst_aram = true;
+
     private void Update()
     {
         time = GameObject.Find("Time").GetComponent<Phone_TImer>().gettime();
@@ -18,9 +21,11 @@ public class MessageDirector : MonoBehaviour
         {
             Notice_Rule();
         }
-        if(time >= 3)
+        if(time >= 3 && checkfirst_aram == true)
         {
+            mes_aram.Play();
             Notice_patientGone();
+            checkfirst_aram = false;
         }
 
     }
