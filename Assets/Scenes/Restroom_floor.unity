@@ -7453,6 +7453,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Patient
       objectReference: {fileID: 0}
+    - target: {fileID: 5579485780191102444, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
       propertyPath: m_RootOrder
       value: 0

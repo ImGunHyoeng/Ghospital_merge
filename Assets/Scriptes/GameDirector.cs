@@ -14,7 +14,7 @@ public class GameDirector : MonoBehaviour
 
     [SerializeField]float check_Time = 3.0f; 
     [SerializeField]float delay_Time = 20.0f; //when the one light off, set delay
-    [SerializeField]float patient_Limit_Time = 30.0f;
+    [SerializeField]float patient_Limit_Time = 70.0f;
     GameObject patient_Limit_Timer;
 
     float delta = 0;
@@ -81,7 +81,7 @@ public class GameDirector : MonoBehaviour
             {
                 
                 patient_Limit_Time -= 1.0f;
-                if (patient_Limit_Time <= 20f && patient_Limit_Time > 0f)
+                if (patient_Limit_Time <= 60f && patient_Limit_Time > 0f)
                 {
                     patient_Limit_Timer.transform.Find("LimitTimer").gameObject.SetActive(true);
                     patient_Limit_Timer.transform.Find("LimitTimer").gameObject.GetComponent<Text>().text = "Help...  " + patient_Limit_Time;
@@ -99,7 +99,7 @@ public class GameDirector : MonoBehaviour
         else
         {
             patient_Limit_Timer.transform.Find("LimitTimer").gameObject.SetActive(false);
-            patient_Limit_Time = 30f;
+            patient_Limit_Time = 70f;
         }
         
 
