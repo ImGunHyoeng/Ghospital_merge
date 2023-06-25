@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     
     Image skill;
     float buff_time = 5f;
-    float skill_time = 10f;
+    float skill_time = 30f;
     float get_skill_cool;
 
 
@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Find_enemy());
         StartCoroutine(Find_canvas_st());
         StartCoroutine(Find_canvas_ph());
+        sethide();
     }
     IEnumerator Find_canvas_st() 
     {
@@ -382,6 +383,7 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    public static void sethide(bool _hide=false) { ishide = _hide; }
     void door_in()
     {
         if (Input.GetKey(KeyCode.E))
@@ -415,15 +417,16 @@ public class PlayerController : MonoBehaviour
         isrest = false;
         Player_rb.gravityScale = 0;
         isbuff = true;
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Restroom_floor");
         Player_rb.gravityScale = 1;
         stamina_useable_time = stamina_useable_time_max;
         speed =nomal_speed* restroom_speed ;
         usestamina = false;
         skill.fillAmount = 0;
-        yield return new WaitForSeconds(buff_time);
+        yield return new WaitForSeconds(0.1f);
         isbuff = false;
+        transform.position = new Vector3(-3.5f, transform.position.y, 0);
         speed = nomal_speed/ restroom_speed ;
         //UnloadSceneOptions.
         

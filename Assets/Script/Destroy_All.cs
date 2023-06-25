@@ -11,6 +11,7 @@ public class Destroy_All : MonoBehaviour
     GameObject EneD;
     GameObject CanvasTim;
     GameObject CanvasPh;
+    PlayerController p;
     void Start()
     {
         //DtM = GameObject.Find("DataManager");
@@ -53,13 +54,19 @@ public class Destroy_All : MonoBehaviour
     }*/
     void AllDelete()
     {
-        if (GmD == null|| EneD == null || CanvasTim == null || CanvasPh == null)
-            return;
-        //
-        Destroy(GmD);
-        //Destroy(Play);
-        Destroy(EneD);
-        Destroy(CanvasTim);
-        Destroy(CanvasPh);
+       //
+        if(GmD != null)
+            Destroy(GmD);
+        if(EneD != null)
+            Destroy(EneD);
+        if(CanvasTim != null)
+            Destroy(CanvasTim);
+        if(CanvasPh != null)
+            Destroy(CanvasPh);
+        if (Play == null)
+            Play = GameObject.FindWithTag("Untouchable");
+        Destroy(Play);
+
+
     }
 }
