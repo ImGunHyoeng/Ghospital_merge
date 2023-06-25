@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogTest : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class DialogTest : MonoBehaviour
 	{
 		textCountdown.gameObject.SetActive(false);
 		//첫 번째 대사 분기 시작
-		yield return new WaitUntil(()=>dialogSystem01.UpdateDialog());
+		yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
 
 		// 대사 분기 사이에 원하는 행동을 추가할 수 있다.
 		// 캐릭터를 움직이거나 아이템을 획득하는 등의 현재는  5-4-3-2-1 카운트 다운 실행
@@ -43,9 +44,18 @@ public class DialogTest : MonoBehaviour
 
 		yield return new WaitForSeconds(0.1f);//0.1초뒤에 유니티 에디터 종료
 		dialogEnd = true;
-		//UnityEditor.EditorApplication.ExitPlaymode();
+		
 	}
-	public bool IsDialogEnd() { return dialogEnd; }
+    private void Update()
+    {
+		if(dialogEnd)
+			if (Input.anyKeyDown || Input.anyKey)
+			{
+				SceneManager.LoadScene("Title");
+				//UnityEditor.EditorApplication.ExitPlaymode();
+			}
+    }
+    public bool IsDialogEnd() { return dialogEnd; }
 	IEnumerator effect()
     {
 		yield return null;

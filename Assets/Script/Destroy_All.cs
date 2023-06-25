@@ -57,7 +57,7 @@ public class Destroy_All : MonoBehaviour
             return;
         //
         Destroy(GmD);
-        //Destroy(Play);
+        Destroy(Play);
         Destroy(EneD);
         Destroy(CanvasTim);
         Destroy(CanvasPh);
