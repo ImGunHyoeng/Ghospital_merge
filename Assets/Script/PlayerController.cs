@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Find_enemy());
         StartCoroutine(Find_canvas_st());
         StartCoroutine(Find_canvas_ph());
+        sethide();
     }
     IEnumerator Find_canvas_st() 
     {
@@ -382,6 +383,7 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    public static void sethide(bool _hide=false) { ishide = _hide; }
     void door_in()
     {
         if (Input.GetKey(KeyCode.E))
