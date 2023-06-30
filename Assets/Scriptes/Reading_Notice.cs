@@ -6,15 +6,15 @@ public class Reading_Notice : MonoBehaviour
 {
     bool Can_read;
     bool notice_on;
-    //GameObject director; //if you wish, it can make stop time
-    GameObject notice;
+    GameObject director; //if you wish, it can make stop time
+    GameObject player;
 
     private void Start()
     {
         Can_read = false;
         notice_on = false;
-        //director = GameObject.Find("GameDirector");
-        notice = GameObject.Find("Canvas_Notice");
+        director = GameObject.Find("GameDirector");
+        player = GameObject.Find("Player");
     }
 
     private void Update()
@@ -24,14 +24,15 @@ public class Reading_Notice : MonoBehaviour
             if(notice_on == false)
             {
                 Show_Notice();
-                Debug.Log("Show Notice");
-                //director.GetComponent<GameDirector>().TimeStop();
+                player.GetComponent<PlayerController>().use_something = true;
+                gameObject.GetComponent<E_On_GUI>().ison = false;
+                director.GetComponent<GameDirector>().TimeStop();
             }
             else
             {
                 Off_Notice();
-                Debug.Log("Close Notice");
-                //director.GetComponent<GameDirector>().TimeStart();
+                player.GetComponent<PlayerController>().use_something = false;
+                director.GetComponent<GameDirector>().TimeStart();
             }
         }
     }
@@ -54,13 +55,13 @@ public class Reading_Notice : MonoBehaviour
 
     void Show_Notice()
     {
-        notice.transform.Find("Notice").gameObject.SetActive(true);
+        gameObject.transform.Find("Canvas_Notice").gameObject.SetActive(true);
         notice_on = true;
     }
 
     void Off_Notice()
     {
-        notice.transform.Find("Notice").gameObject.SetActive(false);
+        gameObject.transform.Find("Canvas_Notice").gameObject.SetActive(false);
         notice_on = false;
     }
 

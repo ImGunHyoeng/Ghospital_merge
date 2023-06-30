@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     float skill_time = 30f;
     float get_skill_cool;
 
-
+    public bool use_something = false;
     bool isspawn = false;
     bool isinside = false;
     bool isbuff=false;
@@ -405,7 +405,7 @@ public class PlayerController : MonoBehaviour
 
     void useRest()
     {
-        if(Input.GetKey(KeyCode.R)&&!isinside)
+        if(Input.GetKey(KeyCode.R)&&!isinside&&!use_something)
         {
             StartCoroutine(gorest());
         }

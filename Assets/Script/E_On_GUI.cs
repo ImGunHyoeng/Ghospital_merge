@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class E_On_GUI : MonoBehaviour
 {
-    bool ison = false;
+    public bool ison = false;
     Texture image_e;
     public float Y_pos;
     public float X_pos;
+    bool player_use_something = false;
     // Start is called before the first frame update
     private void Start()
     {
@@ -17,17 +18,24 @@ public class E_On_GUI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        player_use_something = GameObject.Find("Player").GetComponent<PlayerController>().use_something;
+        if (collision.gameObject.tag == "Player" && !player_use_something)
         {
             ison = true;
         }
+        else
+            ison = false; 
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        player_use_something = GameObject.Find("Player").GetComponent<PlayerController>().use_something;
+        Debug.Log(player_use_something);
+        if (collision.gameObject.tag == "Player" && !player_use_something)
         {
             ison = true;
         }
+        else
+            ison = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
