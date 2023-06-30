@@ -18,11 +18,12 @@ public class PhoneOn : MonoBehaviour
     {
         player.GetComponent<PlayerController>().use_something = true;
         StartCoroutine(stoptime());
+        
     }
 
     IEnumerator stoptime()
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.1f);
         director.GetComponent<GameDirector>().TimeStop();
     }
 }

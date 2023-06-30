@@ -16,9 +16,18 @@ public class E_On_GUI : MonoBehaviour
     }
     public bool Getison() { return ison; }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
         player_use_something = GameObject.Find("Player").GetComponent<PlayerController>().use_something;
+        if (player_use_something == true)
+        {
+            ison = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       
         if (collision.gameObject.tag == "Player" && !player_use_something)
         {
             ison = true;
@@ -28,7 +37,7 @@ public class E_On_GUI : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        player_use_something = GameObject.Find("Player").GetComponent<PlayerController>().use_something;
+        
         Debug.Log(player_use_something);
         if (collision.gameObject.tag == "Player" && !player_use_something)
         {
