@@ -490,6 +490,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1608526624}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &85728935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Y_pos: -250
+  X_pos: 0
 --- !u!212 &95646622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -945,7 +947,7 @@ Transform:
   - {fileID: 1088587253}
   - {fileID: 1287701182}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109472905
 GameObject:
@@ -1387,7 +1389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &156036240
 GameObject:
@@ -1521,6 +1523,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1041068756}
   MenuQuit: {fileID: 1003209872}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &165526278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,7 +1698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215148349
 GameObject:
@@ -2027,6 +2030,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1753185868}
   MenuQuit: {fileID: 1003209872}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &292607788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,11 +2125,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292607785}
   m_CullTransparentMesh: 1
---- !u!4 &308397136 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-  m_PrefabInstance: {fileID: 648313550}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &314342407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2517,7 @@ RectTransform:
   - {fileID: 1205491386}
   - {fileID: 530300588}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2595,6 +2594,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1568351952}
   MenuQuit: {fileID: 1793742025}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &364570287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,6 +2758,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1204321089}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &390001596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2978,6 +2979,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1003209872}
   MenuQuit: {fileID: 1793742025}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &396470136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3242,7 +3244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &443815171
 GameObject:
@@ -3506,6 +3508,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1003209872}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &539643262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,6 +3676,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1521381260}
   MenuQuit: {fileID: 1793742025}
   dialogSystem01: {fileID: 530300587}
+  click_btn: {fileID: 0}
 --- !u!114 &637809561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3767,79 +3771,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637809557}
   m_CullTransparentMesh: 1
---- !u!1001 &648313550
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1190848055}
-    m_Modifications:
-    - target: {fileID: 5579485780191102443, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_Name
-      value: Patient
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102443, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102443, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_TagString
-      value: Patient
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102444, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.0964726
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102445, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579485780191102446, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
-      propertyPath: number_of_patient
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bf6e14753a5e9e8469b0d33a84253392, type: 3}
 --- !u!1 &681591334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3987,6 +3918,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &711443671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6581,6 +6513,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1204321089}
   MenuQuit: {fileID: 1793742025}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1119046746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6812,6 +6745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Y_pos: -300
+  X_pos: 0
 --- !u!61 &1164376324
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6901,7 +6835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1164376327
 MonoBehaviour:
@@ -6916,37 +6850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelector: {fileID: 1164376322}
---- !u!1 &1190848054
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1190848055}
-  m_Layer: 0
-  m_Name: Patient_parent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1190848055
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190848054}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.94, y: 6.13, z: -1.0964726}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 308397136}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198947938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,6 +7315,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1521381260}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1227397258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8532,7 +8436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316193473
 GameObject:
@@ -8864,6 +8768,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1421013014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9201,6 +9106,7 @@ MonoBehaviour:
   MenuIn: {fileID: 0}
   MenuQuit: {fileID: 0}
   dialogSystem01: {fileID: 967568180}
+  click_btn: {fileID: 0}
 --- !u!114 &1445907371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9427,6 +9333,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1608526624}
   MenuQuit: {fileID: 1793742025}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1479168713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9786,6 +9693,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1753185868}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1496439142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10243,6 +10151,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1041068756}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1560526485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10623,7 +10532,7 @@ Transform:
   m_LocalScale: {x: 1, y: 18, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1612229052
 GameObject:
@@ -11213,6 +11122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Y_pos: -250
+  X_pos: 0
 --- !u!212 &1715432116
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11440,6 +11350,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 681591335}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1724852040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12802,6 +12713,7 @@ MonoBehaviour:
   MenuIn: {fileID: 1793742025}
   MenuQuit: {fileID: 1568351952}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1967844138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13215,6 +13127,7 @@ MonoBehaviour:
   MenuIn: {fileID: 681591335}
   MenuQuit: {fileID: 1793742025}
   dialogSystem01: {fileID: 0}
+  click_btn: {fileID: 0}
 --- !u!114 &1987096466
 MonoBehaviour:
   m_ObjectHideFlags: 0
