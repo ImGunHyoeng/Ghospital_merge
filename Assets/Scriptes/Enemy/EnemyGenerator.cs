@@ -38,7 +38,7 @@ public class EnemyGenerator : MonoBehaviour
         All_RoomLightOff = false;
         enemy_exist = false;
         //StartCoroutine(Check_Enemy_Exist());
-        player = GameObject.Find("Player ");
+        player = GameObject.Find("Player");
     }
 
 
