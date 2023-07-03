@@ -26,11 +26,11 @@ public class Message_TextDirector : MonoBehaviour
     }
     void StartWork()
     {
-        gameObject.GetComponent<BtnType>().dialogSystem01 = firstmes;
+        gameObject.GetComponent<GameDirector>().dialogSystem01 = firstmes;
     }
 
     void ThreePm()
     {
-        gameObject.GetComponent<BtnType>().dialogSystem01 = secondmes;
+        gameObject.GetComponent<GameDirector>().dialogSystem01 = secondmes;
     }
 }

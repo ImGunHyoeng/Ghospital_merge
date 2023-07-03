@@ -13,19 +13,22 @@ public class MessageDirector : MonoBehaviour
 
     public AudioSource mes_aram;
     bool checkfirst_aram = true;
+    bool checksecond_aram = true;
 
     private void Update()
     {
         time = GameObject.Find("Time").GetComponent<Phone_TImer>().gettime();
-        if (time < 3)
+        if (time >= 1 && time < 3 && checkfirst_aram == true)
         {
+            mes_aram.Play();
             Notice_Rule();
+            checkfirst_aram = false;
         }
-        if(time >= 3 && checkfirst_aram == true)
+        if(time >= 3 && checksecond_aram == true)
         {
             mes_aram.Play();
             Notice_patientGone();
-            checkfirst_aram = false;
+            checksecond_aram = false;
         }
 
     }

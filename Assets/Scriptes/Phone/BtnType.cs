@@ -15,6 +15,7 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     [SerializeField]
     public DialogSystem_Opening dialogSystem01;
     //GameObject director;
+    int time;
 
     public AudioSource click_btn;
 
@@ -69,9 +70,17 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 break;
 
             case BTNType.Message:
-                StartCoroutine("Typing_text");
-                CanvasGroupOn(MenuIn);
-                CanvasGroupOff(MenuQuit);
+                time = GameObject.Find("Time").GetComponent<Phone_TImer>().gettime();
+                Debug.Log("check time:" + time);
+                if (time < 1)
+                {
+                    StartCoroutine("Typing_text");
+                }
+                else
+                {
+                    CanvasGroupOn(MenuIn);
+                    CanvasGroupOff(MenuQuit);
+                }
                 break;
 
             case BTNType.Quit:

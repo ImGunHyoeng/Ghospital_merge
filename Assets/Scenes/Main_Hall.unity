@@ -420,7 +420,7 @@ RectTransform:
   m_Children:
   - {fileID: 977438416}
   m_Father: {fileID: 1043487368}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2490,7 +2490,7 @@ MonoBehaviour:
   dialogs:
   - speakerIndex: 0
     name: 
-    dialogue: "\uCCAB \uBC88\uC9F8 \uBA54\uC2DC\uC9C0\uAC00 \uC640 \uC788\uB2E4."
+    dialogue: "\uC0C8\uB85C\uC6B4 \uBA54\uC2DC\uC9C0\uAC00 \uB3C4\uCC29\uD588\uC2B5\uB2C8\uB2E4."
   bg:
     background: {fileID: 977438414}
   isAutoStart: 1
@@ -2506,7 +2506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1043487368}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297824783
 GameObject:
@@ -2646,7 +2646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1043487368}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312215665
 GameObject:
@@ -7608,7 +7608,6 @@ GameObject:
   - component: {fileID: 937368553}
   - component: {fileID: 937368552}
   - component: {fileID: 937368551}
-  - component: {fileID: 937368556}
   m_Layer: 0
   m_Name: MesBtn
   m_TagString: Untagged
@@ -7667,7 +7666,7 @@ MonoBehaviour:
   buttonScale: {fileID: 937368550}
   MenuIn: {fileID: 932852207}
   MenuQuit: {fileID: 195921056}
-  dialogSystem01: {fileID: 280500510}
+  dialogSystem01: {fileID: 1975938682}
   click_btn: {fileID: 0}
 --- !u!114 &937368553
 MonoBehaviour:
@@ -7763,20 +7762,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937368549}
   m_CullTransparentMesh: 1
---- !u!114 &937368556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937368549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981bcb6b176d9df4d988d93e776d592d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstmes: {fileID: 280500510}
-  secondmes: {fileID: 1524952442}
 --- !u!1001 &946289966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8317,6 +8302,7 @@ RectTransform:
   m_Children:
   - {fileID: 776898673}
   - {fileID: 1412085411}
+  - {fileID: 1975938681}
   - {fileID: 280500511}
   - {fileID: 1524952441}
   - {fileID: 302987488}
@@ -8514,6 +8500,7 @@ MonoBehaviour:
   Disappear_ratio: 5
   one_light_off_immediately: 0
   one_patient_disappear_immediately: 0
+  dialogSystem01: {fileID: 280500510}
 --- !u!4 &1098486051
 Transform:
   m_ObjectHideFlags: 0
@@ -11662,7 +11649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1043487368}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1524952442
 MonoBehaviour:
@@ -14093,6 +14080,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962523610}
   m_CullTransparentMesh: 1
+--- !u!1 &1975938680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975938681}
+  - component: {fileID: 1975938682}
+  m_Layer: 0
+  m_Name: Message_None_Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1975938681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975938680}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 31.593567, y: 29.359924, z: -57.81595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1043487368}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975938682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975938680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04fbe17adcf2e440a02faefd269546d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speakers_opening:
+  - imageDialog: {fileID: 776898675}
+    textName: {fileID: 996198835}
+    textDialogue: {fileID: 719004539}
+    objectArrow: {fileID: 1655222964}
+  dialogs:
+  - speakerIndex: 0
+    name: 
+    dialogue: "...\uD2B9\uBCC4\uD55C \uC5F0\uB77D\uC740 \uC5C6\uB2E4."
+  bg:
+    background: {fileID: 977438414}
+  isAutoStart: 1
 --- !u!1 &1997766215
 GameObject:
   m_ObjectHideFlags: 0

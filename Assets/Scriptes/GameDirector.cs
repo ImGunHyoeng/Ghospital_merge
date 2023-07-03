@@ -28,6 +28,12 @@ public class GameDirector : MonoBehaviour
     bool Check_All_patient_exist;
     int ph_time;
 
+    bool first_mes_first = true;
+    bool second_mes_first = true;
+    [SerializeField]
+    public DialogSystem_Opening dialogSystem01;
+
+
 
 
     private void Awake()
@@ -101,8 +107,17 @@ public class GameDirector : MonoBehaviour
             patient_Limit_Timer.transform.Find("LimitTimer").gameObject.SetActive(false);
             patient_Limit_Time = 70f;
         }
-        
 
+        if (ph_time == 1 && first_mes_first == true)
+        {
+            StartCoroutine(Typing_text());
+            first_mes_first = false;
+        }
+        if (ph_time == 3 && second_mes_first == true)
+        {
+            StartCoroutine(Typing_text());
+            second_mes_first = false;
+        }
 
     }
 
@@ -214,6 +229,11 @@ public class GameDirector : MonoBehaviour
         SceneManager.LoadScene("PatientDie");
     }
 
+    IEnumerator Typing_text()
+    {
+        dialogSystem01.SetOrginal();
+        yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
 
+    }
 
 }
