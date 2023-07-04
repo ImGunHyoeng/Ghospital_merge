@@ -7,7 +7,10 @@ public class MoveScene : MonoBehaviour
 {
     GameObject director;
     bool Can_Enter;
-    
+    [SerializeField]
+    public DialogSystem_Opening dialogSystem01; //dialog when player can't get out the room
+    public bool alllight_off = false;
+
     private void Start()
     {
         Can_Enter = false;
@@ -16,15 +19,24 @@ public class MoveScene : MonoBehaviour
 
     private void Update()
     {
-        if(Can_Enter)
+        alllight_off = true;
+        //Debug.Log("alllight off: " + alllight_off);
+        if (Can_Enter)
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                if(gameObject.CompareTag("Door"))
+               
+                if (alllight_off == false)
                 {
-                    GetComponent<SceneSelector>().ChangeScene();
-                    //GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().enemy_exist = false;
+                    Debug.Log("alllight off: " + alllight_off);
+                    if (gameObject.CompareTag("Door"))
+                    {
+                        GetComponent<SceneSelector>().ChangeScene();
+                        //GameObject.Find("EnemyGenerator").GetComponent<EnemyGenerator>().enemy_exist = false;
+                    }
                 }
+                else
+                    Cantgetout_room();
             }
         }
     }
@@ -46,5 +58,17 @@ public class MoveScene : MonoBehaviour
         }
     }
 
-    
+    void Cantgetout_room()
+    {
+        Typing_text();
+    }
+
+    IEnumerator Typing_text()
+    {
+        dialogSystem01.SetOrginal();
+        yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
+
+    }
+
+
 }

@@ -95,7 +95,7 @@ public class EnemyGenerator : MonoBehaviour
             Appear_SlowEnemy();
             }
 
-            if (All_RoomLightOff == false) //when the player turn on any light
+            if (All_RoomLightOff == false && this.patten == 1) //when the player turn on any light
             {
                 enemy_exist = false;
             //room_bg.transform.Find("BG_LightOn").gameObject.SetActive(true);
@@ -107,6 +107,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             if(once == true)
             {
+                GameObject.FindGameObjectWithTag("Door").GetComponent<Next_Scene_move_Center>().alllight_off = true;
                 StartCoroutine(FastEnemy_Destroy_Door());
             }
             once = false;
@@ -183,6 +184,7 @@ public class EnemyGenerator : MonoBehaviour
             
         }
         this.enemy.transform.position = new Vector3(0, 2, 0);
+        once = true;
     }
 
 }

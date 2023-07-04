@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad03af6a38e4d44a869d72f8494f253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ison: 0
+  Y_pos: 0
+  X_pos: 0
 --- !u!114 &4394292889201727550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,11 +109,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2695271528321777750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cd2c6a6800602a4c9b3319bbcfc0a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogSystem01: {fileID: 0}
+  alllight_off: 0
 --- !u!61 &7843088810399607427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,6 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelector: {fileID: 1513065777961857735}
+  alllight_off: 0
+  dialogSystem01: {fileID: 0}
 --- !u!114 &1513065777961857735
 MonoBehaviour:
   m_ObjectHideFlags: 0

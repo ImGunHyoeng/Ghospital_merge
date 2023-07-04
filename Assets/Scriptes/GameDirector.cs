@@ -31,7 +31,7 @@ public class GameDirector : MonoBehaviour
     bool first_mes_first = true;
     bool second_mes_first = true;
     [SerializeField]
-    public DialogSystem_Opening dialogSystem01;
+    public DialogSystem_Opening dialogSystem01; //dialog that message alarm
 
 
 
@@ -223,6 +223,7 @@ public class GameDirector : MonoBehaviour
         }
        
     }
+
 
     public void GameOver_1_didnt_Find_patient()
     {

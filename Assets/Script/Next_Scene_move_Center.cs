@@ -9,6 +9,10 @@ public class Next_Scene_move_Center : MonoBehaviour
     static public bool center_move=false;
     public SceneSelector SceneSelector;
     bool touch = false;
+    public bool alllight_off = false;
+
+    [SerializeField]
+    public DialogSystem_Opening dialogSystem01; //dialog when player can't get out the room
     // Start is called before the first frame update
     IEnumerator move_scene()
     {
@@ -28,12 +32,20 @@ public class Next_Scene_move_Center : MonoBehaviour
     
     private void Update()
     {
-        if(touch)
+       
+        if (touch)
         {
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
-                StartCoroutine(move_scene());
-                touch = false;
+                Debug.Log("pressE and alloff:  " + alllight_off);
+                if (alllight_off == false)
+                {
+                    StartCoroutine(move_scene());
+                    touch = false;
+                }
+                else
+                    Cantgetout_room();
             }
         }
     }
@@ -51,5 +63,20 @@ public class Next_Scene_move_Center : MonoBehaviour
         {
             touch = false;
         }
+    }
+
+    void Cantgetout_room()
+    {
+        Debug.Log("start function");
+        StartCoroutine(Typing_text());
+        Debug.Log("end function");
+    }
+
+    IEnumerator Typing_text()
+    {
+        Debug.Log("On Typing");
+        dialogSystem01.SetOrginal();
+        yield return new WaitUntil(() => dialogSystem01.UpdateDialog());
+
     }
 }
