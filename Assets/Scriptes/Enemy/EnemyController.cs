@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
             this.playerpos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         patten = generator.GetComponent<EnemyGenerator>().patten;
         animator = GetComponent<Animator>();
+        //transform.position = new Vector3(playerpos.position.x + transform.position.x, transform.position.y, transform.position.z);
     }
 
     
@@ -58,10 +59,9 @@ public class EnemyController : MonoBehaviour
                 break;
             case 2:
                 player_xpos = new Vector3(playerpos.position.x, transform.position.y, transform.position.z);
-                //transform.position = Vector3.MoveTowards(transform.position, this.playerpos.position, speed * Time.deltaTime);
                 transform.position = Vector3.MoveTowards(transform.position, player_xpos, speed * Time.deltaTime * 2);
                 
-                //gameObject.GetComponent<SpriteRenderer>().sprite = fast_monster;
+                
                 break;
         }
         

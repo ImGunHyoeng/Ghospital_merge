@@ -38,7 +38,7 @@ public class E_On_GUI : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         
-        Debug.Log(player_use_something);
+       
         if (collision.gameObject.tag == "Player" && !player_use_something)
         {
             ison = true;

@@ -16,9 +16,10 @@ public class EnemyGenerator : MonoBehaviour
     float check; //this variable check room light off or not and check room patient gone or not
     public int patten;
     Scene scene;
-    GameObject room_bg;
+    bool once = true;
     GameObject player;
-
+    public AudioSource destroy_door;
+    public AudioSource smash_door;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class EnemyGenerator : MonoBehaviour
         enemy_exist = false;
         //StartCoroutine(Check_Enemy_Exist());
         player = GameObject.Find("Player");
+
     }
 
 
@@ -51,12 +53,18 @@ public class EnemyGenerator : MonoBehaviour
         
         if (scene.name == "PatientRoom101" || scene.name == "PatientRoom102")
         {
-            room_bg = GameObject.Find("Canvas_BG");
+            
             Check_Room_Light();
 
         }
-
-        Check_ALL_Light();
+        else
+        {
+            All_RoomLightOff = false;
+            player.transform.Find("SlowEnemyAppear_bg").gameObject.SetActive(false);
+            Check_ALL_Light();
+        }
+        
+        //Check_ALL_Light();
 
     }
     //set anim  to walk, and set anim to disappear
@@ -94,6 +102,15 @@ public class EnemyGenerator : MonoBehaviour
             player.transform.Find("SlowEnemyAppear_bg").gameObject.SetActive(false);
             Disappear_Enemy();
             }
+
+            if(AllLightOff == true && enemy_exist == false)
+        {
+            if(once == true)
+            {
+                StartCoroutine(FastEnemy_Destroy_Door());
+            }
+            once = false;
+        }
     }
 
     void Check_ALL_Light()
@@ -118,6 +135,7 @@ public class EnemyGenerator : MonoBehaviour
         if (this.enemy_exist == false && this.AllLightOff == true)
         {
             player.transform.Find("FastEnemyAppear_bg").gameObject.SetActive(true);
+            GameObject.Find("AudioDirector").GetComponent<AudioDirector>().nursecoming();
             Appear_FastEnemy();
         }
     }
@@ -125,14 +143,14 @@ public class EnemyGenerator : MonoBehaviour
     void Appear_SlowEnemy()
     {
         this.enemy = Instantiate(slow_enemyPrefab);
-        //this.enemy_exist = true;
+        this.enemy.transform.position = new Vector3(player.transform.position.x + 10, 1, 0);
         this.patten = 1;
     }
 
     void Appear_FastEnemy()
     {
         this.enemy = Instantiate(fast_enemyPrefab);
-        //this.enemy_exist = true;
+        this.enemy.transform.position = new Vector3 (player.transform.position.x + 20,2,0);
         this.patten = 2;
     }
 
@@ -152,18 +170,19 @@ public class EnemyGenerator : MonoBehaviour
     {
         return enemy_exist;
     }
-    //IEnumerator Check_Enemy_Exist()
-    //{
-    //    if (GameObject.FindGameObjectWithTag("Enemy"))
-    //    {
-    //        enemy_exist = true;
-    //    }
-    //    else
-    //    {
-    //        enemy_exist = false;
-    //    }
-    //    yield return new WaitForSeconds(0.1f);
-    //    StartCoroutine(Check_Enemy_Exist());
-    //}
+    IEnumerator FastEnemy_Destroy_Door()
+    {
+        smash_door.Play();
+        GameObject.Find("AudioDirector").GetComponent<AudioDirector>().nursecoming();
+        yield return new WaitForSeconds(5f);
+        if(enemy_exist == false)
+        {
+            smash_door.Stop();
+            destroy_door.Play();
+            Appear_FastEnemy();
+            
+        }
+        this.enemy.transform.position = new Vector3(0, 2, 0);
+    }
 
 }
