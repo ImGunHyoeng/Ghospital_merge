@@ -5,7 +5,7 @@ using UnityEngine;
 public enum BTNType
 {
     New,
-    Countinue,
+    Skip,
     Option,
     Sound,
     Resolution,

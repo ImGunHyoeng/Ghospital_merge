@@ -27,8 +27,8 @@ public class BtnType : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 SceneLoader.LoadSceneHandle("OpeningScene", 0);
                 break;
 
-            case BTNType.Countinue:
-                SceneLoader.LoadSceneHandle("NewPath", 0);
+            case BTNType.Skip:
+                SceneLoader.LoadSceneHandle("Main_Hall", 0);
                 break;
 
 
