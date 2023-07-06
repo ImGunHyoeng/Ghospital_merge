@@ -175,7 +175,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         smash_door.Play();
         GameObject.Find("AudioDirector").GetComponent<AudioDirector>().nursecoming();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         if(enemy_exist == false)
         {
             smash_door.Stop();

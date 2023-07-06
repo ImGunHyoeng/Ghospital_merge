@@ -37,6 +37,7 @@ public class DialogTest_Opening : MonoBehaviour
         yield return new WaitUntil(() => dialogSystem04.UpdateDialog());
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => dialogSystem05.UpdateDialog());
+        GameObject.Find("Canvas_Dialog").transform.Find("Skip_Button").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => dialogSystem06.UpdateDialog());
        
