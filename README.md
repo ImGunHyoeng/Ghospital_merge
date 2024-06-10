@@ -10,6 +10,7 @@
 * [ 역할분담](#역할분담)
 * [ 게임플레이](#게임플레이)
 * [ 프로젝트 후기](#프로젝트-후기)
+* [ 개선점](#개선점)
 
 
 ## 개요
@@ -24,9 +25,12 @@
 ---
 병원에서 혼자 야간근무를 하면서 게임 내 발생하는 이벤트 요소를 처리하여
 끝까지 살아남아야하는 2D 횡스크롤 서바이벌 호러게임입니다.
-* 무시무시한 벌칙|
+* 나폴리탄 괴담
+  
   게임에서 정해진 규칙을 지키지 않고 플레이를 한다면 불행이 찾아올 것입니다.
-* 
+* 이상한 현상
+  
+  갑자기 나타난 몬스터를 피해서 도망치세요
 ## 팀원소개
 ---
 ### **그래픽**
@@ -66,11 +70,44 @@
 
 **임건형**
 
-* 시스템 기획
-* UI 구현
-* 플레이어 구현
+* 시스템 기획:맵 이동, csv파일 대화 사용, 랜덤 이벤트 문 생성
+* UI 구현:스킬, 스테미나, 반응형 버튼
+* 플레이어 구현: 캐릭터 이동, 달리기, 숨기
 ## 게임플레이
 ---
+![-Clipchamp16-ezgif com-cut](https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/655cf1a9-c6ce-4dfb-8701-745d633ff7b9)
+![-Clipchamp16-ezgif com-resize (1)](https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/306e39cc-ab26-487d-9686-2dd0be7a1220)
+
+* ### 캐릭터 조작키
+캐릭터 이동:A,D
+
+스킬(휴게실 이동) : R
+
+달리기 : Shift + 이동키
+
+핸드폰 : 클릭
+
+상호작용 : E
+
+
+* ### 장소
+  | 복도 | 환자실 | 휴게실 | 미지의 문 |
+  |:---:|:---:|:---:|:---:|
+  | <img  width="200px" height="200px" alt="image" src="https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/34301569-c917-4e92-9463-1a92ba072c24"> | <img  width="200px" height="200px" alt="image" src="https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/391ecc32-0a78-4af6-b933-33e599854476"> | <img  width="200px" height="200px" alt="image" src="https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/7e54b1e5-7fe9-465a-9749-96ee01c32ac3"> | <img  width="200px" height="200px" alt="image" src="https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/8a9dbc3c-e93f-46ff-a8dd-21cc0962b55f"> |
+  | 맵 이동 | 환자 관리 | 체력 회복 | 들어가지 마시오 |
+
+
+
+
 
 ## 프로젝트 후기
 ---
+임건형 : 해당프로젝트를 통해서 Git으로 팀원과 버전관리하는 방법에 대해서 명확히 알 수 있었으며,
+
+유니티에 있는 기능과 이를 활용하는 방법에 대해서 조금이나마 배울 수 있었고, 다른 분야의 사람과 협업할 수 있어서 좋았습니다.
+
+## 개선점
+---
+임건형 : 패턴에 대한 공부의 부족으로 코드의 구조가 스파게티인 것이 아쉽습니다. 
+
+이를 해결했다면 좀 더 많은 콘텐츠를 빠른 시일내에 제작할 수 있을 것 같습니다.
