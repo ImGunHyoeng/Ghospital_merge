@@ -2,7 +2,6 @@
 # Ghospital_merge
 
 ## 목차
----
 
 * [개요](#개요)
 * [ 게임 설명](#게임설명)
@@ -12,17 +11,16 @@
 * [ 프로젝트 후기](#프로젝트-후기)
 * [ 개선점](#개선점)
 
-
-## 개요
 ---
+## 개요
 * 프로젝트 이름: Ghospital
 * 프로젝트 기간: 2023.03.22~2023.06
 * 개발 엔진 및 언어: Unity & C#
 * 멤버:키오스크(안혜지,최은송,민기찬,임건형)
 * <a href="https://youtu.be/RqP3s5Y-pT8?si=-nsGm00wEDOlXH1d" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="ghospital" height="30" width="40" /></a>  
-  
-## 게임설명
+
 ---
+## 게임설명
 병원에서 혼자 야간근무를 하면서 게임 내 발생하는 이벤트 요소를 처리하여,
 끝까지 살아남아야하는 2D 횡스크롤 서바이벌 호러게임입니다.
 * 나폴리탄 괴담
@@ -32,9 +30,10 @@
 * 이상한 현상
   
   갑자기 나타난 몬스터를 피해서 도망치세요
-
-## 팀원소개
+  
 ---
+## 팀원소개
+
 ### **그래픽**
 |안혜지|최은송|
 |---|---|
@@ -48,41 +47,53 @@
 | <img src="https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/28d169c3-ca16-4cbd-9be5-24a4e34b3f7e" width="200px" height="200px" title="민기찬 프로필 사진"> | <img src="https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/9a1de89e-0f91-4911-9411-a12f6ea463cd" width="200px" height="200px" title="임건형 프로필 사진"> |
 | [PohangCandy](https://github.com/PohangCandy) | [ImGunHyoeng](https://github.com/ImGunHyoeng) |
 
-
-## 역할분담
 ---
-![header](https://capsule-render.vercel.app/api?type=waving&text=안혜지&color=FFA351FF&fontColor=FFFFFFFF&fontAlign=90&fontAlignY=40&fontSize=50)
-
+## 역할분담
+![header](https://capsule-render.vercel.app/api?type=waving&text=안혜지&color=FFA351FF&fontColor=FFFFFFFF&fontAlign=90&fontAlignY=40&fontSize=50)  
 * 게임 기획 메인
 * 캐릭터,배경 서브
 * UI,UX
 
 
-
-![header](https://capsule-render.vercel.app/api?type=waving&text=최은송&color=D7A9E3FF&fontColor=FFFFFFFF&fontAlign=90&fontAlignY=40&fontSize=50)
-
+##
+![header](https://capsule-render.vercel.app/api?type=waving&text=최은송&color=D7A9E3FF&fontColor=FFFFFFFF&fontAlign=90&fontAlignY=40&fontSize=50)  
 * 캐릭터, 배경 메인
 * 게임 기획 서브
 
 
-  
+## 
 ![header](https://capsule-render.vercel.app/api?type=waving&text=민기찬&color=2BAE66FF&fontColor=FCF6F5FF&fontAlign=90&fontAlignY=40&fontSize=50)
+#### 1. UI 구현  
+![image 12](https://github.com/ImGunHyoeng/Ghospital_merge/assets/130345776/c576ff76-0770-45f3-ab27-2e4e9627982d)![image 14](https://github.com/ImGunHyoeng/Ghospital_merge/assets/130345776/d3d89c91-4bff-41d5-b8a1-9c27004a561c)  
+* **Title and loadscene** : **UGUI**를 통해 매프레임 마다 일어나지 않아도 되는 작업을 처리해서 성능을 높이고, 직관적인 작업으로 개발 속도를 높임. 사용자가 상호작용 할 수 있는 여러 로직 만듬.  
+* **Animation, Dialog** : 대화창, 배경 각각 **객체**로 만들어서 대화창이 **업데이트** 될 때 원하는 배경과 기믹을 수행 할 수 있도록 메서드를 구현  
+* **Phone** : 유니티에서 제공하는 게임 정지, 해상도 조절, 볼륨 설정과 같은 내장 함수를 이용하여 게임의 **설정 조절**이 가능하도록 구현
 
-* 시스템 기획
-* UI 구현
-* 몬스터 구현
+#### 2. Monster  
+![image 15](https://github.com/ImGunHyoeng/Ghospital_merge/assets/130345776/bc69e919-f4dd-45dc-a0fa-b11b19d3df69)![Group 19](https://github.com/ImGunHyoeng/Ghospital_merge/assets/130345776/c63d29b8-2566-482c-b388-671db7240b07)  
+* **Light** : 건물에 있는 모든 방 안에 있는 전등이 GameManger Update 메서드 **Timer**에 의해 정해진 시간마다 따라 랜덤으로 꺼짐. 플레이어가 방안에 있을 땐 해당 방안에 불이 꺼지지 않도록 하기위해 GameManer 클래스에 AllLights 맴버 변수와 Room 클래스의 RoomLights 맴버 변수를 분리. 안전성과 가독성을 높이기 위해 **LightDirector** 클래스를 만들어 플레이어가 방 안의 불을 키거나, 방안에 불이 키고 꺼졌을 때 이를 AllLights에 업데이트 하도록 구현.  
+* **Monster** : MonsterGenerator 클래스에서 **Update**로 상황 체크(전등 꺼짐 여부, 현재 몬스터 존재 여부), 각 상황에 따라 맴버 변수로 가지고 있는 적의 데이터를 반영해서 생성. **코루틴 함수**로 추가 로직 구현.
 
 
+#### 3. Patient  
+![image 18](https://github.com/ImGunHyoeng/Ghospital_merge/assets/130345776/9df9b553-0d1c-41f1-b896-bc9b02b5dd67)![Group 20](https://github.com/ImGunHyoeng/Ghospital_merge/assets/130345776/7ba3d836-b44b-4e84-be5e-c2cd63f90300)  
+* **Patient** : 정해진 시간마다 일정 확률로 사라지고, 사라진 시점에서 Timer가 발동. 못찾을 시 **게임 종료 엔딩** 발생.  
+누워있는 상태일 때 플레이어어 **Collider**와 충돌하면  커튼을 열어서 생존 여부를 확인 할 수 있고, 복도에 쓰러진 상태일 때 플레이어 Collider와 충돌하면 다시 침대로 보낼 수 있음.
 
-![header](https://capsule-render.vercel.app/api?type=waving&text=임건형&color=755139FF&fontColor=F2EDD7FF&fontAlign=90&fontAlignY=40&fontSize=50)
+
+##
+## ![header](https://capsule-render.vercel.app/api?type=waving&text=임건형&color=755139FF&fontColor=F2EDD7FF&fontAlign=90&fontAlignY=40&fontSize=50)
 
 ![bandicam 2023-05-09 15-37-42-171](https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/6bcf5a78-52a8-4157-bfcb-d7aa9608ae58)
 
 * 시스템 기획:맵 이동, csv파일 임포트, 랜덤 이벤트 문 생성,kino glitch 쉐이더 사용
 * UI 구현:스킬, 스테미나, 반응형 버튼
 * 플레이어 구현: 캐릭터 이동, 달리기, 숨기
-## 게임플레이
+
+
 ---
+## 게임플레이
+
 ![-Clipchamp16-ezgif com-cut](https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/655cf1a9-c6ce-4dfb-8701-745d633ff7b9)
 ![-Clipchamp16-ezgif com-resize (1)](https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/306e39cc-ab26-487d-9686-2dd0be7a1220)
 
@@ -111,19 +122,37 @@
 
 
 
-
-## 프로젝트 후기
 ---
-임건형 : 해당프로젝트를 통해서 Git으로 팀원과 버전관리하는 방법에 대해서 명확히 알 수 있었으며,
+## 프로젝트 후기
+#### 민기찬
+
+처음 팀 프로젝트를 진행하면서 팀원과 협업하는 일은 낯설고, 어색했지만 동시에 신나고 흥미로운 작업이었습니다.
+욕심 많은 성격이라, 게임 스토리부터 기획적인 부분에 여러 기여를 하고 싶어 적극적으로 참여하면서 다소 오바한 점이 있는 것 같습니다.
+그럼에도 좋은 관계를 유지하다, 나중에 한번 더 같이 프로젝트를 진행한 팀원분들께 고마움을 느낍니다.
+
+
+##
+#### 임건형
+
+해당프로젝트를 통해서 Git으로 팀원과 버전관리하는 방법에 대해서 명확히 알 수 있었으며,
 
 유니티에 있는 기능을 사용해서 플레이어 움직임과 스킬, csv파일 임포트,쉐이더를 가져와서 사용하는 등 기술에 대해서 공부할 수 있어서 좋았고, 다른 분야의 사람과 협업할 수 있어서 좋았습니다.
 
 
 
-
-## 개선점
 ---
-임건형 : 코드 구조 설계 부분에서 아쉬운 부분이 조금 있었습니다. 
+## 개선점
+#### 민기찬
+UI에 익숙하지 않아  **정렬**과 **Padding**들이 일치하지 않는 부분이 있는 것을 확인할 수 있습니다. 이후 Figma와 UGUI에 대해 더 학습해서 **Layout 컴포넌트**를 통해 정렬을 맞출 예정입니다.
+
+각각의 상황이나 기믹이 수행되었는지 확인하거나, 상황을 발생시키는데 있어서 **Update문**과 **Croutine함수**를 자주 사용해서 구현했습니다. 성능적 개선을 위해서 **이벤트**로 처리할 수 있는 친구들을 매프레임 체크하지 않고, 이벤트로 처리하면 좋을 것 같습니다.
+
+몬스터와 전등, 환자의 **StateMachine** 또한 **Switch문, if문**으로 짜여져 있는 간단한 로직이라 개선의 여지가 있습니다.
+
+
+##
+#### 임건형 
+코드 구조 설계 부분에서 아쉬운 부분이 조금 있었습니다. 
 
 만약 패턴 공부를 통해 코드 구조 설계 능력을 향상시킨다면 코드 가독성과 유지보수성이 크게 향상될 것이라고 생각합니다.
 
