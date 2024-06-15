@@ -51,7 +51,7 @@
 
 ## 역할분담
 ---
-**안혜지**
+![header](https://capsule-render.vercel.app/api?type=waving&text=안혜지&color=FFA351FF&fontColor=FFFFFFFF&fontAlign=90&fontAlignY=40&fontSize=50)
 
 * 게임 기획 메인
 * 캐릭터,배경 서브
@@ -59,14 +59,14 @@
 
 
 
-**최은송**
+![header](https://capsule-render.vercel.app/api?type=waving&text=최은송&color=D7A9E3FF&fontColor=FFFFFFFF&fontAlign=90&fontAlignY=40&fontSize=50)
 
 * 캐릭터, 배경 메인
 * 게임 기획 서브
 
 
   
-**민기찬**
+![header](https://capsule-render.vercel.app/api?type=waving&text=민기찬&color=2BAE66FF&fontColor=FCF6F5FF&fontAlign=90&fontAlignY=40&fontSize=50)
 
 * 시스템 기획
 * UI 구현
@@ -74,7 +74,7 @@
 
 
 
-**임건형**
+![header](https://capsule-render.vercel.app/api?type=waving&text=임건형&color=755139FF&fontColor=F2EDD7FF&fontAlign=90&fontAlignY=40&fontSize=50)
 
 ![bandicam 2023-05-09 15-37-42-171](https://github.com/ImGunHyoeng/Ghospital_merge/assets/102517991/6bcf5a78-52a8-4157-bfcb-d7aa9608ae58)
 
